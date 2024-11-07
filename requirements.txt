@@ -1,0 +1,17 @@
+beautifulsoup4
+langchain_core
+langchain_openai
+langgraph
+selenium
+rich
+langchain_anthropic
+whisper
+praw
+python-dotenv
+youtube_transcript_api
+gradio
+langserve
+PyPDF2
+playwright
+lxml
+sse_starlette
