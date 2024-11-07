@@ -250,58 +250,48 @@ Follow the above instructions strictly, deeply analyze the examples and then onl
 """
 
 reddit_summarization_prompt = """
-        You are a viral content creator tasked with transforming a Reddit post and its comments into an explosive, shareable blog article. Follow these guidelines to create content that will spread like wildfire:
+        Analyze the given Article Content and provide a concise summary that captures the key points and insights. Follow these steps:
 
-        1. Title:
-        Craft an irresistible, clickbait-worthy title that will make readers' thumbs stop scrolling. Use power words, numbers, or shocking statements to grab attention instantly.
+        1. Identify the main topic or question posed in the post.
 
-        2. Hook:
-        - Start with a bang! Use a controversial statement, mind-blowing fact, or relatable scenario to pull readers in.
-        - Tease the juicy content to come, making it impossible for readers not to continue.
+        2. Extract the most important information, including:
+        - Key arguments or perspectives presented
+        - Significant data or statistics mentioned
+        - Notable examples or anecdotes shared
+        - Consensus views or popular opinions expressed
+        - Comments from the post as various opinions on the topic
 
-        3. Content Explosion:
-        - Break the post into easily digestible, snackable sections with eye-catching subheadings.
-        - Transform key points into listicles, shocking revelations, or "you won't believe" moments.
-        - Sprinkle in relatable memes, GIFs, or pop culture references to boost engagement.
-        - Use short, punchy sentences and paragraphs for maximum impact.
+        3. Highlight any unique or innovative ideas discussed.
 
-        4. Controversy Corner:
-        - Highlight the most divisive opinions or heated debates from the comments.
-        - Present conflicting viewpoints in a dramatic "X vs. Y" format.
+        4. Note any controversies or debates that arose in the comments.
 
-        5. Viral Velocity:
-        - Identify and amplify the most share-worthy nuggets from the discussion.
-        - Create tweetable quotes or soundbites that beg to be shared.
+        5. Summarize the overall sentiment and tone of the discussion.
 
-        6. FOMO Fuel:
-        - Sprinkle in exclusive insights or "insider information" to make readers feel special.
-        - Hint at follow-up content to keep readers coming back for more.
-
-        7. Mic Drop Moment:
-        - End with a powerful conclusion that leaves readers stunned, inspired, or fired up.
-        - Include a thought-provoking question or challenge to spark further engagement.
-
-        8. Spread the Fire:
-        - Add social share buttons with pre-written, irresistible share text.
-        - Include a clear call-to-action that encourages readers to engage, share, or follow for more viral content.
+        6. Conclude with the most valuable takeaways or lessons learned.
         
-        9. Links and references, resources in the post:
-        - you MUST use links in the post if they are provided, links in the post should be in the following format:
-        [text](url)
+        7. Only focus on the topic discussed in the Article Content, take key points from the Article and comments and ignore the conversation in the Article. we only need the knowledge from the Article and comments.
+        
+        8. If there is any link or github link in the Article or references to other articles, you MUST include them in the final output.
 
-        Format the article using a mix of bold text, italics, emojis, and strategic all-caps to create visual interest and emphasize key points. Aim for a tone that's energetic, slightly controversial, and impossible to ignore.
+        9.  The final output will be just the topic extracted with no mention of the reddit, words like reddit, post, comments, etc or the names of the people in the Article.
+        
+        Format your summary in a clear, professional style suitable for a LinkedIn audience. Focus on insights that would be relevant and interesting to professionals in the field related to the post's topic. Aim for a length of 3-5 concise paragraphs.
 
-        Reddit Post Title: 
-        ===============================
+
+        Article Title: 
+        <article_title>
         {title}
-        ===============================
-        Post Content:
-        ===============================
+        </article_title>
+
+        Article Content:
+        <article_content>
         {body}
-        ===============================
+        </article_content>
+
         Comments:
-        ===============================
+        <article_comments>
         {comments}
-        ===============================
+        </article_comments>
+
         Transform the above content into a viral blog article that will set the internet ablaze, following the guidelines provided.
     """

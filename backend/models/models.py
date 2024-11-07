@@ -3,6 +3,9 @@ from openai import OpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.language_models import BaseChatModel
+import dotenv
+
+dotenv.load_dotenv()
 
 ModelProvider = Literal["openai", "anthropic"]
 
