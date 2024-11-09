@@ -11,6 +11,9 @@ from langgraph.graph.message import add_messages
 from openai import OpenAI
 from pydantic import BaseModel, Field
 from youtube_transcript_api import YouTubeTranscriptApi
+from backend.services.twitter_service import TwitterService
+from backend.utils.utils import validate_twitter_content
+
 
 from backend.models.models import model
 from backend.prompts.prompts import prompt, reddit_summarization_prompt, writer_examples
@@ -20,11 +23,13 @@ from backend.schema.schema import (
     ContentItem,
     WorkflowNodeType,  # Updated class name
     LinkedInPostDecision,
+    TwitterPostDecision,
 )
 from backend.utils.utils import (
     fetch_url_content,
     parse_article_content,
     save_post_to_csv,
+    save_post_to_json,
 )
 from backend.automation.browser import (
     initialize_browser,
@@ -42,7 +47,8 @@ class AgentState(BaseModel):
     next_action: Annotated[Optional[str], Field(default=None)]
     content_items: Annotated[Optional[List[ContentItem]], Field(default=None)]
     generated_posts: Annotated[Optional[List[str]], Field(default=None)]
-
+    linkedin_posts: Annotated[Optional[List[str]], Field(default=None)]
+    twitter_posts: Annotated[Optional[List[str]], Field(default=None)]
 
 def determine_next_action(state: AgentState) -> str:
     return state.next_action or END
@@ -202,13 +208,28 @@ async def create_post(state: AgentState) -> AgentState:
                 HumanMessage(content=final_prompt),
             ]
             response: AIMessage = await model.ainvoke(messages)
-            save_post_to_csv(
-                prompt, examples, content_item.content, response.content, final_prompt
+            save_post_to_json(
+                prompt, examples, content_item, response.content, final_prompt
             )
             print("=" * 50)
             print("=" * 50 + "\n" + response.content + "\n" + "=" * 50)
             print("=" * 50)
+            
+            # Ask user which platforms to post to
+            platforms = input("Where would you like to post this content? (Enter 'linkedin', 'twitter', 'both', or 'skip'): ").lower()
+            
+            if platforms in ['linkedin', 'both']:
+                if await should_post_to_linkedin(response.content):
+                    state.linkedin_posts = state.linkedin_posts or []
+                    state.linkedin_posts.append(response.content)
+                    
+            if platforms in ['twitter', 'both']:
+                if await should_post_to_twitter(response.content):
+                    state.twitter_posts = state.twitter_posts or []
+                    state.twitter_posts.append(response.content)
+                    
             generated_posts.append(response.content)
+            
     return {"generated_posts": generated_posts}
 
 
@@ -234,30 +255,70 @@ async def should_post_to_linkedin(post: str) -> bool:
 
 
 async def post_to_linkedin(state: AgentState) -> None:
-    posts: Optional[List[str]] = state.generated_posts
+    posts: Optional[List[str]] = state.linkedin_posts
     if not posts:
         return
-
+    
     playwright, browser, page = await initialize_browser(headless=False)
     try:
         await login_to_linkedin(page)
         feed_page = FeedPage(page)
         for post in posts:
-            if await should_post_to_linkedin(post):
-                print("Posting to LinkedIn")
-                await feed_page.create_post(post)
-            else:
-                print("Skipping this post.")
+            print("Posting to LinkedIn")
+            await feed_page.create_post(post)
     finally:
         await close_browser(playwright, browser)
     return {
         "messages": [
             AIMessage(
-                content="Post created on LinkedIn. Do you want to create another post from any other source?"
+                content="Post created on LinkedIn. Continue with other platforms or create another post?"
             )
         ]
     }
 
+async def post_to_twitter(state: AgentState) -> None:
+    posts: Optional[List[str]] = state.twitter_posts
+    if not posts:
+        return
+
+    twitter_service = TwitterService()
+    
+    for post in posts:
+        validated_content = validate_twitter_content(post)
+        print("Posting to Twitter")
+        tweet_url = await twitter_service.post_tweet(validated_content)
+        if tweet_url:
+            print(f"Successfully posted tweet: {tweet_url}")
+        else:
+            print("Failed to post tweet")
+    
+    return {
+        "messages": [
+            AIMessage(
+                content="Tweet posted. Continue with other platforms or create another post?"
+            )
+        ]
+    }
+
+async def should_post_to_twitter(post: str) -> bool:
+    user_input = input(
+        f"Do you want to post this content to Twitter?\n\n{post}\n\nEnter 'yes' to post or 'no' to skip: "
+    )
+
+    analysis = await model.with_structured_output(TwitterPostDecision).ainvoke(
+        [
+            SystemMessage(
+                content="Analyze the user's response to determine if they want to post the content to Twitter. Provide a decision, confidence level, and reasoning."
+            ),
+            HumanMessage(content=f"User's response: {user_input}"),
+        ]
+    )
+
+    print(f"Decision: {analysis.should_post}")
+    print(f"Confidence: {analysis.confidence:.2f}")
+    print(f"Reasoning: {analysis.reasoning}")
+
+    return analysis.should_post
 
 router_paths: Dict[str, str] = {
     WorkflowNodeType.AUDIO_TRANSCRIPTION: WorkflowNodeType.AUDIO_TRANSCRIPTION,
@@ -279,6 +340,7 @@ def build_workflow() -> StateGraph:
     workflow.add_node(WorkflowNodeType.LINKEDIN_PROFILE, fetch_linkedin_profile_posts)
     workflow.add_node(WorkflowNodeType.CREATE_POST, create_post)
     workflow.add_node(WorkflowNodeType.LINKEDIN_POST, post_to_linkedin)
+    workflow.add_node(WorkflowNodeType.TWITTER_POST, post_to_twitter)
     workflow.set_entry_point(WorkflowNodeType.ROUTER)
     workflow.add_conditional_edges(
         WorkflowNodeType.ROUTER, determine_next_action, router_paths
@@ -291,7 +353,9 @@ def build_workflow() -> StateGraph:
     workflow.add_edge(WorkflowNodeType.TDS_ARTICLES, WorkflowNodeType.CREATE_POST)
     workflow.add_edge(WorkflowNodeType.LINKEDIN_PROFILE, WorkflowNodeType.CREATE_POST)
     workflow.add_edge(WorkflowNodeType.CREATE_POST, WorkflowNodeType.LINKEDIN_POST)
+    workflow.add_edge(WorkflowNodeType.CREATE_POST, WorkflowNodeType.TWITTER_POST)
     workflow.add_edge(WorkflowNodeType.LINKEDIN_POST, END)
+    workflow.add_edge(WorkflowNodeType.TWITTER_POST, END)
 
     return workflow
 

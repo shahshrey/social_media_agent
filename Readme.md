@@ -63,6 +63,11 @@ Built on a modular architecture using:
    PRAW_CLIENT_ID=your_reddit_client_id
    PRAW_CLIENT_SECRET=your_reddit_client_secret
    PRAW_USER_AGENT=your_user_agent
+   API_KEY=your_twitter_api_key
+   API_SECRET=your_twitter_api_secret
+   ACCESS_TOKEN=your_twitter_access_token
+   ACCESS_TOKEN_SECRET=your_twitter_access_token_secret
+   BEARER_TOKEN=your_twitter_bearer_token
    ```
 
 ## Usage

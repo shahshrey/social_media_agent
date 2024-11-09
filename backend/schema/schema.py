@@ -11,6 +11,8 @@ class WorkflowNodeType:
     LINKEDIN_PROFILE = "GET CONTENT FROM LINKEDIN PROFILE"
     CREATE_POST = "CREATE POST"
     LINKEDIN_POST = "POST TO LINKEDIN"
+    TWITTER_POST = "POST TO TWITTER"
+
 
 
 class AudioTranscriptionDecision(BaseModel):
@@ -28,7 +30,15 @@ class YoutubeTranscriptionDecision(BaseModel):
     transcribe_youtube: bool = Field(description="Whether to create a post from YouTube")
     reason: str = Field(description="Reason for the decision")
     url: str = Field(description="""The YouTube URL to parse. If the url is not provided, url MUST be set to 'URL NOT PROVIDED' """)
-    
+
+class TwitterPostDecision(BaseModel):
+    """
+    Whether to post the content to Twitter
+    """
+    should_post: bool = Field(description="Whether to post to Twitter")
+    confidence: float = Field(description="Confidence level in the decision")
+    reasoning: str = Field(description="Reasoning behind the decision")
+        
 class RedditSummaryDecision(BaseModel):
     """
     Whether the user wants to create a post from reddit
