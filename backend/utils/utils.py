@@ -110,18 +110,32 @@ def save_post_to_json(
     
     print(f"Post data saved to: {filename}")    
 
-def validate_twitter_content(content: str) -> str:
+def validate_twitter_content(content: str) -> tuple[str, bool]:
     """
-    Validates and truncates content for Twitter's character limit
-    Returns formatted content suitable for Twitter
+    Validates and formats content for Twitter
+    Returns (formatted_content, is_valid)
     """
-    MAX_TWEET_LENGTH = 280
-    
-    # Remove any unnecessary whitespace
+    # Remove leading/trailing whitespace
     content = content.strip()
     
-    # Truncate if necessary
-    if len(content) > MAX_TWEET_LENGTH:
-        return content[:MAX_TWEET_LENGTH-3] + "..."
+    # Basic validation
+    if not content:
+        return "", False
         
-    return content
+    if len(content) > 280:
+        content = content[:277] + "..."
+    
+    # Remove duplicate whitespace
+    content = ' '.join(content.split())
+    
+    # Check for common issues
+    if content.lower() == "test":  # Twitter often blocks generic test tweets
+        return "", False
+        
+    # Add a timestamp to prevent duplicate tweets
+    timestamp = datetime.now().strftime("%H:%M:%S")
+    if len(content) + len(timestamp) + 2 <= 280:
+        content = f"{content} ({timestamp})"
+    
+    return content, True
+

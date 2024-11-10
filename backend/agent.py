@@ -222,14 +222,17 @@ async def create_post(state: AgentState) -> AgentState:
                 if await should_post_to_linkedin(response.content):
                     state.linkedin_posts = state.linkedin_posts or []
                     state.linkedin_posts.append(response.content)
+                    await post_to_linkedin(state)
                     
             if platforms in ['twitter', 'both']:
                 if await should_post_to_twitter(response.content):
+                    print("Twitter posting approved by user")
                     state.twitter_posts = state.twitter_posts or []
                     state.twitter_posts.append(response.content)
-                    
-            generated_posts.append(response.content)
+                    await post_to_twitter(state)
             
+            generated_posts.append(response.content)
+                
     return {"generated_posts": generated_posts}
 
 
@@ -276,49 +279,43 @@ async def post_to_linkedin(state: AgentState) -> None:
         ]
     }
 
-async def post_to_twitter(state: AgentState) -> None:
+async def post_to_twitter(state: AgentState) -> AgentState:
     posts: Optional[List[str]] = state.twitter_posts
     if not posts:
-        return
+        return state
 
     twitter_service = TwitterService()
     
     for post in posts:
-        validated_content = validate_twitter_content(post)
-        print("Posting to Twitter")
-        tweet_url = await twitter_service.post_tweet(validated_content)
-        if tweet_url:
-            print(f"Successfully posted tweet: {tweet_url}")
-        else:
-            print("Failed to post tweet")
+        # Validate and format content
+        validated_content, is_valid = validate_twitter_content(post)
+        if not is_valid:
+            print("Invalid tweet content, skipping...")
+            continue
+            
+        try:
+            tweet_url = await twitter_service.post_tweet(validated_content)
+            if tweet_url:
+                print(f"✓ Tweet posted successfully: {tweet_url}")
+            else:
+                print("Failed to post tweet")
+        except Exception as e:
+            print(f"Error during tweet posting: {str(e)}")
     
-    return {
-        "messages": [
-            AIMessage(
-                content="Tweet posted. Continue with other platforms or create another post?"
-            )
-        ]
-    }
+    state.twitter_posts = []
+    return state
 
 async def should_post_to_twitter(post: str) -> bool:
-    user_input = input(
-        f"Do you want to post this content to Twitter?\n\n{post}\n\nEnter 'yes' to post or 'no' to skip: "
-    )
+    print("\nWould you like to post this content to Twitter?")
+    print("-" * 50)
+    print(post[:280])  # Show preview limited to Twitter's max length
+    print("-" * 50)
+    user_input = input("Enter 'yes' to post or 'no' to skip: ").lower().strip()
 
-    analysis = await model.with_structured_output(TwitterPostDecision).ainvoke(
-        [
-            SystemMessage(
-                content="Analyze the user's response to determine if they want to post the content to Twitter. Provide a decision, confidence level, and reasoning."
-            ),
-            HumanMessage(content=f"User's response: {user_input}"),
-        ]
-    )
-
-    print(f"Decision: {analysis.should_post}")
-    print(f"Confidence: {analysis.confidence:.2f}")
-    print(f"Reasoning: {analysis.reasoning}")
-
-    return analysis.should_post
+    if user_input == 'yes':
+        print("User confirmed Twitter posting")
+        return True
+    return False
 
 router_paths: Dict[str, str] = {
     WorkflowNodeType.AUDIO_TRANSCRIPTION: WorkflowNodeType.AUDIO_TRANSCRIPTION,
