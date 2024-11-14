@@ -295,3 +295,15 @@ reddit_summarization_prompt = """
 
         Transform the above content into a viral blog article that will set the internet ablaze, following the guidelines provided.
     """
+
+twitter_post_prompt = """
+Summarize the following content to be engaging and fit within a 260-character limit for a Twitter post. Avoid extra words or commentary—focus only on the key points that would grab attention on Twitter.
+
+Original Content:
+<content>
+{content}
+</content>
+
+Twitter-Friendly Summary:
+"""
+

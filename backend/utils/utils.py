@@ -5,10 +5,13 @@ from typing import Any, Dict
 import requests
 from bs4 import BeautifulSoup
 from pydantic import BaseModel
+from langchain_core.messages import HumanMessage
+from backend.models.models import model
 from rich.console import Console
 from rich.panel import Panel
 from rich.syntax import Syntax
 from backend.schema.schema import ContentItem
+from backend.prompts.prompts import twitter_post_prompt
 import os
 import csv
 from datetime import datetime
@@ -123,7 +126,11 @@ def validate_twitter_content(content: str) -> tuple[str, bool]:
         return "", False
         
     if len(content) > 280:
-        content = content[:277] + "..."
+        summary_prompt = twitter_post_prompt.format(content=content)
+        content = model.invoke([HumanMessage(content=summary_prompt)]).content
+        # last check to ensure we don't exceed 280 characters
+        if len(content) > 280:
+            content = content[:277] + "..."
     
     # Remove duplicate whitespace
     content = ' '.join(content.split())
@@ -132,10 +139,5 @@ def validate_twitter_content(content: str) -> tuple[str, bool]:
     if content.lower() == "test":  # Twitter often blocks generic test tweets
         return "", False
         
-    # Add a timestamp to prevent duplicate tweets
-    timestamp = datetime.now().strftime("%H:%M:%S")
-    if len(content) + len(timestamp) + 2 <= 280:
-        content = f"{content} ({timestamp})"
-    
     return content, True
 
