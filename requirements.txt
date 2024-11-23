@@ -15,3 +15,4 @@ PyPDF2
 playwright
 lxml
 sse_starlette
+tweepy>=4.14.0
