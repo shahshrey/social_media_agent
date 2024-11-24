@@ -6,7 +6,7 @@ class FeedPage:
         self.page = page
         self.start_post_button = page.get_by_role("button", name="Start a post")
         self.post_text_area = page.locator('.ql-editor[data-placeholder="Share your thoughts…"]')
-        self.post_button = page.get_by_role("button", name="Post", exact=True)
+        self.post_button = page.locator('.share-box_actions button.artdeco-button--primary')
 
     async def click_start_post(self):
         try:
@@ -18,9 +18,8 @@ class FeedPage:
         try:
             await self.click_start_post()
             await self.post_text_area.fill(content)
-            await asyncio.sleep(500)
             await self.post_button.click()
-            await asyncio.sleep(50)
+            await asyncio.sleep(2)
         except TimeoutError:
             raise Exception("Failed to create post: Timeout")
 
