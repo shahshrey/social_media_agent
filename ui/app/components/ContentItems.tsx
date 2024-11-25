@@ -9,7 +9,7 @@ const ContentItems = ({ items }: { items: ContentItem[] }) => {
 
   const parseContent = (item: any) => {
     if (item.repr && typeof item.repr === 'string') {
-      const match = item.repr.match(/ContentItem\(content="(.+?)"\)/);
+      const match = item.repr.match(/ContentItem\(content=["'](.+?)["']\)/s);
       return match ? match[1].replace(/\\n/g, '\n') : '';
     }
     return item.content || '';
