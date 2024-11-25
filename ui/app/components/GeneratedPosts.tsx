@@ -8,6 +8,7 @@ import { Button } from "./ui/button"
 import { ExpandableCard } from './ui/ExpandableCard';
 import { EditableContent } from './EditableContent';
 import { toastConfig } from './ui/toast';
+import { useTheme } from '../providers/ThemeProvider';
 
 interface GeneratedPostsProps {
   posts: string[];
@@ -15,6 +16,7 @@ interface GeneratedPostsProps {
 }
 
 const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
+  const { components } = useTheme();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [editContent, setEditContent] = useState<string>('');
@@ -85,10 +87,10 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+      <h2 className={components.text.gradient}>
         Generated Posts
       </h2>
-      <div className="space-y-4">
+      <div className={`${components.card.base} ${components.card.hover}`}>
         {posts && posts.length > 0 ? (
           posts.map((post, index) => (
             <ExpandableCard

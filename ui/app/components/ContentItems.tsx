@@ -5,11 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Pencil, Save, X } from 'lucide-react';
 import { Card, CardHeader, CardContent } from "../components/ui/card"
 import { Button } from "../components/ui/button"
+import { useTheme } from '../providers/ThemeProvider';
 
 const ContentItems = ({ items, onContentUpdate }: { 
   items: ContentItem[]; 
   onContentUpdate?: (index: number, newContent: string) => void;
 }) => {
+  const { components, animation } = useTheme();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [editContent, setEditContent] = useState<string>('');
@@ -43,7 +45,7 @@ const ContentItems = ({ items, onContentUpdate }: {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+      <h2 className={components.text.gradient}>
         Content Items
       </h2>
       <div className="space-y-4">
@@ -53,17 +55,13 @@ const ContentItems = ({ items, onContentUpdate }: {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                type: "spring",
-                stiffness: 100,
-                damping: 15,
-                delay: index * 0.1 
-              }}
+              transition={animation.spring}
             >
-              <Card className="group hover:border-indigo-300 transition-all duration-300">
+              <Card className={`group ${components.card.base} ${components.card.hover}`}>
                 <CardHeader 
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                  className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-indigo-50/50 transition-colors"
+                  className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-primary-light/5 transition-all"
+                  style={{ transitionDuration: animation.default }}
                 >
                   <div className="flex-1 pr-4">
                     <div className={`prose prose-sm max-w-none whitespace-pre-line ${expandedIndex === index ? '' : 'line-clamp-3'}`}>

@@ -4,19 +4,35 @@
 
 @layer base {
   :root {
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --primary-light: 217.2 91.2% 59.8%;
-    --primary-dark: 222.2 47.4% 11.2%;
+    /* Base colors */
+    --primary: 250 82% 45%;
+    --primary-light: 250 82% 55%;
+    --primary-dark: 250 82% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 224 82% 45%;
+    --secondary-light: 224 82% 55%;
+    --secondary-dark: 224 82% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    --slate: 215 16% 47%;
+    --slate-light: 217 33% 97%;
+    --slate-dark: 215 25% 27%;
     
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --secondary-light: 214.3 31.8% 91.4%;
-    --secondary-dark: 222.2 47.4% 11.2%;
-    
-    --slate: 215 20.2% 65.1%;
-    --slate-foreground: 222.2 47.4% 11.2%;
-    --slate-light: 210 40% 98%;
-    --slate-dark: 215.4 16.3% 46.9%;
+    --background: 0 0% 100%;
+    --background-card: 0 0% 100%;
+    --background-subtle: 210 40% 98%;
+    --background-muted: 210 40% 96%;
+
+    --border: 214 32% 91%;
+    --border-focus: 226 100% 71%;
+    --border-hover: 215 20% 84%;
+  }
+
+  /* Dark mode variables */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Add dark mode variables here */
+    }
   }
 }
