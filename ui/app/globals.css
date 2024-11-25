@@ -2,180 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #4f46e5;
-  --primary-foreground: #ffffff;
-  --secondary: #6366f1;
-  --accent: #818cf8;
-}
-
 @layer base {
-  body {
-    @apply antialiased;
+  :root {
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --primary-light: 217.2 91.2% 59.8%;
+    --primary-dark: 222.2 47.4% 11.2%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-light: 214.3 31.8% 91.4%;
+    --secondary-dark: 222.2 47.4% 11.2%;
+    
+    --slate: 215 20.2% 65.1%;
+    --slate-foreground: 222.2 47.4% 11.2%;
+    --slate-light: 210 40% 98%;
+    --slate-dark: 215.4 16.3% 46.9%;
   }
-}
-
-@layer components {
-  .glass {
-    height: 100%;
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
-  }
-
-  .hover-card {
-    @apply transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1;
-  }
-
-  .button-primary {
-    @apply px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 
-           transition-colors duration-200 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
-  }
-
-  .button-secondary {
-    @apply px-4 py-2 bg-white text-indigo-600 rounded-lg hover:bg-indigo-50 
-           transition-colors duration-200 border border-indigo-200;
-  }
-
-  .card-hover-effect {
-    @apply transition-all duration-300 ease-out hover:shadow-lg hover:shadow-indigo-100/50 
-           hover:border-indigo-300 hover:-translate-y-0.5;
-  }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent;
-  }
-  
-  .glass-morphism {
-    @apply bg-white/80 backdrop-blur-lg border border-white/20;
-  }
-}
-
-/* Smooth animations */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-slide-in {
-  animation: slideIn 0.3s ease-out forwards;
-}
-
-/* Card hover effects */
-.hover-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.1);
-}
-
-/* Glass morphism effect */
-.glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Prose customization */
-.prose {
-  @apply max-w-none;
-}
-
-.prose h1, .prose h2, .prose h3 {
-  @apply text-indigo-900;
-}
-
-.prose a {
-  @apply text-indigo-600 hover:text-indigo-700 transition-colors duration-200;
-}
-
-/* Add these to your existing globals.css */
-
-html, body {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* Prevents double scrollbars */
-}
-
-#__next,
-main {
-  height: 100vh;
-  width: 100vw;
-}
-
-/* Add a custom scrollbar style */
-.overflow-y-auto {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(79, 70, 229, 0.3) transparent;
-}
-
-.overflow-y-auto::-webkit-scrollbar {
-  width: 6px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background-color: rgba(79, 70, 229, 0.3);
-  border-radius: 3px;
-}
-
-/* Enhanced scrollbar */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 5px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(99, 102, 241, 0.3);
-  border-radius: 999px;
-}
-
-/* Enhanced animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Card transitions */
-.card-transition {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Enhanced prose styles */
-.prose-custom {
-  @apply prose-headings:text-indigo-900 
-         prose-a:text-indigo-600 prose-a:no-underline hover:prose-a:text-indigo-700
-         prose-strong:text-indigo-700
-         prose-code:text-indigo-600 prose-code:bg-indigo-50 prose-code:rounded
-         prose-blockquote:border-l-indigo-500
-         prose-hr:border-indigo-200;
 }

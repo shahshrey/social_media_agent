@@ -2,23 +2,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Card, CardHeader, CardContent } from "./card";
 import { ReactNode } from 'react';
-
-const cardAnimations = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { 
-    type: "spring",
-    stiffness: 100,
-    damping: 15,
-  }
-};
-
-const contentAnimations = {
-  initial: { height: 0, opacity: 0 },
-  animate: { height: "auto", opacity: 1 },
-  exit: { height: 0, opacity: 0 },
-  transition: { duration: 0.3, ease: "easeInOut" }
-};
+import { useThemeStyles } from '../../hooks/useThemeStyles';
+import { cn } from '../../lib/utils';
+import { theme } from '../../styles/theme';
 
 interface ExpandableCardProps {
   isExpanded: boolean;
@@ -37,12 +23,19 @@ export const ExpandableCard = ({
   children,
   index
 }: ExpandableCardProps) => {
+  const styles = useThemeStyles();
+  
   return (
     <motion.div 
-      {...cardAnimations}
-      transition={{ ...cardAnimations.transition, delay: index * 0.1 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ ...theme.animation.spring, delay: index * 0.1 }}
     >
-      <Card className="group hover:border-indigo-300 transition-all duration-300">
+      <Card className={cn(
+        "group",
+        styles.card.base,
+        isExpanded ? styles.card.expanded : styles.card.hover
+      )}>
         <CardHeader 
           onClick={onToggle}
           className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-indigo-50/50 transition-colors"
@@ -63,8 +56,13 @@ export const ExpandableCard = ({
         
         <AnimatePresence>
           {isExpanded && (
-            <motion.div {...contentAnimations}>
-              <CardContent className="border-t border-indigo-100 bg-white">
+            <motion.div 
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={theme.animation.default}
+            >
+              <CardContent>
                 {children}
               </CardContent>
             </motion.div>

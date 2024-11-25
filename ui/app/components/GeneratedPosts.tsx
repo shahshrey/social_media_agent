@@ -55,7 +55,7 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
   };
 
   const renderPostHeader = (post: string, index: number) => (
-    <div className={`prose prose-sm max-w-none ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
+    <div className={`prose prose-sm max-w-none whitespace-pre-line ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
       <ReactMarkdown>
         {post.split('\n')[0]}
       </ReactMarkdown>
@@ -107,7 +107,7 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
                   onCancel={handleCancel}
                 />
               ) : (
-                <div className="prose prose-sm max-w-none prose-indigo bg-white">
+                <div className="prose prose-sm max-w-none prose-indigo bg-white whitespace-pre-line">
                   <ReactMarkdown>{post}</ReactMarkdown>
                 </div>
               )}

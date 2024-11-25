@@ -66,7 +66,7 @@ const ContentItems = ({ items, onContentUpdate }: {
                   className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-indigo-50/50 transition-colors"
                 >
                   <div className="flex-1 pr-4">
-                    <div className={`prose prose-sm max-w-none ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
+                    <div className={`prose prose-sm max-w-none whitespace-pre-line ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
                       <ReactMarkdown>
                         {parseContent(item).split('\n')[0]}
                       </ReactMarkdown>
@@ -104,7 +104,7 @@ const ContentItems = ({ items, onContentUpdate }: {
                             <textarea
                               value={editContent}
                               onChange={(e) => setEditContent(e.target.value)}
-                              className="w-full h-64 p-3 rounded-lg border border-indigo-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none bg-white"
+                              className="w-full h-64 p-3 rounded-lg border border-indigo-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none bg-white whitespace-pre-line"
                               onClick={(e) => e.stopPropagation()}
                             />
                             <div className="flex justify-end gap-2">
@@ -126,7 +126,7 @@ const ContentItems = ({ items, onContentUpdate }: {
                             </div>
                           </div>
                         ) : (
-                          <div className="prose prose-sm max-w-none prose-indigo bg-white">
+                          <div className="prose prose-sm max-w-none prose-indigo bg-white whitespace-pre-line">
                             <ReactMarkdown>{parseContent(item)}</ReactMarkdown>
                           </div>
                         )}
