@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Share2, Pencil, Save, X } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface GeneratedPostsProps {
   posts: string[];
@@ -32,10 +33,20 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
     setEditingIndex(null);
   };
 
-  const handleShare = (post: string, e: React.MouseEvent) => {
+  const handleShare = async (post: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    navigator.clipboard.writeText(post);
-    // You could add a toast notification here
+    
+    // Copy to clipboard
+    try {
+      await navigator.clipboard.writeText(post);
+      toast.success('Post copied to clipboard');
+    } catch (err) {
+      toast.error('Failed to copy post');
+    }
+    
+    // Open LinkedIn share dialog
+    const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&summary=${encodeURIComponent(post)}`;
+    window.open(linkedInShareUrl, '_blank', 'width=600,height=600');
   };
 
   return (
