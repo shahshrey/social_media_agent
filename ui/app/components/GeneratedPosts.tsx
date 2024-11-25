@@ -51,7 +51,9 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">Generated Posts</h2>
+      <h2 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        Generated Posts
+      </h2>
       <div className="space-y-4">
         {posts && posts.length > 0 ? (
           posts.map((post, index) => (
@@ -59,12 +61,17 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+              transition={{ 
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+                delay: index * 0.1 
+              }}
+              className="glass rounded-xl overflow-hidden hover-card"
             >
               <div 
                 onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50"
+                className="flex items-center justify-between p-4 cursor-pointer hover:bg-white/50 transition-colors"
               >
                 <div className="flex-1 pr-4">
                   <div className={`prose prose-sm max-w-none ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
@@ -76,20 +83,22 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={(e) => handleShare(post, e)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2 hover:bg-indigo-50 rounded-full transition-all duration-200"
+                    aria-label="Share post"
                   >
-                    <Share2 className="w-4 h-4 text-gray-500" />
+                    <Share2 className="w-4 h-4 text-indigo-600" />
                   </button>
                   <button
                     onClick={(e) => handleEdit(index, post, e)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2 hover:bg-indigo-50 rounded-full transition-all duration-200"
+                    aria-label="Edit post"
                   >
-                    <Pencil className="w-4 h-4 text-gray-500" />
+                    <Pencil className="w-4 h-4 text-indigo-600" />
                   </button>
                   {expandedIndex === index ? (
-                    <ChevronUp className="w-5 h-5 text-gray-500" />
+                    <ChevronUp className="w-5 h-5 text-indigo-600" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                    <ChevronDown className="w-5 h-5 text-indigo-600" />
                   )}
                 </div>
               </div>
@@ -97,38 +106,38 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
               <AnimatePresence>
                 {expandedIndex === index && (
                   <motion.div
-                    initial={{ height: 0 }}
-                    animate={{ height: "auto" }}
-                    exit={{ height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden border-t border-gray-100"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden border-t border-indigo-100"
                   >
-                    <div className="p-4 bg-gray-50">
+                    <div className="p-4 bg-white/50">
                       {editingIndex === index ? (
                         <div className="space-y-4">
                           <textarea
                             value={editContent}
                             onChange={(e) => setEditContent(e.target.value)}
-                            className="w-full h-64 p-2 border rounded-md"
+                            className="w-full h-64 p-3 border border-indigo-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                             onClick={(e) => e.stopPropagation()}
                           />
                           <div className="flex justify-end gap-2">
                             <button
                               onClick={(e) => handleCancel(e)}
-                              className="px-3 py-1 text-sm text-gray-600 hover:bg-gray-100 rounded-md"
+                              className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
                             >
                               <X className="w-4 h-4" />
                             </button>
                             <button
                               onClick={(e) => handleSave(index, e)}
-                              className="px-3 py-1 text-sm text-white bg-blue-500 hover:bg-blue-600 rounded-md"
+                              className="px-4 py-2 text-sm text-white bg-indigo-600 hover:bg-indigo-700 rounded-md transition-colors"
                             >
                               <Save className="w-4 h-4" />
                             </button>
                           </div>
                         </div>
                       ) : (
-                        <div className="prose prose-sm max-w-none">
+                        <div className="prose prose-sm max-w-none prose-indigo">
                           <ReactMarkdown>{post}</ReactMarkdown>
                         </div>
                       )}
@@ -139,8 +148,8 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
             </motion.div>
           ))
         ) : (
-          <div className="rounded-xl border-2 border-dashed border-gray-200 p-8">
-            <p className="text-center text-gray-500">No generated posts available</p>
+          <div className="rounded-xl border-2 border-dashed border-indigo-200 p-8 text-center">
+            <p className="text-indigo-600">No generated posts available</p>
           </div>
         )}
       </div>
