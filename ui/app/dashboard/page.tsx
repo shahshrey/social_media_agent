@@ -1,10 +1,9 @@
 "use client";
 
 import { CopilotKit } from "@copilotkit/react-core";
-import { Main } from "./Main";
+import { Main } from "../Main";
 import { Toaster } from "sonner";
 import "@copilotkit/react-ui/styles.css";
-import { LandingPage } from "./components/LandingPage";
 
 const COPILOT_CONFIG = {
   runtimeUrl: "/api/copilotkit",
@@ -19,20 +18,13 @@ const TOASTER_CONFIG = {
   closeButton: true,
 };
 
-export default function Home() {
-  // Check if we're on the landing page path
-  const isLandingPage = typeof window !== 'undefined' && window.location.pathname === '/';
-
+export default function Dashboard() {
   return (
     <main className="h-screen w-full">
       <Toaster {...TOASTER_CONFIG} />
-      {isLandingPage ? (
-        <LandingPage />
-      ) : (
-        <CopilotKit {...COPILOT_CONFIG}>
-          <Main />
-        </CopilotKit>
-      )}
+      <CopilotKit {...COPILOT_CONFIG}>
+        <Main />
+      </CopilotKit>
     </main>
   );
-}
+} 

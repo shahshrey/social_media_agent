@@ -43,17 +43,23 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
   const handleShare = async (post: string, e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     
-    // Copy to clipboard
     try {
       await navigator.clipboard.writeText(post);
-      toast.success('Post copied to clipboard!', toastConfig.success);
+      toast.success('LinkedIn post copied to clipboard!', toastConfig.success);
     } catch (err) {
       toast.error('Failed to copy post', toastConfig.error);
     }
     
-    // Open LinkedIn share dialog
+    const shareText = `Share this post on LinkedIn to grow your professional network and engage with your audience!`;
     const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&summary=${encodeURIComponent(post)}`;
-    window.open(linkedInShareUrl, '_blank', 'width=600,height=600');
+    
+    toast.message(shareText, {
+      ...toastConfig.info,
+      action: {
+        label: 'Open LinkedIn',
+        onClick: () => window.open(linkedInShareUrl, '_blank', 'width=600,height=600')
+      },
+    });
   };
 
   const renderPostHeader = (post: string, index: number) => (
@@ -88,8 +94,11 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
   return (
     <div className="space-y-6">
       <h2 className={components.text.gradient}>
-        Generated Posts
+        LinkedIn Posts
       </h2>
+      <p className="text-sm text-gray-600 mb-4">
+        Review these posts and edit them to your liking and then click on the share button to post them to LinkedIn.
+      </p>
       <div className={`${components.card.base} ${components.card.hover}`}>
         {posts && posts.length > 0 ? (
           posts.map((post, index) => (
@@ -98,7 +107,7 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
               index={index}
               isExpanded={expandedIndex === index}
               onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
-              header={renderPostHeader(post, index)}
+              header={renderPostHeader(post, index)} 
               actions={renderPostActions(index, post)}
             >
               {editingIndex === index ? (
@@ -118,7 +127,8 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
         ) : (
           <Card className="border-2 border-dashed border-indigo-200">
             <CardContent className="p-8 text-center">
-              <p className="text-indigo-600">No generated posts available</p>
+              <p className="text-indigo-600">Generate your first LinkedIn post to get started</p>
+              <p className="text-sm text-gray-500 mt-2">Create professional content that resonates with your network</p>
             </CardContent>
           </Card>
         )}

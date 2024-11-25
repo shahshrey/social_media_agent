@@ -8,9 +8,9 @@ interface MainLayoutProps {
 
 export const MainLayout = ({ children, sidebar }: MainLayoutProps) => (
   <div className="flex flex-col lg:flex-row h-screen w-full">
-    <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
+    <div className="flex-1 p-4 lg:p-6 overflow-y-auto bg-gradient-to-br from-background-subtle to-white">
       <motion.div 
-        className="min-h-full bg-white rounded-2xl shadow-xl p-6 space-y-8 border border-indigo-100"
+        className="min-h-full bg-gradient-to-br from-white via-slate/5 to-primary/10 rounded-2xl shadow-lg shadow-primary/5 backdrop-blur-[2px] p-6 space-y-8 border border-primary/20"
         layout
         transition={{ 
           duration: 0.3, 

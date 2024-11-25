@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
-      <body className={`${inter.className} bg-gradient-to-br from-slate-50 via-indigo-50 to-purple-50 min-h-screen h-screen`}>
+      <body className={`${inter.className} min-h-screen h-screen`}>
         <ThemeProvider>
           <Toaster
             position="bottom-left"
