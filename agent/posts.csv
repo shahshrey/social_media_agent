@@ -4924,3 +4924,4906 @@ Make sure the final LinkedIn post reads naturally and authentically mimics the w
 
 Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
 "
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","In the rapidly evolving field of document processing, two tools have emerged as contenders for extracting information from bank account statements: IBM Docling and LlamaParse. Both offer unique capabilities, but how do they stack up against each other, and what should professionals consider when choosing between them?
+
+IBM Docling, as highlighted in a recent discussion, is praised for its effectiveness, particularly when integrated with PaddleOCR for text recognition. However, the conversation also points to LlamaParse, which, while potentially powerful, raises concerns about its reliance on cloud services. This dependency could pose challenges for handling sensitive data, a critical consideration for financial documents. The debate underscores the importance of understanding the infrastructure and data privacy implications of these tools.
+
+A notable alternative mentioned is MinerU, a tool that has been successfully used to extract data from a large volume of PDFs. This solution, which operates locally, offers a compelling case for those wary of cloud-based services. The experience shared by a user who processed 800 PDFs over seven days highlights the potential of local solutions, albeit with the challenge of integrating vision models for image parsing.
+
+The discussion also touches on the broader theme of digital organization and the desire for seamless integration of document processing into everyday workflows. One professional shares their vision of a paperless system that combines scanning with AI chatbots, illustrating the innovative potential of these technologies when applied creatively.
+
+In conclusion, the choice between IBM Docling and LlamaParse—or even alternatives like MinerU—depends on specific needs, particularly regarding data privacy and processing capabilities. The conversation reveals a consensus on the importance of local processing for sensitive data and the potential of integrating AI to enhance document management. As the field continues to evolve, professionals must weigh these factors carefully to select the most suitable tool for their requirements.","In the world of document processing, two giants are making waves:
+
+IBM Docling vs. LlamaParse.
+
+Here's the scoop:
+
+→ IBM Docling shines with PaddleOCR integration for text recognition.
+→ LlamaParse, while powerful, relies heavily on cloud services.
+
+But there's a twist.
+
+Handling sensitive data? Cloud dependency can be a hurdle.
+
+Enter MinerU:
+
+A local solution that processed 800 PDFs in 7 days. No cloud, no worries.
+
+The debate is real:
+
+→ Local processing is crucial for sensitive data.
+→ AI integration can revolutionize document management.
+
+The future of document processing is here, and it's all about choosing the right tool for your needs.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+#DocumentProcessing #AI #DataPrivacy #Innovation #TechTrends","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+In the rapidly evolving field of document processing, two tools have emerged as contenders for extracting information from bank account statements: IBM Docling and LlamaParse. Both offer unique capabilities, but how do they stack up against each other, and what should professionals consider when choosing between them?
+
+IBM Docling, as highlighted in a recent discussion, is praised for its effectiveness, particularly when integrated with PaddleOCR for text recognition. However, the conversation also points to LlamaParse, which, while potentially powerful, raises concerns about its reliance on cloud services. This dependency could pose challenges for handling sensitive data, a critical consideration for financial documents. The debate underscores the importance of understanding the infrastructure and data privacy implications of these tools.
+
+A notable alternative mentioned is MinerU, a tool that has been successfully used to extract data from a large volume of PDFs. This solution, which operates locally, offers a compelling case for those wary of cloud-based services. The experience shared by a user who processed 800 PDFs over seven days highlights the potential of local solutions, albeit with the challenge of integrating vision models for image parsing.
+
+The discussion also touches on the broader theme of digital organization and the desire for seamless integration of document processing into everyday workflows. One professional shares their vision of a paperless system that combines scanning with AI chatbots, illustrating the innovative potential of these technologies when applied creatively.
+
+In conclusion, the choice between IBM Docling and LlamaParse—or even alternatives like MinerU—depends on specific needs, particularly regarding data privacy and processing capabilities. The conversation reveals a consensus on the importance of local processing for sensitive data and the potential of integrating AI to enhance document management. As the field continues to evolve, professionals must weigh these factors carefully to select the most suitable tool for their requirements.
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","In the rapidly evolving field of document processing, the comparison between IBM Docling and LlamaParse for extracting information from bank account statements in PDF format has sparked considerable interest. Both tools offer unique capabilities, but understanding their differences and potential applications is crucial for professionals seeking efficient solutions.
+
+IBM Docling, as highlighted in a recent discussion, is praised for its robust performance in document processing, leveraging generative AI to enhance accuracy and efficiency. However, the question remains: how does it stack up against LlamaParse? While Docling is recognized for its capabilities, some users express concerns about its limitations in handling extreme cases, such as signatures, prompting a shift towards cloud-based solutions.
+
+LlamaParse, on the other hand, is often associated with cloud services, raising questions about data privacy and sensitivity. The debate around local versus cloud-based processing is a recurring theme, with some professionals advocating for local solutions to ensure better control over sensitive data. This sentiment is echoed by users who prefer alternatives like MinerU, which allows for local processing of large volumes of PDFs, albeit with challenges in handling images within documents.
+
+The discussion also touches on innovative approaches to document management, such as integrating paperless solutions with AI chatbots for seamless interaction with digitized documents. This highlights a growing trend towards creating comprehensive digital ecosystems that enhance productivity and organization.
+
+In conclusion, the choice between IBM Docling and LlamaParse hinges on specific needs and priorities, such as data privacy, processing capabilities, and integration with existing systems. The conversation underscores the importance of evaluating both local and cloud-based solutions to find the most suitable approach for document processing tasks. As the field continues to evolve, staying informed about the latest tools and technologies will be key to optimizing document management strategies. For those interested in exploring MinerU, further details can be found on their GitHub page: [https://github.com/opendatalab/MinerU](https://github.com/opendatalab/MinerU).","In the world of document processing, a new debate is heating up.
+
+IBM Docling vs. LlamaParse:
+
+Both are powerful tools for extracting information from bank account statements in PDF format.
+
+But which one is right for you?
+
+→ IBM Docling is known for its robust performance and generative AI capabilities.
+→ LlamaParse is often linked with cloud services, raising data privacy concerns.
+
+Here's the catch:
+
+Docling excels in accuracy and efficiency but struggles with extreme cases like signatures. This has led some users to explore cloud-based solutions.
+
+LlamaParse, while efficient, brings up the age-old debate of local vs. cloud processing. Many professionals prefer local solutions for better control over sensitive data.
+
+And then there's MinerU, a local alternative that processes large volumes of PDFs but faces challenges with images.
+
+The future of document management is evolving:
+
+→ Integrating paperless solutions with AI chatbots.
+→ Creating comprehensive digital ecosystems.
+
+The choice between IBM Docling and LlamaParse depends on your priorities: data privacy, processing capabilities, and system integration.
+
+Stay informed and choose wisely.
+
+For more on MinerU, check out their [GitHub page](https://github.com/opendatalab/MinerU).
+
+♻️ Repost this if you think it's the future.
+
+#DocumentProcessing #AI #DataPrivacy #CloudComputing #DigitalTransformation","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+In the rapidly evolving field of document processing, the comparison between IBM Docling and LlamaParse for extracting information from bank account statements in PDF format has sparked considerable interest. Both tools offer unique capabilities, but understanding their differences and potential applications is crucial for professionals seeking efficient solutions.
+
+IBM Docling, as highlighted in a recent discussion, is praised for its robust performance in document processing, leveraging generative AI to enhance accuracy and efficiency. However, the question remains: how does it stack up against LlamaParse? While Docling is recognized for its capabilities, some users express concerns about its limitations in handling extreme cases, such as signatures, prompting a shift towards cloud-based solutions.
+
+LlamaParse, on the other hand, is often associated with cloud services, raising questions about data privacy and sensitivity. The debate around local versus cloud-based processing is a recurring theme, with some professionals advocating for local solutions to ensure better control over sensitive data. This sentiment is echoed by users who prefer alternatives like MinerU, which allows for local processing of large volumes of PDFs, albeit with challenges in handling images within documents.
+
+The discussion also touches on innovative approaches to document management, such as integrating paperless solutions with AI chatbots for seamless interaction with digitized documents. This highlights a growing trend towards creating comprehensive digital ecosystems that enhance productivity and organization.
+
+In conclusion, the choice between IBM Docling and LlamaParse hinges on specific needs and priorities, such as data privacy, processing capabilities, and integration with existing systems. The conversation underscores the importance of evaluating both local and cloud-based solutions to find the most suitable approach for document processing tasks. As the field continues to evolve, staying informed about the latest tools and technologies will be key to optimizing document management strategies. For those interested in exploring MinerU, further details can be found on their GitHub page: [https://github.com/opendatalab/MinerU](https://github.com/opendatalab/MinerU).
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","**Title: Enhancing VectorStore Queries with LangChain JS: A Deep Dive**
+
+In the realm of AI and machine learning, the ability to effectively query and retrieve data from vector stores is crucial for developing intelligent applications. A recent discussion highlights a common challenge faced by developers: obtaining specific, context-aware responses from vector stores using LangChain JS. The issue at hand is the generic nature of responses, akin to those from a general-purpose AI like ChatGPT, despite the presence of custom data.
+
+The main concern revolves around the integration of LangChain JS with Pinecone, a popular vector database, and OpenAI's GPT-4o-mini model. The setup involves creating a vector store from an existing Pinecone index and using OpenAI embeddings to facilitate data retrieval. However, the responses generated are not leveraging the stored data effectively, leading to generic outputs. This raises questions about the configuration and the potential need for fine-tuning the query process to ensure the AI model utilizes the specific context provided by the vector store.
+
+Key insights from the discussion suggest that the issue may lie in the configuration of the system template and the prompt structure. The SYSTEM_TEMPLATE is designed to guide the AI model by providing context, yet it appears that the context is not being effectively utilized. This could be due to the way the context is formatted or the manner in which the prompt is constructed. Additionally, the use of a low temperature setting in the model configuration might be contributing to the generic nature of the responses, as it limits the model's creativity and variability in generating answers.
+
+The conversation also touches on the importance of ensuring that the vector store retriever is correctly piping the formatted documents as strings, which is crucial for the model to understand and utilize the context. This highlights the need for developers to meticulously verify each step in the data retrieval and query process, from embedding generation to prompt execution.
+
+In conclusion, the discussion underscores the importance of fine-tuning and testing when working with vector stores and AI models. Developers are encouraged to experiment with different configurations, such as adjusting the temperature setting and refining the prompt structure, to achieve more context-aware and specific responses. This exploration not only enhances the functionality of AI applications but also contributes to the broader understanding of integrating vector databases with advanced AI models.","LangChain JS is revolutionizing vector store queries.
+
+Here's why it's a game-changer:
+
+→ Developers face challenges with generic AI responses.
+→ LangChain JS integrates with Pinecone and OpenAI's GPT-4o-mini.
+→ The goal? Context-aware, specific data retrieval.
+
+But there's a catch.
+
+The responses are often too generic, like ChatGPT. Why? It might be the system template or prompt structure. 
+
+Key insights:
+
+1) SYSTEM_TEMPLATE needs better context utilization.
+2) Low temperature settings limit creativity.
+3) Ensure vector store retrievers format documents correctly.
+
+The solution?
+
+Experiment with configurations:
+→ Adjust temperature settings.
+→ Refine prompt structures.
+
+This isn't just about better AI responses. It's about enhancing AI applications and understanding vector database integration.
+
+The future of AI is here, and it's all about precision.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+#AI #MachineLearning #LangChainJS #VectorStores #Innovation #TechRevolution","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+**Title: Enhancing VectorStore Queries with LangChain JS: A Deep Dive**
+
+In the realm of AI and machine learning, the ability to effectively query and retrieve data from vector stores is crucial for developing intelligent applications. A recent discussion highlights a common challenge faced by developers: obtaining specific, context-aware responses from vector stores using LangChain JS. The issue at hand is the generic nature of responses, akin to those from a general-purpose AI like ChatGPT, despite the presence of custom data.
+
+The main concern revolves around the integration of LangChain JS with Pinecone, a popular vector database, and OpenAI's GPT-4o-mini model. The setup involves creating a vector store from an existing Pinecone index and using OpenAI embeddings to facilitate data retrieval. However, the responses generated are not leveraging the stored data effectively, leading to generic outputs. This raises questions about the configuration and the potential need for fine-tuning the query process to ensure the AI model utilizes the specific context provided by the vector store.
+
+Key insights from the discussion suggest that the issue may lie in the configuration of the system template and the prompt structure. The SYSTEM_TEMPLATE is designed to guide the AI model by providing context, yet it appears that the context is not being effectively utilized. This could be due to the way the context is formatted or the manner in which the prompt is constructed. Additionally, the use of a low temperature setting in the model configuration might be contributing to the generic nature of the responses, as it limits the model's creativity and variability in generating answers.
+
+The conversation also touches on the importance of ensuring that the vector store retriever is correctly piping the formatted documents as strings, which is crucial for the model to understand and utilize the context. This highlights the need for developers to meticulously verify each step in the data retrieval and query process, from embedding generation to prompt execution.
+
+In conclusion, the discussion underscores the importance of fine-tuning and testing when working with vector stores and AI models. Developers are encouraged to experiment with different configurations, such as adjusting the temperature setting and refining the prompt structure, to achieve more context-aware and specific responses. This exploration not only enhances the functionality of AI applications but also contributes to the broader understanding of integrating vector databases with advanced AI models.
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","**Enhancing Text-to-SQL Interactions with Large Language Models: Challenges and Solutions**
+
+In the rapidly evolving field of natural language processing, the integration of Large Language Models (LLMs) into applications like Text-to-SQL is gaining traction. However, a common challenge faced by developers is ensuring that these models accurately interpret prompts, especially when dealing with complex queries. A pertinent example is the difficulty in conveying the concept of ""top performing teams in 2024"" to an LLM, which may not inherently understand domain-specific terms or the relationships between data columns.
+
+A key insight from this discussion is the importance of providing context to the LLM. While passing all column data in a prompt is impractical due to the sheer volume, selecting relevant columns and ensuring that column headers are meaningful can significantly aid comprehension. This approach is akin to briefing a highly skilled intern who is new to the domain, ensuring they have enough context to understand the task at hand.
+
+Innovative strategies such as incorporating a ""Human In Loop"" system are being explored to bridge the gap between human understanding and machine interpretation. This involves human intervention to guide the model in understanding complex terms and relationships, thereby enhancing the model's accuracy and efficiency. Additionally, sharing resources like the article on Pinterest's approach to building Text-to-SQL systems can provide valuable insights and methodologies for tackling similar challenges.
+
+The discussion also highlights a consensus on the need for more context regarding schema and the use of few-shot learning techniques to improve model performance. By providing examples of queries and their expected outcomes, developers can train models to better understand and execute complex SQL queries.
+
+Overall, the sentiment is one of collaborative problem-solving, with professionals sharing experiences and resources to overcome common hurdles. The takeaway is clear: while LLMs hold immense potential for transforming data interactions, their success hinges on the thoughtful integration of contextual information and human oversight. For those working in this space, the journey involves continuous learning and adaptation, leveraging both technological advancements and community insights to refine and enhance Text-to-SQL applications.
+
+For further reading on this topic, consider exploring the detailed case study on Pinterest's Text-to-SQL implementation: [How We Built Text-to-SQL at Pinterest](https://medium.com/pinterest-engineering/how-we-built-text-to-sql-at-pinterest-30bad30dabff).","Large Language Models (LLMs) are revolutionizing Text-to-SQL interactions.
+
+Here's why this matters:
+
+→ LLMs are transforming how we handle complex queries.
+→ They struggle with domain-specific terms and data relationships.
+→ Developers face challenges in ensuring accurate prompt interpretation.
+
+But there's a solution:
+
+Providing context is crucial. Think of it like briefing a skilled intern. You can't overload them with data, but you can guide them with relevant information.
+
+Innovative strategies are emerging:
+
+→ ""Human In Loop"" systems bridge the gap between human understanding and machine interpretation.
+→ Few-shot learning techniques improve model performance by providing examples of queries and expected outcomes.
+
+The goal? Enhance accuracy and efficiency.
+
+Professionals are sharing insights and resources to tackle these challenges. It's a collaborative effort to refine Text-to-SQL applications.
+
+For those in the field, it's about continuous learning and adaptation. Leveraging both tech advancements and community insights is key.
+
+Want to dive deeper? Check out [How We Built Text-to-SQL at Pinterest](https://medium.com/pinterest-engineering/how-we-built-text-to-sql-at-pinterest-30bad30dabff).
+
+♻️ Repost this if you think it's the future.
+
+#AI #LLM #TextToSQL #Innovation #DataScience #MachineLearning #TechTrends","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+**Enhancing Text-to-SQL Interactions with Large Language Models: Challenges and Solutions**
+
+In the rapidly evolving field of natural language processing, the integration of Large Language Models (LLMs) into applications like Text-to-SQL is gaining traction. However, a common challenge faced by developers is ensuring that these models accurately interpret prompts, especially when dealing with complex queries. A pertinent example is the difficulty in conveying the concept of ""top performing teams in 2024"" to an LLM, which may not inherently understand domain-specific terms or the relationships between data columns.
+
+A key insight from this discussion is the importance of providing context to the LLM. While passing all column data in a prompt is impractical due to the sheer volume, selecting relevant columns and ensuring that column headers are meaningful can significantly aid comprehension. This approach is akin to briefing a highly skilled intern who is new to the domain, ensuring they have enough context to understand the task at hand.
+
+Innovative strategies such as incorporating a ""Human In Loop"" system are being explored to bridge the gap between human understanding and machine interpretation. This involves human intervention to guide the model in understanding complex terms and relationships, thereby enhancing the model's accuracy and efficiency. Additionally, sharing resources like the article on Pinterest's approach to building Text-to-SQL systems can provide valuable insights and methodologies for tackling similar challenges.
+
+The discussion also highlights a consensus on the need for more context regarding schema and the use of few-shot learning techniques to improve model performance. By providing examples of queries and their expected outcomes, developers can train models to better understand and execute complex SQL queries.
+
+Overall, the sentiment is one of collaborative problem-solving, with professionals sharing experiences and resources to overcome common hurdles. The takeaway is clear: while LLMs hold immense potential for transforming data interactions, their success hinges on the thoughtful integration of contextual information and human oversight. For those working in this space, the journey involves continuous learning and adaptation, leveraging both technological advancements and community insights to refine and enhance Text-to-SQL applications.
+
+For further reading on this topic, consider exploring the detailed case study on Pinterest's Text-to-SQL implementation: [How We Built Text-to-SQL at Pinterest](https://medium.com/pinterest-engineering/how-we-built-text-to-sql-at-pinterest-30bad30dabff).
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","**Optimizing Chunking Strategies for Legal and Insurance Documents**
+
+In the realm of legal and insurance documentation, professionals often grapple with the challenge of effectively parsing and chunking extensive pages of conditions. The primary question posed is: What is the most efficient chunking strategy for these complex documents? The discussion reveals a variety of approaches and insights, highlighting both the challenges and potential solutions in this intricate process.
+
+One of the key perspectives shared is the use of contextual retrieval methods, such as those developed by Anthropic. This approach involves splitting document chunks while adding contextual headers to each segment, thereby enhancing the alignment of chunks with the responses generated by language models. OpenAI's recent support for prompt caching is also noted as a beneficial tool in this context. The link to Anthropic's contextual retrieval method is provided for further exploration: [Anthropic Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval).
+
+Another significant insight is the suggestion to incorporate metadata as headers for each chunk. This strategy aims to provide additional context, which can improve the retrieval process and the overall coherence of the language model's responses. Experimenting with smaller, semantically grouped chunks is also recommended, particularly for documents with complex conditions. This approach may lead to more accurate and relevant outputs from language models.
+
+The discussion also touches on the limitations of current chunking strategies, particularly in relation to function calling and retrieval-augmented generation (RAG) methods. It is noted that while these methods can be useful, they often require significant effort to ensure that the language model understands the relationships between different chunks. The importance of using metadata and structured headers to guide the model's interpretation is emphasized, as is the potential need for innovative solutions to overcome these challenges.
+
+Overall, the sentiment of the discussion is one of exploration and innovation, with professionals sharing their experiences and strategies to improve the chunking process. The key takeaway is the importance of context and metadata in enhancing the effectiveness of chunking strategies for legal and insurance documents. By leveraging these insights, professionals can optimize their document processing workflows, leading to more accurate and efficient outcomes.","Optimizing Chunking Strategies for Legal and Insurance Documents is the future.
+
+Here's why ↓
+
+In the world of legal and insurance documentation, professionals face the challenge of parsing extensive pages of conditions. The question is: What's the most efficient chunking strategy for these complex documents?
+
+→ Contextual retrieval methods, like those from Anthropic, are leading the way. They split document chunks and add contextual headers, aligning chunks with language model responses. Check it out: [Anthropic Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval).
+
+→ OpenAI's prompt caching is a game-changer, enhancing document processing workflows.
+
+→ Metadata as headers for each chunk? Yes, please. It provides additional context, improving retrieval and coherence.
+
+→ Smaller, semantically grouped chunks are recommended for complex conditions, leading to more accurate outputs.
+
+But there are challenges:
+
+→ Current chunking strategies have limitations, especially with function calling and retrieval-augmented generation (RAG) methods.
+
+→ Significant effort is needed to ensure language models understand chunk relationships.
+
+The key takeaway? Context and metadata are crucial for effective chunking strategies in legal and insurance documents. By leveraging these insights, professionals can optimize their workflows for more accurate and efficient outcomes.
+
+♻️ Repost this if you think it's the future.
+
+#LegalTech #InsuranceInnovation #AI #DocumentProcessing #FutureOfWork","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+**Optimizing Chunking Strategies for Legal and Insurance Documents**
+
+In the realm of legal and insurance documentation, professionals often grapple with the challenge of effectively parsing and chunking extensive pages of conditions. The primary question posed is: What is the most efficient chunking strategy for these complex documents? The discussion reveals a variety of approaches and insights, highlighting both the challenges and potential solutions in this intricate process.
+
+One of the key perspectives shared is the use of contextual retrieval methods, such as those developed by Anthropic. This approach involves splitting document chunks while adding contextual headers to each segment, thereby enhancing the alignment of chunks with the responses generated by language models. OpenAI's recent support for prompt caching is also noted as a beneficial tool in this context. The link to Anthropic's contextual retrieval method is provided for further exploration: [Anthropic Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval).
+
+Another significant insight is the suggestion to incorporate metadata as headers for each chunk. This strategy aims to provide additional context, which can improve the retrieval process and the overall coherence of the language model's responses. Experimenting with smaller, semantically grouped chunks is also recommended, particularly for documents with complex conditions. This approach may lead to more accurate and relevant outputs from language models.
+
+The discussion also touches on the limitations of current chunking strategies, particularly in relation to function calling and retrieval-augmented generation (RAG) methods. It is noted that while these methods can be useful, they often require significant effort to ensure that the language model understands the relationships between different chunks. The importance of using metadata and structured headers to guide the model's interpretation is emphasized, as is the potential need for innovative solutions to overcome these challenges.
+
+Overall, the sentiment of the discussion is one of exploration and innovation, with professionals sharing their experiences and strategies to improve the chunking process. The key takeaway is the importance of context and metadata in enhancing the effectiveness of chunking strategies for legal and insurance documents. By leveraging these insights, professionals can optimize their document processing workflows, leading to more accurate and efficient outcomes.
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","In the rapidly evolving field of document processing, the comparison between IBM Docling and LlamaParse for extracting information from bank account statements in PDF format has sparked considerable interest. Both tools offer unique capabilities, but understanding their differences and potential applications is crucial for professionals seeking efficient solutions.
+
+IBM Docling, as highlighted in a recent discussion, is praised for its robust performance in document processing, leveraging generative AI to enhance accuracy and efficiency. However, the question arises: how does it stack up against LlamaParse? While Docling is recognized for its capabilities, LlamaParse's reliance on cloud services raises concerns about data privacy, especially when handling sensitive financial information. This has led some users to prefer local solutions or alternative cloud providers that offer better data security assurances.
+
+The conversation also touched on the limitations of both tools, particularly in handling complex document elements like signatures. This has prompted some users to explore other technologies, such as PaddleOCR within Docling, or even alternative solutions like MinerU, which has been successfully used to extract data from a large volume of PDFs. MinerU's approach, however, highlights a challenge in integrating vision models to interpret images within documents, a feature that could significantly enhance document parsing capabilities.
+
+A notable sentiment from the discussion is the preference for local processing solutions over cloud-based services, primarily due to concerns about data privacy and control. This preference is echoed by professionals who are keen on maintaining a secure and efficient workflow without compromising sensitive information. Additionally, the integration of AI tools like paperless-ngx and rag chatbots into personal document management systems reflects a growing trend towards digitization and automation in handling paperwork.
+
+In conclusion, the choice between IBM Docling and LlamaParse depends largely on specific needs, particularly regarding data privacy and the complexity of documents being processed. The insights shared in this discussion underscore the importance of evaluating both local and cloud-based solutions to find the most suitable tool for efficient and secure document processing. As the field continues to advance, staying informed about the latest technologies and their applications will be key for professionals aiming to optimize their document management strategies.","IBM Docling vs. LlamaParse: The Future of Document Processing
+
+In the world of document processing, two giants are making waves: IBM Docling and LlamaParse.
+
+Here's the scoop:
+
+→ IBM Docling is renowned for its robust performance, leveraging generative AI to boost accuracy and efficiency.
+→ LlamaParse, on the other hand, relies on cloud services, raising eyebrows about data privacy when handling sensitive financial information.
+
+But there's more to the story.
+
+Both tools face challenges with complex document elements like signatures. This has led some to explore alternatives like PaddleOCR within Docling or MinerU, which excels in extracting data from large volumes of PDFs.
+
+The debate is heating up:
+
+Professionals are leaning towards local processing solutions over cloud-based ones due to data privacy concerns. This trend is evident as more integrate AI tools like paperless-ngx and rag chatbots into their document management systems.
+
+The bottom line?
+
+Choosing between IBM Docling and LlamaParse depends on your specific needs, especially regarding data privacy and document complexity. Staying informed about the latest technologies is crucial for optimizing document management strategies.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+#DocumentProcessing #AI #DataPrivacy #IBMDocling #LlamaParse #Innovation #TechTrends","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+In the rapidly evolving field of document processing, the comparison between IBM Docling and LlamaParse for extracting information from bank account statements in PDF format has sparked considerable interest. Both tools offer unique capabilities, but understanding their differences and potential applications is crucial for professionals seeking efficient solutions.
+
+IBM Docling, as highlighted in a recent discussion, is praised for its robust performance in document processing, leveraging generative AI to enhance accuracy and efficiency. However, the question arises: how does it stack up against LlamaParse? While Docling is recognized for its capabilities, LlamaParse's reliance on cloud services raises concerns about data privacy, especially when handling sensitive financial information. This has led some users to prefer local solutions or alternative cloud providers that offer better data security assurances.
+
+The conversation also touched on the limitations of both tools, particularly in handling complex document elements like signatures. This has prompted some users to explore other technologies, such as PaddleOCR within Docling, or even alternative solutions like MinerU, which has been successfully used to extract data from a large volume of PDFs. MinerU's approach, however, highlights a challenge in integrating vision models to interpret images within documents, a feature that could significantly enhance document parsing capabilities.
+
+A notable sentiment from the discussion is the preference for local processing solutions over cloud-based services, primarily due to concerns about data privacy and control. This preference is echoed by professionals who are keen on maintaining a secure and efficient workflow without compromising sensitive information. Additionally, the integration of AI tools like paperless-ngx and rag chatbots into personal document management systems reflects a growing trend towards digitization and automation in handling paperwork.
+
+In conclusion, the choice between IBM Docling and LlamaParse depends largely on specific needs, particularly regarding data privacy and the complexity of documents being processed. The insights shared in this discussion underscore the importance of evaluating both local and cloud-based solutions to find the most suitable tool for efficient and secure document processing. As the field continues to advance, staying informed about the latest technologies and their applications will be key for professionals aiming to optimize their document management strategies.
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","**Title: Enhancing VectorStore Queries with LangChain JS: A Deep Dive**
+
+In the realm of AI and machine learning, the ability to effectively query and retrieve data from vector stores is crucial for developing intelligent applications. A recent discussion highlights a common challenge faced by developers: obtaining generic responses from vector store queries, akin to interacting with a general-purpose AI like ChatGPT, rather than receiving data-specific insights. This issue raises important questions about the configuration and utilization of tools like LangChain JS and Pinecone in conjunction with OpenAI models.
+
+The main concern revolves around the integration of LangChain JS with Pinecone, a popular vector database, and OpenAI's GPT-4o-mini model. The setup involves creating a vector store from an existing Pinecone index and using OpenAI embeddings to facilitate data retrieval. Despite this, the responses generated appear to lack specificity, suggesting that the context provided by the vector store is not being effectively utilized. This points to potential gaps in the query setup or the need for more refined prompt engineering.
+
+Key insights from the discussion suggest that the issue may lie in the configuration of the retriever and the prompt template. The use of a system template that instructs the model to rely on provided context is crucial, yet the generic nature of the responses indicates that the context may not be reaching the model as intended. This highlights the importance of ensuring that the context is properly formatted and integrated into the query process. Additionally, the choice of model and its parameters, such as temperature, can significantly impact the specificity of the responses.
+
+The conversation also touches on the broader implications of using AI models for data retrieval. It underscores the need for developers to have a deep understanding of both the tools they are using and the data they are working with. This includes not only technical proficiency but also an awareness of how different components interact within the system. The discussion serves as a reminder of the complexities involved in AI development and the continuous learning required to optimize these technologies.
+
+In conclusion, the challenge of obtaining specific responses from vector store queries is a multifaceted issue that requires careful consideration of tool configuration, prompt design, and model selection. For professionals in the field, the key takeaway is the importance of iterative testing and refinement to achieve the desired outcomes. As AI technology continues to evolve, staying informed and adaptable will be essential for leveraging its full potential.","AI is transforming data retrieval.
+
+LangChain JS is at the forefront:
+
+Here's why it's crucial for AI and machine learning:
+
+→ It enhances vector store queries.
+→ It integrates seamlessly with Pinecone and OpenAI models.
+→ It tackles the challenge of generic responses.
+
+But there's a catch.
+
+Developers often face issues with context utilization.
+
+The solution?
+
+→ Refine the retriever configuration.
+→ Design precise prompt templates.
+→ Choose the right model and parameters.
+
+This isn't just about technology.
+
+It's about understanding the tools and data deeply.
+
+The future of AI development demands continuous learning and adaptation.
+
+Trust me:
+
+Iterative testing and refinement are key to success.
+
+Stay informed. Stay adaptable.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+#AI #MachineLearning #LangChainJS #DataRetrieval #Innovation #TechTrends","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+**Title: Enhancing VectorStore Queries with LangChain JS: A Deep Dive**
+
+In the realm of AI and machine learning, the ability to effectively query and retrieve data from vector stores is crucial for developing intelligent applications. A recent discussion highlights a common challenge faced by developers: obtaining generic responses from vector store queries, akin to interacting with a general-purpose AI like ChatGPT, rather than receiving data-specific insights. This issue raises important questions about the configuration and utilization of tools like LangChain JS and Pinecone in conjunction with OpenAI models.
+
+The main concern revolves around the integration of LangChain JS with Pinecone, a popular vector database, and OpenAI's GPT-4o-mini model. The setup involves creating a vector store from an existing Pinecone index and using OpenAI embeddings to facilitate data retrieval. Despite this, the responses generated appear to lack specificity, suggesting that the context provided by the vector store is not being effectively utilized. This points to potential gaps in the query setup or the need for more refined prompt engineering.
+
+Key insights from the discussion suggest that the issue may lie in the configuration of the retriever and the prompt template. The use of a system template that instructs the model to rely on provided context is crucial, yet the generic nature of the responses indicates that the context may not be reaching the model as intended. This highlights the importance of ensuring that the context is properly formatted and integrated into the query process. Additionally, the choice of model and its parameters, such as temperature, can significantly impact the specificity of the responses.
+
+The conversation also touches on the broader implications of using AI models for data retrieval. It underscores the need for developers to have a deep understanding of both the tools they are using and the data they are working with. This includes not only technical proficiency but also an awareness of how different components interact within the system. The discussion serves as a reminder of the complexities involved in AI development and the continuous learning required to optimize these technologies.
+
+In conclusion, the challenge of obtaining specific responses from vector store queries is a multifaceted issue that requires careful consideration of tool configuration, prompt design, and model selection. For professionals in the field, the key takeaway is the importance of iterative testing and refinement to achieve the desired outcomes. As AI technology continues to evolve, staying informed and adaptable will be essential for leveraging its full potential.
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","**Enhancing Text-to-SQL Interactions with Large Language Models**
+
+In the rapidly evolving field of natural language processing, the integration of Large Language Models (LLMs) into applications like Text-to-SQL is gaining significant traction. However, a common challenge faced by developers is ensuring that these models accurately interpret and respond to prompts, especially when dealing with complex queries. A recent discussion highlights the struggle of making LLMs understand domain-specific terms, such as ""top performing teams,"" without overwhelming the model with excessive data.
+
+One of the key insights from this discussion is the importance of providing meaningful context to the LLM. While passing all column data is impractical, ensuring that column headers are intuitive and descriptive can significantly aid the model's understanding. This approach is akin to explaining the task to a highly skilled intern who is unfamiliar with the domain but proficient in SQL. By doing so, developers can bridge the gap between technical SQL knowledge and domain-specific language.
+
+Moreover, the conversation underscores the potential of using a ""Human In Loop"" approach, where human intervention can guide the model in understanding complex terms and relationships between data columns. This method not only enhances the model's accuracy but also allows for continuous learning and adaptation to new queries. Additionally, sharing resources like the Pinterest Engineering article on building Text-to-SQL systems can provide valuable insights and strategies for overcoming these challenges.
+
+The discussion also reveals a consensus on the necessity of providing more context about the database schema and employing few-shot learning techniques. By offering examples of how specific queries are structured, developers can help the LLM draw parallels and improve its interpretative capabilities. This strategy is particularly effective in scenarios where the model struggles with understanding the nuances of certain terms.
+
+In conclusion, the integration of LLMs into Text-to-SQL applications requires a delicate balance of providing sufficient context without overwhelming the model. By focusing on intuitive column headers, leveraging human intervention, and utilizing few-shot learning, developers can enhance the model's performance and ensure more accurate query responses. As the field continues to evolve, these strategies will be crucial in harnessing the full potential of LLMs in data-driven applications. For further insights, the Pinterest Engineering article offers a comprehensive guide on building effective Text-to-SQL systems: [Pinterest Engineering Article](https://medium.com/pinterest-engineering/how-we-built-text-to-sql-at-pinterest-30bad30dabff).","Large Language Models (LLMs) are revolutionizing Text-to-SQL interactions.
+
+Here's why this matters:
+
+→ LLMs are transforming how we interpret complex queries.
+→ They bridge the gap between SQL knowledge and domain-specific language.
+→ They need intuitive column headers to understand context better.
+
+But there's a challenge:
+
+LLMs often struggle with domain-specific terms like ""top performing teams.""
+
+The solution?
+
+1. Provide meaningful context without overwhelming the model.
+2. Use a ""Human In Loop"" approach for guiding the model.
+3. Employ few-shot learning techniques to enhance interpretative capabilities.
+
+This is like explaining a task to a skilled intern who knows SQL but not the domain.
+
+The future of Text-to-SQL is about balance:
+
+→ Intuitive column headers.
+→ Human intervention for complex terms.
+→ Continuous learning and adaptation.
+
+For more insights, check out the [Pinterest Engineering Article](https://medium.com/pinterest-engineering/how-we-built-text-to-sql-at-pinterest-30bad30dabff).
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+#AI #TextToSQL #LLM #DataScience #Innovation","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+**Enhancing Text-to-SQL Interactions with Large Language Models**
+
+In the rapidly evolving field of natural language processing, the integration of Large Language Models (LLMs) into applications like Text-to-SQL is gaining significant traction. However, a common challenge faced by developers is ensuring that these models accurately interpret and respond to prompts, especially when dealing with complex queries. A recent discussion highlights the struggle of making LLMs understand domain-specific terms, such as ""top performing teams,"" without overwhelming the model with excessive data.
+
+One of the key insights from this discussion is the importance of providing meaningful context to the LLM. While passing all column data is impractical, ensuring that column headers are intuitive and descriptive can significantly aid the model's understanding. This approach is akin to explaining the task to a highly skilled intern who is unfamiliar with the domain but proficient in SQL. By doing so, developers can bridge the gap between technical SQL knowledge and domain-specific language.
+
+Moreover, the conversation underscores the potential of using a ""Human In Loop"" approach, where human intervention can guide the model in understanding complex terms and relationships between data columns. This method not only enhances the model's accuracy but also allows for continuous learning and adaptation to new queries. Additionally, sharing resources like the Pinterest Engineering article on building Text-to-SQL systems can provide valuable insights and strategies for overcoming these challenges.
+
+The discussion also reveals a consensus on the necessity of providing more context about the database schema and employing few-shot learning techniques. By offering examples of how specific queries are structured, developers can help the LLM draw parallels and improve its interpretative capabilities. This strategy is particularly effective in scenarios where the model struggles with understanding the nuances of certain terms.
+
+In conclusion, the integration of LLMs into Text-to-SQL applications requires a delicate balance of providing sufficient context without overwhelming the model. By focusing on intuitive column headers, leveraging human intervention, and utilizing few-shot learning, developers can enhance the model's performance and ensure more accurate query responses. As the field continues to evolve, these strategies will be crucial in harnessing the full potential of LLMs in data-driven applications. For further insights, the Pinterest Engineering article offers a comprehensive guide on building effective Text-to-SQL systems: [Pinterest Engineering Article](https://medium.com/pinterest-engineering/how-we-built-text-to-sql-at-pinterest-30bad30dabff).
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"
+"
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+{topic}
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+{examples}
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+","
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+","**Optimizing Chunking Strategies for Legal and Insurance Documents**
+
+In the realm of legal and insurance documentation, professionals often grapple with the challenge of effectively parsing and chunking extensive pages of conditions. The primary question posed is: What is the most efficient chunking strategy for these complex documents? The discussion reveals a variety of approaches and insights, highlighting both the challenges and potential solutions in this intricate process.
+
+One of the key arguments presented is the use of contextual retrieval methods, such as those developed by Anthropic. This approach involves splitting document chunks while adding contextual headers to each segment, thereby enhancing the alignment of chunks with the responses generated by language models. OpenAI's recent support for prompt caching is also noted as a beneficial tool in this context. The link to Anthropic's contextual retrieval method is provided for further exploration: [Anthropic Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval).
+
+A notable perspective shared is the potential benefit of incorporating metadata as headers for each chunk. This strategy aims to provide additional context, which can significantly improve the retrieval process and the accuracy of language model responses. Additionally, experimenting with smaller, semantically grouped chunks is suggested as a way to handle complex conditions more effectively.
+
+The discussion also touches on the inherent challenges of chunking legal documents. One commenter humorously describes the process as ""polishing the turd,"" emphasizing the need for meticulous work to ensure that the language model understands the relationships between different document sections. The importance of using metadata and structured file names for better retrieval is highlighted, suggesting that these elements can play a crucial role in optimizing chunking strategies.
+
+Overall, the sentiment of the discussion is one of exploration and innovation, with professionals sharing their experiences and insights to collectively improve the process of chunking legal and insurance documents. The key takeaway is the importance of context and metadata in enhancing the effectiveness of chunking strategies, as well as the potential of emerging technologies to support these efforts. As the field continues to evolve, these insights offer valuable guidance for professionals seeking to refine their document processing techniques.","Optimizing Chunking Strategies for Legal and Insurance Documents is a game-changer.
+
+Here's why ↓
+
+In the world of legal and insurance documentation, professionals face the daunting task of parsing extensive pages of conditions. The question is: What's the most efficient chunking strategy for these complex documents?
+
+→ Contextual retrieval methods, like those from Anthropic, are leading the way. They split document chunks and add contextual headers, aligning chunks with language model responses. Check it out: [Anthropic Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval).
+
+→ OpenAI's prompt caching is another tool making waves, enhancing document processing efficiency.
+
+→ Metadata as headers for each chunk? Yes, please. It provides additional context, improving retrieval and accuracy.
+
+→ Smaller, semantically grouped chunks are suggested for handling complex conditions more effectively.
+
+The challenges? One commenter humorously calls it ""polishing the turd,"" highlighting the meticulous work needed to ensure language models understand document relationships.
+
+The takeaway? Context and metadata are crucial for effective chunking strategies. Emerging technologies are here to support these efforts.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+#LegalTech #InsuranceInnovation #AI #DocumentProcessing #FutureOfWork","
+You are an expert writer tasked with creating a LinkedIn post that mimics a specific writer's style. To accomplish this, you will first analyze some examples of the writer's previous posts, then create a new post on a given topic in their style.
+
+====================
+Here is the topic:
+```
+**Optimizing Chunking Strategies for Legal and Insurance Documents**
+
+In the realm of legal and insurance documentation, professionals often grapple with the challenge of effectively parsing and chunking extensive pages of conditions. The primary question posed is: What is the most efficient chunking strategy for these complex documents? The discussion reveals a variety of approaches and insights, highlighting both the challenges and potential solutions in this intricate process.
+
+One of the key arguments presented is the use of contextual retrieval methods, such as those developed by Anthropic. This approach involves splitting document chunks while adding contextual headers to each segment, thereby enhancing the alignment of chunks with the responses generated by language models. OpenAI's recent support for prompt caching is also noted as a beneficial tool in this context. The link to Anthropic's contextual retrieval method is provided for further exploration: [Anthropic Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval).
+
+A notable perspective shared is the potential benefit of incorporating metadata as headers for each chunk. This strategy aims to provide additional context, which can significantly improve the retrieval process and the accuracy of language model responses. Additionally, experimenting with smaller, semantically grouped chunks is suggested as a way to handle complex conditions more effectively.
+
+The discussion also touches on the inherent challenges of chunking legal documents. One commenter humorously describes the process as ""polishing the turd,"" emphasizing the need for meticulous work to ensure that the language model understands the relationships between different document sections. The importance of using metadata and structured file names for better retrieval is highlighted, suggesting that these elements can play a crucial role in optimizing chunking strategies.
+
+Overall, the sentiment of the discussion is one of exploration and innovation, with professionals sharing their experiences and insights to collectively improve the process of chunking legal and insurance documents. The key takeaway is the importance of context and metadata in enhancing the effectiveness of chunking strategies, as well as the potential of emerging technologies to support these efforts. As the field continues to evolve, these insights offer valuable guidance for professionals seeking to refine their document processing techniques.
+```
+====================
+Here are some examples of the writer's previous LinkedIn posts:
+
+<writer_posts>
+
+Example 1: 
+________
+
+
+A lot of people are not going to like this.
+
+AI employees are taking over phone calls:
+
+This is Bland AI. And it's changing everything.
+
+If businesses don't adapt to this new tech, 
+they will be left behind.
+
+What does that mean?
+
+→ AI handles millions of calls 24/7.
+→ AI talks in any language or voice.
+→ AI integrates with data systems seamlessly.
+→ AI customized for customer service, HR, or sales.
+
+Bland AI is leading this change. Period.
+
+If you haven't already,
+do it before others.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 2: 
+________
+
+
+The future of household chores is here.
+
+NEO is the game-changer:
+
+AI won't empty your dishwasher, but robots will.
+
+NEO is a humanoid robot from 1X Technologies, a Norwegian startup. 
+
+This robot is unique. It has a muscle-like anatomy instead of rigid hydraulics. 
+
+This design makes it strong and gentle, just like humans. NEO can handle delicate tasks with grace.
+
+NEO stands at 1.6m tall and weighs 29kg. 
+
+NEO can carry up to 19kg and operate for 2-4 hours.
+
+NEO responds to human gestures, body language, and voice commands. 
+
+It mimics human behavior, making interactions feel natural.
+
+NEO uses embodied AI, which means it learns and adapts to its environment. 
+
+This AI system is integrated into its physical form. It understands both natural language and physical space.
+
+NEO enters a market full of innovation and competition. 
+
+Companies like Astribot, Unitree, Zhiyuan, Boston Dynamics, Tesla, and Figure 1 are also in the race. 
+
+They all aim to bring safe and useful humanoid robots into homes and workplaces.
+
+The future is here, and it's robotic.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top.
+2. Follow Shrey Shah to never miss a post.
+
+Example 3:
+___________
+
+
+Sora (from OpenAI) is making waves.
+
+It's not just another video tool:
+
+It's about...
+
+→ Creating minute-long videos with intricate scenes
+→ Competing with Runway, Luma, and Kling
+→ Visualizing text inputs accurately
+
+You might think, ""What about limitations?""
+
+Sure.
+
+Sora struggles with physical accuracy & continuity.
+
+But OpenAI is working on it. 
+
+They are constantly developing & testing to improve.
+
+The result:
+
+Users get ultra-realistic videos with detailed backgrounds and specific movements.
+
+They can even combine image & video tools.
+
+Trust me:
+
+This is the future of video creation.
+
+And in my experience, it's pushing boundaries every day. It's not just a tool. It's a game-changer.
+
+The only problem? It's not accessible...
+
+...and its competitors are.
+
+♻️ Repost this if you think it's the future. 
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 4: 
+_________
+
+
+Kolors Virtual Try-On AI is a game-changer.
+
+Here's why ↓
+
+Share this post to support the future of fashion technology.
+
+According to the latest innovations:
+
+• Users can seamlessly transfer any clothes onto a base image,
+• Creating a realistic and immersive try-on experience,
+• Compatible with popular AI image generators like Midjourney, Flux, and Mystic.
+
+In recent years, we've seen significant advancements in product visualization.
+
+And I am a living example of this:
+↳ An advocate for cutting-edge technology.
+↳ Embracing tools that enhance efficiency and reduce costs.
+
+But the potential of this technology is not fully realized.
+
+Committing to integrating AI in fashion is not a short-term goal.
+
+Without constant attention to innovation,
+we risk missing out on a revolution in the fashion industry.
+
+♻️ Repost this if you think it's great.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+Example 5: 
+____________
+
+AI is evolving at a breakneck speed.
+
+↳ It can now create almost lifelike videos.
+↳ The difference in just one year is stunning.
+
+A year ago, AI-generated videos were often glitchy and unrealistic.
+
+For example, the AI video of Will Smith eating spaghetti was called ""nightmarish."" 
+
+Faces were all wrong, and the video lacked fluidity.
+
+Today, things are totally different.
+
+AI has improved so quickly that the same video now looks almost real. 
+
+The side-by-side comparison is shocking.
+
+Here's how AI has evolved:
+
+1) More realistic and detailed scenes.
+2) Complex camera motions.
+3) Multiple characters with vibrant emotions.
+4) Enhanced fluidity and realism.
+5) Better handling of facial expressions.
+6) Improved background details.
+7) Higher quality in visual effects.
+8) Enhanced lighting and shadows.
+9) Faster processing times.
+
+AI is getting better at creating lifelike videos.
+
+The more we talk about it,
+the more we understand its rapid progress.
+
+♻️ Repost this if you think it's the future.
+
+PS: If you want to stay updated with genAI
+
+1. Scroll to the top. 
+2. Follow Shrey Shah to never miss a post.
+
+</writer_posts>
+
+Your task is to carefully analyze these posts to understand the writer's unique style, tone, and writing patterns. Pay attention to:
+
+1. The overall structure of their posts
+2. The length of their sentences and paragraphs
+3. Their use of punctuation and formatting (e.g., bullet points, emojis)
+4. The type of language they use (formal, casual, technical, etc.)
+5. Any recurring phrases or expressions
+6. How they start and end their posts
+7. Their use of hashtags or mentions
+
+After analyzing the writer's style, you will write a new LinkedIn post on the topic provided by the user. you must ask user to provide you with a topic before processing.
+
+When writing the new post, adhere to the following guidelines:
+
+1. Maintain the same overall tone and style as the example posts
+2. Use a similar structure and formatting
+3. Incorporate any recurring phrases or expressions if appropriate
+4. Match the typical length of the writer's posts
+5. Use hashtags or mentions in a similar manner, if applicable
+6. Ensure the content is relevant to the given topic while staying true to the writer's style
+7. do not use * in the final output, no bold text
+8. you MUST use links in the post if they are provided in the topic, links in the post should be in the following format:
+[text](url)
+9. Focus on the topic and create a post on the given topic. ignore the conversation or discussion, STRICTLY follow above example posts and create a detailed post on topic discussed in the transcript.
+10. If thr topic is a podcast, ignore the conversation in the transcript, focus on the topic discussed in the transcript and create a detailed post on topic discussed in the transcript.
+11. You MUST include hashtags in the post.
+
+Make sure the final LinkedIn post reads naturally and authentically mimics the writer's style while addressing the given topic.
+
+Follow the above instructions strictly, deeply analyze the examples and then only and create a post on the given topic. Only provide the post content in the final output.
+"

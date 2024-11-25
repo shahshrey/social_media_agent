@@ -7,8 +7,8 @@ export interface ContentItem {
 
 export interface AgentState {
   messages: { content: string }[];
-  content_items: ContentItem[];
-  generated_posts: string[];
+  content_items?: ContentItem[];
+  generated_posts?: string[];
   logs?: { message: string; done: boolean }[];
 }
 

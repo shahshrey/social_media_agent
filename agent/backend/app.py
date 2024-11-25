@@ -30,7 +30,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",
+        "http://localhost:3005",
         "https://*.onrender.com",
         "https://edison-ai-ui-epie.vercel.app"
     ],
@@ -103,7 +103,7 @@ async def catch_exceptions_middleware(request: Request, call_next):
 
 def main():
     """Run the uvicorn server."""
-    port = int(os.getenv("PORT", "8000"))
+    port = int(os.getenv("PORT", "8001"))
     logger.info(f"Starting server on port {port}")
     uvicorn.run(
         "backend.app:app", 
