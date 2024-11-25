@@ -7,6 +7,7 @@ import { Card, CardHeader, CardContent } from "./ui/card"
 import { Button } from "./ui/button"
 import { ExpandableCard } from './ui/ExpandableCard';
 import { EditableContent } from './EditableContent';
+import { toastConfig } from './ui/toast';
 
 interface GeneratedPostsProps {
   posts: string[];
@@ -43,9 +44,9 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
     // Copy to clipboard
     try {
       await navigator.clipboard.writeText(post);
-      toast.success('Post copied to clipboard');
+      toast.success('Post copied to clipboard!', toastConfig.success);
     } catch (err) {
-      toast.error('Failed to copy post');
+      toast.error('Failed to copy post', toastConfig.error);
     }
     
     // Open LinkedIn share dialog
