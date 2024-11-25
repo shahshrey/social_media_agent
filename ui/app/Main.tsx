@@ -11,6 +11,7 @@ import GeneratedPosts from './components/GeneratedPosts';
 export function Main() {
   const {
     state: agentState,
+    setState: setAgentState,
   } = useCoAgent<AgentState>({
     name: "Social Media Agent",
     initialState: { 
@@ -46,6 +47,33 @@ export function Main() {
     },
   });
 
+  const handleContentUpdate = (index: number, newContent: string) => {
+    if (!agentState) return;
+    
+    const newContentItems = [...agentState.content_items];
+    newContentItems[index] = {
+      ...newContentItems[index],
+      repr: `ContentItem(content="${newContent.replace(/"/g, '\\"')}")`
+    };
+    
+    setAgentState({
+      ...agentState,
+      content_items: newContentItems,
+    });
+  };
+
+  const handlePostUpdate = (index: number, newContent: string) => {
+    if (!agentState) return;
+    
+    const newPosts = [...agentState.generated_posts];
+    newPosts[index] = newContent;
+    
+    setAgentState({
+      ...agentState,
+      generated_posts: newPosts,
+    });
+  };
+
   useCoAgentStateRender({
     name: "Social Media Agent",
     render: ({ state, nodeName, status }) => {
@@ -61,8 +89,14 @@ export function Main() {
       {/* Main content area */}
       <div className="flex-1 p-4 lg:p-6 overflow-y-auto space-y-6">
         <div className="bg-white rounded-xl shadow-lg p-6 space-y-8">
-          <ContentItems items={agentState?.content_items || []} />
-          <GeneratedPosts posts={agentState?.generated_posts || []} />
+          <ContentItems 
+            items={agentState?.content_items || []} 
+            onContentUpdate={handleContentUpdate}
+          />
+          <GeneratedPosts 
+            posts={agentState?.generated_posts || []} 
+            onPostUpdate={handlePostUpdate}
+          />
         </div>
       </div>
       

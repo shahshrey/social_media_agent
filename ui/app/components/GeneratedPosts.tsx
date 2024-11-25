@@ -1,14 +1,36 @@
 import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp, Share2 } from 'lucide-react';
+import { ChevronDown, ChevronUp, Share2, Pencil, Save, X } from 'lucide-react';
 
 interface GeneratedPostsProps {
   posts: string[];
+  onPostUpdate?: (index: number, newContent: string) => void;
 }
 
-const GeneratedPosts = ({ posts }: GeneratedPostsProps) => {
+const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [editContent, setEditContent] = useState<string>('');
+
+  const handleEdit = (index: number, content: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setEditingIndex(index);
+    setEditContent(content);
+  };
+
+  const handleSave = (index: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onPostUpdate) {
+      onPostUpdate(index, editContent);
+    }
+    setEditingIndex(null);
+  };
+
+  const handleCancel = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setEditingIndex(null);
+  };
 
   const handleShare = (post: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -40,12 +62,18 @@ const GeneratedPosts = ({ posts }: GeneratedPostsProps) => {
                     </ReactMarkdown>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <button
                     onClick={(e) => handleShare(post, e)}
                     className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                   >
                     <Share2 className="w-4 h-4 text-gray-500" />
+                  </button>
+                  <button
+                    onClick={(e) => handleEdit(index, post, e)}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  >
+                    <Pencil className="w-4 h-4 text-gray-500" />
                   </button>
                   {expandedIndex === index ? (
                     <ChevronUp className="w-5 h-5 text-gray-500" />
@@ -65,11 +93,34 @@ const GeneratedPosts = ({ posts }: GeneratedPostsProps) => {
                     className="overflow-hidden border-t border-gray-100"
                   >
                     <div className="p-4 bg-gray-50">
-                      <div className="prose prose-sm max-w-none">
-                        <ReactMarkdown>
-                          {post}
-                        </ReactMarkdown>
-                      </div>
+                      {editingIndex === index ? (
+                        <div className="space-y-4">
+                          <textarea
+                            value={editContent}
+                            onChange={(e) => setEditContent(e.target.value)}
+                            className="w-full h-64 p-2 border rounded-md"
+                            onClick={(e) => e.stopPropagation()}
+                          />
+                          <div className="flex justify-end gap-2">
+                            <button
+                              onClick={(e) => handleCancel(e)}
+                              className="px-3 py-1 text-sm text-gray-600 hover:bg-gray-100 rounded-md"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={(e) => handleSave(index, e)}
+                              className="px-3 py-1 text-sm text-white bg-blue-500 hover:bg-blue-600 rounded-md"
+                            >
+                              <Save className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="prose prose-sm max-w-none">
+                          <ReactMarkdown>{post}</ReactMarkdown>
+                        </div>
+                      )}
                     </div>
                   </motion.div>
                 )}
