@@ -1,26 +1,27 @@
 import ReactMarkdown from 'react-markdown';
-import { ContentItem } from "../lib/types";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Share2 } from 'lucide-react';
 
-const ContentItems = ({ items }: { items: ContentItem[] }) => {
+interface GeneratedPostsProps {
+  posts: string[];
+}
+
+const GeneratedPosts = ({ posts }: GeneratedPostsProps) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const parseContent = (item: any) => {
-    if (item.repr && typeof item.repr === 'string') {
-      const match = item.repr.match(/ContentItem\(content="(.+?)"\)/);
-      return match ? match[1].replace(/\\n/g, '\n') : '';
-    }
-    return item.content || '';
+  const handleShare = (post: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(post);
+    // You could add a toast notification here
   };
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">Content Items</h2>
+      <h2 className="text-2xl font-bold text-gray-900">Generated Posts</h2>
       <div className="space-y-4">
-        {items && items.length > 0 ? (
-          items.map((item, index) => (
+        {posts && posts.length > 0 ? (
+          posts.map((post, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -35,11 +36,17 @@ const ContentItems = ({ items }: { items: ContentItem[] }) => {
                 <div className="flex-1 pr-4">
                   <div className={`prose prose-sm max-w-none ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
                     <ReactMarkdown>
-                      {parseContent(item).split('\n')[0]}
+                      {post.split('\n')[0]}
                     </ReactMarkdown>
                   </div>
                 </div>
-                <div className="flex-shrink-0">
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={(e) => handleShare(post, e)}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  >
+                    <Share2 className="w-4 h-4 text-gray-500" />
+                  </button>
                   {expandedIndex === index ? (
                     <ChevronUp className="w-5 h-5 text-gray-500" />
                   ) : (
@@ -60,7 +67,7 @@ const ContentItems = ({ items }: { items: ContentItem[] }) => {
                     <div className="p-4 bg-gray-50">
                       <div className="prose prose-sm max-w-none">
                         <ReactMarkdown>
-                          {parseContent(item)}
+                          {post}
                         </ReactMarkdown>
                       </div>
                     </div>
@@ -71,7 +78,7 @@ const ContentItems = ({ items }: { items: ContentItem[] }) => {
           ))
         ) : (
           <div className="rounded-xl border-2 border-dashed border-gray-200 p-8">
-            <p className="text-center text-gray-500">No content items available</p>
+            <p className="text-center text-gray-500">No generated posts available</p>
           </div>
         )}
       </div>
@@ -79,4 +86,4 @@ const ContentItems = ({ items }: { items: ContentItem[] }) => {
   );
 };
 
-export default ContentItems;
+export default GeneratedPosts; 

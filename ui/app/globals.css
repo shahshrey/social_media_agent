@@ -7,9 +7,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #f5f5f5;
 }
 
-/* Ensure the root element and main app container use full height */
 #__next,
 main {
   min-height: 100vh;
@@ -17,9 +17,20 @@ main {
   width: 100%;
 }
 
-/* Handle mobile viewport height issues */
 @supports (-webkit-touch-callout: none) {
   .min-h-screen {
     min-height: -webkit-fill-available;
+  }
+}
+
+/* Add smooth scrolling behavior */
+.prose {
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Ensure cards maintain proper spacing on mobile */
+@media (max-width: 768px) {
+  .grid {
+    gap: 1rem;
   }
 }

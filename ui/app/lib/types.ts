@@ -3,9 +3,7 @@ export interface ContentItem {
 }
 
 export interface AgentState {
-  messages: any[];
-  logs?: any[];
-  content_items?: ContentItem[];
-  next_action?: string;
+  messages: { content: string }[];
+  content_items: ContentItem[];
   generated_posts?: string[];
 }
