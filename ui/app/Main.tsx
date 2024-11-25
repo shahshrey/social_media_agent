@@ -7,6 +7,7 @@ import { Progress } from "./components/ui/Progress";
 import ContentItems from './components/ContentItems';
 import { AgentState } from "./lib/types";
 import GeneratedPosts from './components/GeneratedPosts';
+import { motion } from 'framer-motion';
 
 export function Main() {
   const {
@@ -85,10 +86,20 @@ export function Main() {
   });
 
   return (
-    <div className="flex flex-col lg:flex-row h-full w-full">
+    <div className="flex flex-col lg:flex-row h-screen w-full">
       {/* Main content area */}
-      <div className="flex-1 p-4 lg:p-6 overflow-y-auto space-y-6">
-        <div className="bg-white rounded-xl shadow-lg p-6 space-y-8">
+      <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
+        <motion.div 
+          className="min-h-full bg-white rounded-2xl shadow-xl p-6 space-y-8 border border-indigo-100"
+          layout
+          transition={{ 
+            duration: 0.3, 
+            ease: "easeInOut",
+            layout: {
+              duration: 0.3
+            }
+          }}
+        >
           <ContentItems 
             items={agentState?.content_items || []} 
             onContentUpdate={handleContentUpdate}
@@ -97,17 +108,17 @@ export function Main() {
             posts={agentState?.generated_posts || []} 
             onPostUpdate={handlePostUpdate}
           />
-        </div>
+        </motion.div>
       </div>
       
       {/* Right sidebar for chat */}
-      <div className="w-full lg:w-96 border-t lg:border-l border-gray-200">
+      <div className="w-full lg:w-[400px] h-screen border-t lg:border-l border-indigo-200 bg-white">
         <CopilotChat
           className="h-full"
-          instructions={"You are assisting the user as best as you can. Answer in the best way possible given the data you have. Talk like a pirate."}
+          instructions={"You are assisting the user as best as you can. Answer in the best way possible given the data you have."}
           labels={{
-            title: "Your Assistant",
-            initial: "Hi! 👋 How can I assist you today?",
+            title: "Your AI Assistant",
+            initial: "Hi! 👋 I'm your AI social media assistant. How can I help you create engaging content today?",
           }}
         />
       </div>

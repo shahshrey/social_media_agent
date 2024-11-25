@@ -7,7 +7,7 @@ import "@copilotkit/react-ui/styles.css";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between">
+    <main className="h-screen w-full">
       <Toaster 
         position="bottom-left" 
         expand={true}

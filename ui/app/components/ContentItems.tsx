@@ -3,6 +3,8 @@ import { ContentItem } from "../lib/types";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Pencil, Save, X } from 'lucide-react';
+import { Card, CardHeader, CardContent } from "../components/ui/card"
+import { Button } from "../components/ui/button"
 
 const ContentItems = ({ items, onContentUpdate }: { 
   items: ContentItem[]; 
@@ -57,83 +59,90 @@ const ContentItems = ({ items, onContentUpdate }: {
                 damping: 15,
                 delay: index * 0.1 
               }}
-              className="glass rounded-xl overflow-hidden hover-card"
             >
-              <div 
-                onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                className="flex items-center justify-between p-4 cursor-pointer hover:bg-white/50 transition-colors"
-              >
-                <div className="flex-1 pr-4">
-                  <div className={`prose prose-sm max-w-none ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
-                    <ReactMarkdown>
-                      {parseContent(item).split('\n')[0]}
-                    </ReactMarkdown>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={(e) => handleEdit(index, parseContent(item), e)}
-                    className="p-2 hover:bg-indigo-50 rounded-full transition-all duration-200"
-                    aria-label="Edit content"
-                  >
-                    <Pencil className="w-4 h-4 text-indigo-600" />
-                  </button>
-                  {expandedIndex === index ? (
-                    <ChevronUp className="w-5 h-5 text-indigo-600" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-indigo-600" />
-                  )}
-                </div>
-              </div>
-              
-              <AnimatePresence>
-                {expandedIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden border-t border-indigo-100"
-                  >
-                    <div className="p-4 bg-white/50">
-                      {editingIndex === index ? (
-                        <div className="space-y-4">
-                          <textarea
-                            value={editContent}
-                            onChange={(e) => setEditContent(e.target.value)}
-                            className="w-full h-64 p-3 border border-indigo-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                            onClick={(e) => e.stopPropagation()}
-                          />
-                          <div className="flex justify-end gap-2">
-                            <button
-                              onClick={(e) => handleCancel(e)}
-                              className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
-                            >
-                              <X className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={(e) => handleSave(index, e)}
-                              className="px-4 py-2 text-sm text-white bg-indigo-600 hover:bg-indigo-700 rounded-md transition-colors"
-                            >
-                              <Save className="w-4 h-4" />
-                            </button>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="prose prose-sm max-w-none prose-indigo">
-                          <ReactMarkdown>{parseContent(item)}</ReactMarkdown>
-                        </div>
-                      )}
+              <Card className="group hover:border-indigo-300 transition-all duration-300">
+                <CardHeader 
+                  onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                  className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-indigo-50/50 transition-colors"
+                >
+                  <div className="flex-1 pr-4">
+                    <div className={`prose prose-sm max-w-none ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
+                      <ReactMarkdown>
+                        {parseContent(item).split('\n')[0]}
+                      </ReactMarkdown>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={(e) => handleEdit(index, parseContent(item), e)}
+                      className="h-8 w-8 hover:bg-indigo-100"
+                    >
+                      <Pencil className="h-4 w-4 text-indigo-600" />
+                    </Button>
+                    <motion.div
+                      animate={{ rotate: expandedIndex === index ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="h-5 w-5 text-indigo-600" />
+                    </motion.div>
+                  </div>
+                </CardHeader>
+                
+                <AnimatePresence>
+                  {expandedIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <CardContent className="border-t border-indigo-100 bg-white">
+                        {editingIndex === index ? (
+                          <div className="space-y-4">
+                            <textarea
+                              value={editContent}
+                              onChange={(e) => setEditContent(e.target.value)}
+                              className="w-full h-64 p-3 rounded-lg border border-indigo-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none bg-white"
+                              onClick={(e) => e.stopPropagation()}
+                            />
+                            <div className="flex justify-end gap-2">
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={(e) => handleCancel(e)}
+                              >
+                                <X className="h-4 w-4" />
+                              </Button>
+                              <Button
+                                variant="default"
+                                size="sm"
+                                onClick={(e) => handleSave(index, e)}
+                                className="bg-indigo-600 hover:bg-indigo-700"
+                              >
+                                <Save className="h-4 w-4" />
+                              </Button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="prose prose-sm max-w-none prose-indigo bg-white">
+                            <ReactMarkdown>{parseContent(item)}</ReactMarkdown>
+                          </div>
+                        )}
+                      </CardContent>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </Card>
             </motion.div>
           ))
         ) : (
-          <div className="rounded-xl border-2 border-dashed border-indigo-200 p-8 text-center">
-            <p className="text-indigo-600">No content items available</p>
-          </div>
+          <Card className="border-2 border-dashed border-indigo-200">
+            <CardContent className="p-8 text-center">
+              <p className="text-indigo-600">No content items available</p>
+            </CardContent>
+          </Card>
         )}
       </div>
     </div>

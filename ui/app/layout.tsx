@@ -17,7 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
-      <body className={`${inter.className} bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen`}>
+      <body className={`${inter.className} bg-gradient-to-br from-slate-50 via-indigo-50 to-purple-50 min-h-screen h-screen`}>
+        <Toaster position="bottom-right" expand={true} richColors />
         {children}
       </body>
     </html>
