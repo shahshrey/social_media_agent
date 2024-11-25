@@ -1,0 +1,53 @@
+{
+  "rules": [
+    {
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "rules": {
+        "suggestions": {
+          "ai-integration": true,
+          "typescript-strict-mode": true,
+          "error-handling": "use early returns",
+          "code-style": "use functional programming, avoid classes"
+        }
+      }
+    },
+    {
+      "files": [
+        "**/*.jsx",
+        "**/*.tsx"
+      ],
+      "rules": {
+        "suggestions": {
+          "css-framework": "tailwind",
+          "performance-optimization": [
+            "use React Server Components",
+            "wrap client components in Suspense with fallback"
+          ],
+          "image-optimization": [
+            "use WebP format",
+            "implement lazy loading"
+          ]
+        }
+      }
+    },
+    {
+      "files": [
+        "**/*.js",
+        "**/*.jsx"
+      ],
+      "rules": {
+        "suggestions": {
+          "integration": [
+            "Shadcn UI",
+            "Radix UI",
+            "Tailwind CSS"
+          ],
+          "responsive-design": "mobile-first approach"
+        }
+      }
+    }
+  ]
+}

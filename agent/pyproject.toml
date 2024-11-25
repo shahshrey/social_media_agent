@@ -4,6 +4,12 @@ version = "0.1.0"
 description = ""
 authors = ["shrey shah <sshreyv@gmail.com>"]
 readme = "README.md"
+packages = [
+    { include = "backend" }
+]
+
+[tool.poetry.scripts]
+start = "backend.app:main"
 
 [tool.poetry.dependencies]
 python = "3.11.*"

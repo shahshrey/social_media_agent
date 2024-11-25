@@ -3,11 +3,12 @@ import asyncio
 from typing import List
 from bs4 import BeautifulSoup
 from backend.schema.schema import ContentItem
+
 class ProfilePage:
-    def __init__(self, page: Page):
+    def __init__(self, page: Page, linkedin_profile_name: str):
         self.page = page
         self.base_url = "https://www.linkedin.com/in"
-        self.linkedin_profile_name = "shreyshahh"
+        self.linkedin_profile_name = linkedin_profile_name
 
     async def navigate_to_profile(self):
         try:
@@ -43,8 +44,8 @@ class ProfilePage:
         page_content = await self.page.content()
         containers = self.parse_html_content(page_content)
         return [
-            ContentItem(title=f"LinkedIn Post {i+1}", content=self.get_post_content(container))
-            for i, container in enumerate(containers)
+            ContentItem(content=self.get_post_content(container))
+            for container in containers
             if self.get_post_content(container)
         ]
 

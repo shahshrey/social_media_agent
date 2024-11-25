@@ -12,15 +12,17 @@ export function Main() {
   const {
     state: agentState,
   } = useCoAgent<AgentState>({
-    name: "translate_agent",
+    name: "Social Media Agent",
     initialState: { 
       messages: [{ content: "" }],
-      content_items: []
+      content_items: [],
     },
   });
 
+  console.log("Agent State:", agentState);
+
   useCoAgentStateRender({
-    name: "my_agent",
+    name: "Social Media Agent",
     render: ({ state, nodeName, status }) => {
       if (!state.logs || state.logs.length === 0) {
         return null;
@@ -32,12 +34,15 @@ export function Main() {
   return (
     <div className="flex h-full w-full">
       {/* Main content area */}
-      <div className="flex-1 p-4 overflow-y-auto">
-        <ContentItems items={agentState.content_items} />
+      <div className="flex-1 p-6 overflow-y-auto">
+        <pre className="mb-4 p-2 bg-gray-100 rounded">
+          {/* Debug: {JSON.stringify(agentState, null, 2)} */}
+        </pre>
+        <ContentItems items={agentState?.content_items || []} />
       </div>
       
       {/* Right sidebar for chat */}
-      <div className="w-120 border-l border-gray-200">
+      <div className="w-96 border-l border-gray-200">
         <CopilotChat
           className="h-full"
           instructions={"You are assisting the user as best as you can. Answer in the best way possible given the data you have. Talk like a pirate."}

@@ -1,6 +1,6 @@
 import os
 from typing import List, Optional, Dict, Any
-
+from pydantic import Field
 from langchain_openai import ChatOpenAI
 import praw
 from bs4 import BeautifulSoup
@@ -32,8 +32,15 @@ from backend.automation.pages.profile_page import ProfilePage
 load_dotenv()
 
 model = ChatOpenAI(model="gpt-4o", temperature=0)
-@tool
-async def fetch_tds_articles():
+
+class FetchTDSArticlesInputSchema(BaseModel):
+    count: int = Field(description="The number of articles to fetch", default=5)
+
+class FetchTDSArticlesInput(BaseModel):
+    params: FetchTDSArticlesInputSchema
+
+@tool(args_schema=FetchTDSArticlesInputSchema)
+async def fetch_tds_articles(params: FetchTDSArticlesInputSchema):
     """
     Fetches the latest articles from Towards Data Science.
     
@@ -45,10 +52,10 @@ async def fetch_tds_articles():
         "https://towardsdatascience.com/latest"
     )
     if not page_content:
-        return {"content_items": []}
+        raise Exception("Failed to fetch articles")
 
     soup: BeautifulSoup = BeautifulSoup(page_content, "html.parser")
-    for article in soup.find_all("div", class_="postArticle", limit=5):
+    for article in soup.find_all("div", class_="postArticle", limit=params.count):
         link_tag = article.find("a", {"data-action": "open-post"})
         if not link_tag:
             continue
@@ -57,8 +64,7 @@ async def fetch_tds_articles():
         if full_content:
             content_items.append(ContentItem(content=full_content))
 
-    return {"content_items": content_items}
-
+    return content_items
 
 @tool
 async def fetch_linkedin_profile_posts():
@@ -74,7 +80,7 @@ async def fetch_linkedin_profile_posts():
         await login_to_linkedin(page)
         profile_page = ProfilePage(page)
         content_items: List[ContentItem] = await profile_page.scrape_linkedin_posts()
-        return {"content_items": content_items}
+        return content_items
     finally:
         await close_browser(playwright, browser)
 
@@ -97,19 +103,21 @@ async def transcribe_audio():
     return {"content_items": [ContentItem(content=transcription)]}
 
 
-class TranscribeYoutubeInputSchema(BaseModel):
-    url: Optional[str] = None
+class TranscribeYoutubeInput(BaseModel):
+    url: str = Field(description="The URL of the YouTube video to transcribe", default=None)
 
+class TranscribeYoutubeInputSchema(BaseModel):
+    params: TranscribeYoutubeInput
 
 @tool(args_schema=TranscribeYoutubeInputSchema)
-async def transcribe_youtube(input: TranscribeYoutubeInputSchema):
+async def transcribe_youtube(params: TranscribeYoutubeInput):
     """
     Transcribes a YouTube video using the YouTube Transcript API.
     
     Returns:
         ContentItem: A list of content items containing the transcribed video.
     """
-    user_input = input.url if input.url else ""
+    user_input = params.url if params.url else ""
     parsed_url: YouTubeURLParser = model.with_structured_output(
         YouTubeURLParser
     ).invoke(
@@ -121,13 +129,13 @@ async def transcribe_youtube(input: TranscribeYoutubeInputSchema):
     video_id: str = parsed_url.url.split("v=")[1]
     transcript: List[Dict[str, Any]] = YouTubeTranscriptApi.get_transcript(video_id)
     full_transcript: str = " ".join(entry["text"] for entry in transcript)
-    return {"content_items": [ContentItem(content=full_transcript)]}
 
+    return [ContentItem(content=full_transcript)]
 
 
 class SummarizeRedditInput(BaseModel):
-    post_count: int = 5
-    subreddit: str = "LangChain"
+    post_count: int = Field(description="The number of posts to summarize", default=5)
+    subreddit: str = Field(description="The subreddit from which to fetch posts", default="LangChain")
 
 class SummarizeRedditInputSchema(BaseModel):
     params: SummarizeRedditInput

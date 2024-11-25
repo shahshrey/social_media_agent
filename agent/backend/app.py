@@ -1,15 +1,13 @@
 """Demo"""
 
 import os
-from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi import FastAPI, HTTPException
 import uvicorn
 from copilotkit.integrations.fastapi import add_fastapi_endpoint
 from copilotkit import CopilotKitSDK, LangGraphAgent
-from edison_ai.agent import graph
+from backend.agent import workflow
 import logging
-import shutil
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.background import BackgroundTask
 from starlette.concurrency import run_in_threadpool
 import asyncio
 from fastapi import Request
@@ -44,9 +42,9 @@ app.add_middleware(
 sdk = CopilotKitSDK(
     agents=[
         LangGraphAgent(
-            name="edison_ai",
-            description="Edison AI agent.",
-            agent=graph,
+            name="Social Media Agent",
+            description="A social media agent that can create posts on LinkedIn and Reddit.",
+            agent=workflow,
         )
     ],
 )
@@ -59,27 +57,6 @@ def health():
     """Health check."""
     logger.info("Health check endpoint called")
     return {"status": "ok"}
-
-@app.post("/upload-audio")
-async def upload_audio(file: UploadFile = File(...)):
-    """Handle audio file upload."""
-    try:
-        logger.info(f"Receiving audio file: {file.filename}")
-        
-        # Create data directory if it doesn't exist
-        data_dir = os.path.join(os.getcwd(), "data")
-        os.makedirs(data_dir, exist_ok=True)
-        
-        # Save file to data directory
-        file_path = os.path.join(data_dir, file.filename)
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
-        
-        logger.info(f"Audio file saved to: {file_path}")
-        return {"file_path": file_path}
-    except Exception as e:
-        logger.error(f"Error processing audio upload: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/copilotkit")
 async def handle_copilotkit(request: Request):
@@ -129,7 +106,7 @@ def main():
     port = int(os.getenv("PORT", "8000"))
     logger.info(f"Starting server on port {port}")
     uvicorn.run(
-        "edison_ai.app:app", 
+        "backend.app:app", 
         host="0.0.0.0", 
         port=port, 
         reload=True,

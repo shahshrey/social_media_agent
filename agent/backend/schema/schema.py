@@ -1,6 +1,5 @@
+from typing_extensions import TypedDict
 from pydantic import BaseModel, Field 
-
-
 
 class WorkflowNodeType:
     ROUTER = "ROUTER"
@@ -82,3 +81,9 @@ class LinkedInPostDecision(BaseModel):
     should_post: bool = Field(description="Whether the user wants to post to LinkedIn")
     confidence: float = Field(description="Confidence level of the decision", ge=0, le=1)
     reasoning: str = Field(description="Explanation for the decision")
+class Log(TypedDict):
+    """
+    Represents a log of an action performed by the agent.
+    """
+    message: str
+    done: bool
