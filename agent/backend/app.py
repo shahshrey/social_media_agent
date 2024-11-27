@@ -58,6 +58,7 @@ def health():
     logger.info("Health check endpoint called")
     return {"status": "ok"}
 
+
 @app.post("/copilotkit")
 async def handle_copilotkit(request: Request):
     """Handle CopilotKit requests with proper error handling and cancellation."""
@@ -76,12 +77,13 @@ async def handle_copilotkit(request: Request):
             status_code=499,  # Client Closed Request
             detail="Request cancelled by client"
         )
-    except Exception as e:
-        logger.error(f"Error processing CopilotKit request: {str(e)}")
+    except Exception as exc:
+        logger.error(f"Error processing CopilotKit request: {str(exc)}")
         raise HTTPException(
             status_code=500,
-            detail=f"Internal server error: {str(e)}"
-        )
+            detail=f"Internal server error: {str(exc)}"
+        ) from exc
+        
 
 @app.middleware("http")
 async def catch_exceptions_middleware(request: Request, call_next):
@@ -96,10 +98,11 @@ async def catch_exceptions_middleware(request: Request, call_next):
         )
     except Exception as exc:
         logger.error(f"Unhandled error: {str(exc)}")
-        return JSONResponse(
+        raise HTTPException(
             status_code=500,
-            content={"detail": "Internal server error"}
-        )
+            detail=f"Internal server error: {str(exc)}"
+        ) from exc
+
 
 def main():
     """Run the uvicorn server."""

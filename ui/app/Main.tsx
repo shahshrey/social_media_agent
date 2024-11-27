@@ -13,11 +13,14 @@ export function Main() {
 
   useCoAgentStateRender({
     name: "Social Media Agent",
-    render: ({ state }) => {
-      if (!state.logs?.length) return null;
+    render: ({ state, nodeName, status }) => {
+      if (!state.logs || state.logs.length === 0) {
+        return null;
+      }
       return <Progress logs={state.logs} />;
     },
   });
+
 
   const chatSidebar = (
     <CopilotChat

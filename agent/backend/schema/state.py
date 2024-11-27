@@ -16,6 +16,6 @@ from langgraph.graph.message import add_messages
 class AgentState(BaseModel):
     messages: Annotated[List[AnyMessage], add_messages] = Field(default_factory=list)
     next_action: Annotated[Optional[str], Field(default=None)]
-    content_items: Annotated[Optional[List[ContentItem]], Field(default=None)]
+    content_items: Annotated[Optional[List[ContentItem]],   Field(default=None)]
     generated_posts: Annotated[Optional[List[str]], Field(default=None)]
-    logs: list[Log] = Field(default=[])
+    logs: List[Log] = Field(default=[])

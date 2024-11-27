@@ -14,6 +14,8 @@ from backend.prompts.prompts import prompt, writer_examples, TOOLS_SYSTEM_PROMPT
 from backend.schema.schema import (
     LinkedInPostDecision,
 )
+from copilotkit.langchain import copilotkit_emit_state, copilotkit_customize_config
+from langchain_core.runnables import RunnableConfig
 from backend.utils.utils import save_post_to_csv
 from backend.automation.browser import (
     initialize_browser,
@@ -111,7 +113,7 @@ class Agent:
         print("AI message: ", ai_message)
         return {"messages": [ai_message]}
 
-    async def invoke_tools(self, state: AgentState):
+    async def invoke_tools(self, state: AgentState, config: RunnableConfig):
         print("\nInvoking tools...")
         tool_messages = []
         tool_calls = state.messages[-1].tool_calls
@@ -123,6 +125,12 @@ class Agent:
                 print(f"Warning: Invalid tool name - {t['name']}")
                 result = "Invalid tool name."
             else:
+                state["logs"] = state["logs"]
+                state["logs"].append({
+                    "message": f"Processing tool call: {t['name']}",
+                    "done": False
+                })
+                await copilotkit_emit_state(config, state)
                 tool = self.tools[t["name"]]
                 print(f"Invoking tool with args: {t['args']}")
                 result = await tool.ainvoke(t["args"])
@@ -133,13 +141,16 @@ class Agent:
 
                 tool_messages.append(
                     ToolMessage(
-                        content=str(result), tool_call_id=t["id"], name=t["name"]
+                        content=f"I got {len(result)} content items from {t['name']}", tool_call_id=t["id"], name=t["name"]
                     )
                 )
 
+                state["logs"][-1]["done"] = True
+                await copilotkit_emit_state(config, state)
+
         return {"messages": tool_messages, "content_items": state.content_items}
 
-    async def create_post(self, state: AgentState):
+    async def create_post(self, state: AgentState, config: RunnableConfig):
         print("\nCreating posts...")
         generated_posts = []
         examples = writer_examples
@@ -148,6 +159,12 @@ class Agent:
                 f"Number of content items to process: {len(state.content_items)}")
             for i, content_item in enumerate(state.content_items):
                 print(f"\nProcessing content item {i+1}")
+                state["logs"] = state["logs"]
+                state["logs"].append({
+                    "message": f"Processing content item {i+1}",
+                    "done": False
+                })
+                await copilotkit_emit_state(config, state)
                 final_prompt = prompt.format(
                     examples=examples, topic=content_item.content
                 )
@@ -174,6 +191,8 @@ class Agent:
                         final_prompt,
                     )
                     generated_posts.append(response.content)
+                    state["logs"][-1]["done"] = True
+                    await copilotkit_emit_state(config, state)
                 except Exception as e:
                     print(f"Error during model invocation: {str(e)}")
                     continue
@@ -181,30 +200,6 @@ class Agent:
             print(f"Generated {len(generated_posts)} posts")
         return {"generated_posts": generated_posts}
 
-    async def should_post_to_linkedin(self, post: str) -> bool:
-        print("\nChecking if post should be published...")
-        user_input = input(
-            f"Do you want to post this content to LinkedIn?\n\n{post}\n\nEnter 'yes' to post or 'no' to skip: "
-        )
-        print(f"User input: {user_input}")
-
-        print("Analyzing user response...")
-        analysis = await self.model.with_structured_output(
-            LinkedInPostDecision
-        ).ainvoke(
-            [
-                SystemMessage(
-                    content="Analyze the user's response to determine if they want to post the content to LinkedIn. Provide a decision, confidence level, and reasoning."
-                ),
-                HumanMessage(content=f"User's response: {user_input}"),
-            ]
-        )
-
-        print(f"Decision: {analysis.should_post}")
-        print(f"Confidence: {analysis.confidence:.2f}")
-        print(f"Reasoning: {analysis.reasoning}")
-
-        return analysis.should_post
 
     async def chat_with_user(self, state: AgentState):
         print("\nChatting with user...")
@@ -214,13 +209,19 @@ class Agent:
         response = await self.model.ainvoke([HumanMessage(content=user_input)])
         return {"messages": [response]}
 
-    async def post_to_linkedin(self, state: AgentState):
+    async def post_to_linkedin(self, state: AgentState, config: RunnableConfig):
         print("\nPosting to LinkedIn...")
         posts = state.generated_posts
         if not posts:
             print("No posts to publish")
             return
 
+        state["logs"] = state["logs"]
+        state["logs"].append({
+            "message": "Posting to LinkedIn",
+            "done": False
+        })
+        await copilotkit_emit_state(config, state)
         print("Initializing browser...")
         playwright, browser, page = await initialize_browser(headless=False)
         try:
@@ -228,16 +229,13 @@ class Agent:
             await login_to_linkedin(page)
             feed_page = FeedPage(page)
             print(f"Processing {len(posts)} posts...")
-            for i, post in enumerate(posts):
-                print(f"\nProcessing post {i+1}")
-                if await self.should_post_to_linkedin(post):
-                    print("Posting to LinkedIn...")
-                    await feed_page.create_post(post)
-                else:
-                    print("Skipping this post.")
+            for post in posts:
+                await feed_page.create_post(post)
         finally:
             print("Closing browser...")
             await close_browser(playwright, browser)
+        state["logs"][-1]["done"] = True
+        await copilotkit_emit_state(config, state)
         return {
             "messages": [
                 AIMessage(

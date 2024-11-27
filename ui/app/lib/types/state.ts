@@ -9,7 +9,7 @@ export interface AgentState {
   messages: { content: string }[];
   content_items?: ContentItem[];
   generated_posts?: string[];
-  logs?: { message: string; done: boolean }[];
+  logs?: any[];
 }
 
 export interface ContentUpdateHandler {

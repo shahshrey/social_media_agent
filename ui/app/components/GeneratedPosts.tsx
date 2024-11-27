@@ -9,6 +9,7 @@ import { ExpandableCard } from './ui/ExpandableCard';
 import { EditableContent } from './EditableContent';
 import { toastConfig } from './ui/toast';
 import { useTheme } from '../providers/ThemeProvider';
+import { useCoAgent } from "@copilotkit/react-core";
 
 interface GeneratedPostsProps {
   posts: string[];
@@ -20,6 +21,9 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [editContent, setEditContent] = useState<string>('');
+  const { setState, run } = useCoAgent({
+    name: "Social Media Agent",
+  });
 
   const handleEdit = (index: number, content: string, e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -31,6 +35,12 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
     e.stopPropagation();
     if (onPostUpdate) {
       onPostUpdate(index, editContent);
+      
+      setState((prevState: any) => {
+        const updatedPosts = [...(prevState.generated_posts || [])];
+        updatedPosts[index] = editContent;
+        return { ...prevState, generated_posts: updatedPosts };
+      });
     }
     setEditingIndex(null);
   };
