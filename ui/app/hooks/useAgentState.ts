@@ -1,5 +1,6 @@
 import { useCoAgent } from "@copilotkit/react-core";
 import { AgentState } from "../lib/types/state";
+import { useState } from 'react';
 
 const initialState: AgentState = {
   messages: [{ content: "" }],
@@ -34,9 +35,19 @@ const initialState: AgentState = {
 };
 
 export const useAgentState = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const { state: agentState, setState: setAgentState } = useCoAgent<AgentState>({
     name: "Social Media Agent",
     initialState,
+  });
+
+  // Add debug logging
+  console.log('Current Agent State:', {
+    messages: agentState?.messages,
+    content_items: agentState?.content_items,
+    generated_posts: agentState?.generated_posts,
   });
 
   const handleContentUpdate = (index: number, newContent: string) => {
@@ -54,11 +65,44 @@ export const useAgentState = () => {
     });
   };
 
-  const handlePostUpdate = (index: number, newContent: string) => {
+  const handlePostUpdate = async (index: number, newContent: string) => {
+    if (!agentState) return;
+    
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const newPosts = [...agentState.generated_posts];
+      newPosts[index] = newContent;
+      
+      await setAgentState({
+        ...agentState,
+        generated_posts: newPosts,
+      });
+    } catch (err) {
+      setError('Failed to update post. Please try again.');
+      console.error('Post update error:', err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDeletePost = (index: number) => {
     if (!agentState) return;
     
     const newPosts = [...agentState.generated_posts];
-    newPosts[index] = newContent;
+    newPosts.splice(index, 1);
+    
+    setAgentState({
+      ...agentState,
+      generated_posts: newPosts,
+    });
+  };
+
+  const handleAddPost = (content: string) => {
+    if (!agentState || !content.trim()) return;
+    
+    const newPosts = [...(agentState.generated_posts || []), content];
     
     setAgentState({
       ...agentState,
@@ -68,7 +112,11 @@ export const useAgentState = () => {
 
   return {
     agentState,
+    isLoading,
+    error,
     handleContentUpdate,
     handlePostUpdate,
+    handleAddPost,
+    handleDeletePost,
   };
 }; 

@@ -1,4 +1,3 @@
-import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Share2, Pencil, Save, X, Linkedin, Loader2 } from 'lucide-react';
@@ -9,20 +8,40 @@ import { ExpandableCard } from './ui/ExpandableCard';
 import { EditableContent } from './EditableContent';
 import { toastConfig } from './ui/toast';
 import { useTheme } from '../providers/ThemeProvider';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog"
 
 interface GeneratedPostsProps {
   posts: string[];
   onPostUpdate?: (index: number, newContent: string) => void;
+  onAddPost?: (content: string) => void;
+  onDeletePost?: (index: number) => void;
 }
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001';
 
-const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
+// Dynamically import heavy components
+const ReactMarkdown = dynamic(() => import('react-markdown'), {
+  loading: () => <div className="animate-pulse h-4 bg-gray-200 rounded w-full" />
+});
+
+const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost }: GeneratedPostsProps) => {
   const { components } = useTheme();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [editContent, setEditContent] = useState<string>('');
   const [postingToLinkedIn, setPostingToLinkedIn] = useState<number | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [newPostContent, setNewPostContent] = useState('');
+
+  console.log('GeneratedPosts Component State:', {
+    posts,
+    expandedIndex,
+    editingIndex,
+    editContent,
+    postingToLinkedIn,
+  });
 
   const handleEdit = (index: number, content: string, e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -117,6 +136,31 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
     }
   };
 
+  const handleDelete = (index: number, e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (onDeletePost) {
+      onDeletePost(index);
+    }
+  };
+
+  const handleAddNewPost = () => {
+    setNewPostContent('Write your new post here...');
+    setDialogOpen(true);
+  };
+
+  const handleSaveNewPost = () => {
+    if (onAddPost && newPostContent.trim()) {
+      onAddPost(newPostContent);
+      setDialogOpen(false);
+      setNewPostContent('');
+    }
+  };
+
+  const handleCancelNewPost = () => {
+    setDialogOpen(false);
+    setNewPostContent('');
+  };
+
   const renderPostHeader = (post: string, index: number) => (
     <div className={`prose prose-sm max-w-none whitespace-pre-line ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
       <ReactMarkdown>
@@ -126,12 +170,12 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
   );
 
   const renderPostActions = (index: number, post: string) => (
-    <>
+    <div className="flex flex-wrap gap-2 sm:flex-nowrap">
       <Button
         variant="ghost"
         size="icon"
         onClick={(e) => handleLinkedInPost(post, index, e)}
-        className="h-8 w-8 hover:bg-blue-100 relative"
+        className="h-8 w-8 hover:bg-blue-100 relative touch-manipulation"
         disabled={postingToLinkedIn === index}
       >
         {postingToLinkedIn === index ? (
@@ -140,30 +184,99 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
           <Linkedin className="h-4 w-4 text-blue-600" />
         )}
       </Button>
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={(e) => handleShare(post, e)}
-        className="h-8 w-8 hover:bg-indigo-100"
-      >
-        <Share2 className="h-4 w-4 text-indigo-600" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={(e) => handleEdit(index, post, e)}
-        className="h-8 w-8 hover:bg-indigo-100"
-      >
-        <Pencil className="h-4 w-4 text-indigo-600" />
-      </Button>
-    </>
+      <div className="tooltip" data-tip="Share on LinkedIn">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={(e) => handleShare(post, e)}
+          className="h-8 w-8 hover:bg-indigo-100"
+        >
+          <Share2 className="h-4 w-4 text-indigo-600" />
+        </Button>
+      </div>
+      <div className="tooltip" data-tip="Edit">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={(e) => handleEdit(index, post, e)}
+          className="h-8 w-8 hover:bg-indigo-100"
+        >
+          <Pencil className="h-4 w-4 text-indigo-600" />
+        </Button>
+      </div>
+      <div className="tooltip" data-tip="Delete">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={(e) => handleDelete(index, e)}
+          className="h-8 w-8 hover:bg-red-100"
+        >
+          <X className="h-4 w-4 text-red-600" />
+        </Button>
+      </div>
+    </div>
+  );
+
+  const handleSwipe = (index: number, direction: 'left' | 'right') => {
+    if (direction === 'left') {
+      handleDelete(index);
+    } else if (direction === 'right') {
+      handleShare(posts[index]);
+    }
+  };
+
+  const EmptyState = () => (
+    <Card className="border-2 border-dashed border-indigo-200 transition-all hover:border-indigo-300">
+      <CardContent className="p-8 text-center">
+        <div className="mb-4">
+          <Share2 className="h-12 w-12 text-indigo-400 mx-auto" />
+        </div>
+        <h3 className="text-lg font-semibold text-indigo-600 mb-2">
+          Start Creating LinkedIn Posts
+        </h3>
+        <p className="text-sm text-gray-500 mt-2">
+          Create professional content that resonates with your network
+        </p>
+        <Button 
+          onClick={handleAddNewPost}
+          className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white"
+        >
+          Create Your First Post
+        </Button>
+      </CardContent>
+    </Card>
   );
 
   return (
     <div className="space-y-6">
-      <h2 className={components.text.gradient}>
-        LinkedIn Posts
-      </h2>
+      <div className="flex justify-between items-center">
+        <h2 className={components.text.gradient}>
+          LinkedIn Posts
+        </h2>
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogTrigger asChild>
+            <Button
+              className="bg-indigo-600 hover:bg-indigo-700 text-white"
+              size="sm"
+            >
+              Add Post
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[600px]">
+            <DialogHeader>
+              <DialogTitle>Create New LinkedIn Post</DialogTitle>
+            </DialogHeader>
+            <div className="mt-4">
+              <EditableContent
+                content={newPostContent}
+                onChange={setNewPostContent}
+                onSave={handleSaveNewPost}
+                onCancel={handleCancelNewPost}
+              />
+            </div>
+          </DialogContent>
+        </Dialog>
+      </div>
       <p className="text-sm text-gray-600 mb-4">
         Review these posts and edit them to your liking and then click on the share button to post them to LinkedIn.
       </p>
@@ -193,12 +306,7 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
             </ExpandableCard>
           ))
         ) : (
-          <Card className="border-2 border-dashed border-indigo-200">
-            <CardContent className="p-8 text-center">
-              <p className="text-indigo-600">Generate your first LinkedIn post to get started</p>
-              <p className="text-sm text-gray-500 mt-2">Create professional content that resonates with your network</p>
-            </CardContent>
-          </Card>
+          <EmptyState />
         )}
       </div>
     </div>

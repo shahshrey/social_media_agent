@@ -9,7 +9,12 @@ import { MainLayout } from './components/layouts/MainLayout';
 import { useAgentState } from './hooks/useAgentState';
 
 export function Main() {
-  const { agentState, handleContentUpdate, handlePostUpdate } = useAgentState();
+  const { agentState, handleContentUpdate, handlePostUpdate, handleAddPost, handleDeletePost } = useAgentState();
+
+  console.log('Main Component State:', {
+    content_items: agentState?.content_items,
+    generated_posts: agentState?.generated_posts,
+  });
 
   useCoAgentStateRender({
     name: "Social Media Agent",
@@ -39,6 +44,8 @@ export function Main() {
       <GeneratedPosts 
         posts={agentState?.generated_posts || []} 
         onPostUpdate={handlePostUpdate}
+        onAddPost={handleAddPost}
+        onDeletePost={handleDeletePost}
       />
     </MainLayout>
   );

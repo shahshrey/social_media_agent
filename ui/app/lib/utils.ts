@@ -10,3 +10,7 @@ export const truncateUrl = (url: string, maxLength: number = 40) => {
   if (url.length <= maxLength) return url;
   return url.substring(0, maxLength - 3) + "...";
 };
+
+
+
+
