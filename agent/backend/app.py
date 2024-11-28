@@ -30,6 +30,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "http://localhost:3000",
         "http://localhost:3005",
         "https://*.onrender.com",
         "https://edison-ai-ui-epie.vercel.app"
@@ -44,10 +45,11 @@ sdk = CopilotKitSDK(
         LangGraphAgent(
             name="Social Media Agent",
             description="A social media agent that can create posts on LinkedIn and Reddit.",
-            agent=workflow,
+            graph=workflow,
         )
     ],
 )
+
 
 add_fastapi_endpoint(app, sdk, "/copilotkit")
 
@@ -58,29 +60,36 @@ def health():
     logger.info("Health check endpoint called")
     return {"status": "ok"}
 
+# Add timeout configuration
+TIMEOUT_SECONDS = int(os.getenv("REQUEST_TIMEOUT", "300"))  # 5 minutes default timeout
+
 @app.post("/copilotkit")
 async def handle_copilotkit(request: Request):
     """Handle CopilotKit requests with proper error handling and cancellation."""
     try:
-        # Create a new task group for better cancellation handling
-        async with asyncio.TaskGroup() as tg:
-            response = await tg.create_task(
-                run_in_threadpool(
-                    lambda: sdk.process_request(request)
+        logger.info("Received CopilotKit request")
+        
+        # Create timeout context
+        async with asyncio.timeout(TIMEOUT_SECONDS):
+            async with asyncio.TaskGroup() as tg:
+                response = await tg.create_task(
+                    run_in_threadpool(
+                        lambda: sdk.process_request(request)
+                    )
                 )
-            )
-        return response
-    except asyncio.CancelledError:
-        logger.warning("Request was cancelled by client")
+            logger.info("Successfully processed CopilotKit request")
+            return response
+    except asyncio.TimeoutError:
+        logger.error("Request timed out")
         raise HTTPException(
-            status_code=499,  # Client Closed Request
-            detail="Request cancelled by client"
+            status_code=504,
+            detail="Request timed out"
         )
     except Exception as e:
         logger.error(f"Error processing CopilotKit request: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f"Internal server error: {str(e)}"
+            detail=str(e)
         )
 
 @app.middleware("http")
@@ -93,6 +102,12 @@ async def catch_exceptions_middleware(request: Request, call_next):
         return JSONResponse(
             status_code=499,
             content={"detail": "Request cancelled by client"}
+        )
+    except asyncio.TimeoutError:
+        logger.error(f"Request to {request.url.path} timed out")
+        return JSONResponse(
+            status_code=504,
+            content={"detail": "Request timed out"}
         )
     except Exception as exc:
         logger.error(f"Unhandled error: {str(exc)}")

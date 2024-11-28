@@ -523,13 +523,13 @@ test = ["pytest"]
 
 [[package]]
 name = "copilotkit"
-version = "0.1.27"
+version = "0.1.28a5"
 description = "CopilotKit python SDK"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "copilotkit-0.1.27-py3-none-any.whl", hash = "sha256:8e35f0f55fc494ae8ea7d96a783f16d15caf30b4885d6ec23f3cf028311281f9"},
-    {file = "copilotkit-0.1.27.tar.gz", hash = "sha256:506d67067b22ed4e163980cc10a615e8c3a319ee05793ab3571c4bbbe0c230b9"},
+    {file = "copilotkit-0.1.28a5-py3-none-any.whl", hash = "sha256:8bb27b72f83f7751a04826b2ed5f274008fabe0f79362f42ce52949cabdd1d31"},
+    {file = "copilotkit-0.1.28a5.tar.gz", hash = "sha256:fb65d2652f411324a93aa3182de3464c31bc4473ae2172c52930d6bf627c4b6b"},
 ]
 
 [package.dependencies]
@@ -983,6 +983,16 @@ python-versions = ">=3.7"
 files = [
     {file = "h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761"},
     {file = "h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"},
+]
+
+[[package]]
+name = "html2text"
+version = "2024.2.26"
+description = "Turn HTML into equivalent Markdown-structured text."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "html2text-2024.2.26.tar.gz", hash = "sha256:05f8e367d15aaabc96415376776cdd11afd5127a77fce6e36afc60c563ca2c32"},
 ]
 
 [[package]]
@@ -4192,4 +4202,4 @@ requests = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.*"
-content-hash = "4589f9ab5e7369b8dc832f7133634f1f0cadf01887b2075b8fb8d0448006a632"
+content-hash = "e41b0d52afcacce0450bdc5b43efc7969ffd03450a99906c5416bf65666c43db"
