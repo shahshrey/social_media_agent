@@ -12,7 +12,10 @@ from starlette.concurrency import run_in_threadpool
 import asyncio
 from fastapi import Request
 from fastapi.responses import JSONResponse
-
+from pydantic import BaseModel
+from backend.automation.browser import (
+    post_to_linkedin,
+)
 from dotenv import load_dotenv 
 load_dotenv()
 
@@ -115,6 +118,27 @@ async def catch_exceptions_middleware(request: Request, call_next):
             status_code=500,
             content={"detail": "Internal server error"}
         )
+
+class LinkedInPost(BaseModel):
+    content: str
+    
+
+@app.post("/api/linkedin/post")
+async def create_linkedin_post(post: LinkedInPost):
+    """Create a new post on LinkedIn."""
+    try:
+        logger.info("Attempting to post to LinkedIn")
+        await post_to_linkedin(post.content)
+        logger.info("Successfully posted to LinkedIn")
+        return {"status": "success", "message": "Post created successfully"}
+    except Exception as e:
+        logger.error(f"Failed to post to LinkedIn: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to post to LinkedIn: {str(e)}"
+        )
+
+
 
 def main():
     """Run the uvicorn server."""

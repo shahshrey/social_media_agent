@@ -59,7 +59,6 @@ class Agent:
         workflow.add_node("call_tools_llm", self.call_tools_llm)
         workflow.add_node("invoke_tools", self.invoke_tools)
         workflow.add_node("create_post", self.create_post)
-        workflow.add_node("post_to_linkedin", self.post_to_linkedin)
         workflow.add_node("chat_with_user", self.chat_with_user)
         workflow.set_entry_point("call_tools_llm")
 
@@ -70,14 +69,12 @@ class Agent:
             {
                 "more_tools": "invoke_tools",
                 "create_post": "create_post",
-                "post_to_linkedin": "post_to_linkedin",
                 "chat_with_user": "chat_with_user",
             },
         )
         workflow.add_edge("invoke_tools", "call_tools_llm")
-        workflow.add_edge("create_post", "post_to_linkedin")
-        workflow.add_edge("post_to_linkedin", END)
-        workflow.add_edge("chat_with_user", "call_tools_llm")
+        workflow.add_edge("create_post", END)
+        workflow.add_edge("chat_with_user", END)
         memory = MemorySaver()
         self.workflow = workflow.compile(checkpointer=memory)
         print("Workflow built successfully")
@@ -94,9 +91,6 @@ class Agent:
         elif state.content_items and not state.generated_posts:
             print("Next action: create_post")
             return "create_post"
-        elif state.generated_posts:
-            print("Next action: post_to_linkedin")
-            return "post_to_linkedin"
         else:
             print("Next action: chat_with_user")
             return "chat_with_user"
@@ -181,31 +175,6 @@ class Agent:
             print(f"Generated {len(generated_posts)} posts")
         return {"generated_posts": generated_posts}
 
-    async def should_post_to_linkedin(self, post: str) -> bool:
-        print("\nChecking if post should be published...")
-        user_input = input(
-            f"Do you want to post this content to LinkedIn?\n\n{post}\n\nEnter 'yes' to post or 'no' to skip: "
-        )
-        print(f"User input: {user_input}")
-
-        print("Analyzing user response...")
-        analysis = await self.model.with_structured_output(
-            LinkedInPostDecision
-        ).ainvoke(
-            [
-                SystemMessage(
-                    content="Analyze the user's response to determine if they want to post the content to LinkedIn. Provide a decision, confidence level, and reasoning."
-                ),
-                HumanMessage(content=f"User's response: {user_input}"),
-            ]
-        )
-
-        print(f"Decision: {analysis.should_post}")
-        print(f"Confidence: {analysis.confidence:.2f}")
-        print(f"Reasoning: {analysis.reasoning}")
-
-        return analysis.should_post
-
     async def chat_with_user(self, state: AgentState):
         print("\nChatting with user...")
         user_input = input(state.messages[-1].content)
@@ -214,37 +183,7 @@ class Agent:
         response = await self.model.ainvoke([HumanMessage(content=user_input)])
         return {"messages": [response]}
 
-    async def post_to_linkedin(self, state: AgentState):
-        print("\nPosting to LinkedIn...")
-        posts = state.generated_posts
-        if not posts:
-            print("No posts to publish")
-            return
 
-        print("Initializing browser...")
-        playwright, browser, page = await initialize_browser(headless=False)
-        try:
-            print("Logging into LinkedIn...")
-            await login_to_linkedin(page)
-            feed_page = FeedPage(page)
-            print(f"Processing {len(posts)} posts...")
-            for i, post in enumerate(posts):
-                print(f"\nProcessing post {i+1}")
-                if await self.should_post_to_linkedin(post):
-                    print("Posting to LinkedIn...")
-                    await feed_page.create_post(post)
-                else:
-                    print("Skipping this post.")
-        finally:
-            print("Closing browser...")
-            await close_browser(playwright, browser)
-        return {
-            "messages": [
-                AIMessage(
-                    content="Post created on LinkedIn. Do you want to create another post from any other source?"
-                )
-            ]
-        }
 
 
 print("Creating Agent instance...")

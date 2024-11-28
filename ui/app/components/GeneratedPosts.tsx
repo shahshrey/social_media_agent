@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp, Share2, Pencil, Save, X } from 'lucide-react';
+import { ChevronDown, ChevronUp, Share2, Pencil, Save, X, Linkedin, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Card, CardHeader, CardContent } from "./ui/card"
 import { Button } from "./ui/button"
@@ -15,11 +15,14 @@ interface GeneratedPostsProps {
   onPostUpdate?: (index: number, newContent: string) => void;
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001';
+
 const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
   const { components } = useTheme();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [editContent, setEditContent] = useState<string>('');
+  const [postingToLinkedIn, setPostingToLinkedIn] = useState<number | null>(null);
 
   const handleEdit = (index: number, content: string, e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -62,6 +65,58 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
     });
   };
 
+  const handleLinkedInPost = async (post: string, index: number, e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setPostingToLinkedIn(index);
+    
+    // Show initial loading toast
+    const toastId = toast.loading('Initiating LinkedIn post...', {
+      ...toastConfig.info,
+      duration: Infinity,
+    });
+
+    try {
+      // Update progress
+      toast.loading('Posting to LinkedIn...', {
+        id: toastId,
+        ...toastConfig.info,
+      });
+
+      const response = await fetch(`${API_BASE_URL}/api/linkedin/post`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: post }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.detail || 'Failed to post to LinkedIn');
+      }
+
+      // Success toast
+      toast.success('Successfully posted to LinkedIn!', {
+        id: toastId,
+        ...toastConfig.success,
+        duration: 3000,
+      });
+    } catch (err) {
+      console.error('LinkedIn post error:', err);
+      // Error toast
+      toast.error(
+        err instanceof Error ? err.message : 'Failed to post to LinkedIn',
+        {
+          id: toastId,
+          ...toastConfig.error,
+          duration: 3000,
+        }
+      );
+    } finally {
+      setPostingToLinkedIn(null);
+    }
+  };
+
   const renderPostHeader = (post: string, index: number) => (
     <div className={`prose prose-sm max-w-none whitespace-pre-line ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
       <ReactMarkdown>
@@ -72,6 +127,19 @@ const GeneratedPosts = ({ posts, onPostUpdate }: GeneratedPostsProps) => {
 
   const renderPostActions = (index: number, post: string) => (
     <>
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={(e) => handleLinkedInPost(post, index, e)}
+        className="h-8 w-8 hover:bg-blue-100 relative"
+        disabled={postingToLinkedIn === index}
+      >
+        {postingToLinkedIn === index ? (
+          <Loader2 className="h-4 w-4 text-blue-600 animate-spin" />
+        ) : (
+          <Linkedin className="h-4 w-4 text-blue-600" />
+        )}
+      </Button>
       <Button
         variant="ghost"
         size="icon"
