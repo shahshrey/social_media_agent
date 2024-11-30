@@ -60,7 +60,7 @@ The Social Media Agent is a cutting-edge Next.js application designed to serve a
 
 ## Setup Requirements
 - **Node.js**: Version 18.0.0 or higher.
-- **PNPM**: Version 9.12.3 for package management.
+- **PNPM**: Version 9.14.1 for package management.
 - **OpenAI API Key**: Required for AI functionalities.
 
 ## Installation

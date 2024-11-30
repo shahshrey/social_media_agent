@@ -3,7 +3,7 @@ WORKDIR /app/ui
 
 # Copy package files and install dependencies
 COPY ui/package.json ui/pnpm-lock.yaml ./
-RUN npm install -g pnpm@9.12.3 && pnpm install
+RUN npm install -g pnpm@9.14.1 && pnpm install
 
 # Copy the entire ui directory
 COPY ui/ ./
@@ -56,7 +56,7 @@ EXPOSE ${BACKEND_PORT} ${FRONTEND_PORT}
 RUN apt-get update && apt-get install -y supervisor
 
 # Install pnpm in the backend stage
-RUN npm install -g pnpm@9.12.3
+RUN npm install -g pnpm@9.14.1
 
 # Add supervisor configuration
 COPY <<EOF /etc/supervisor/conf.d/supervisord.conf
