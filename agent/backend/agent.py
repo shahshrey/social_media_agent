@@ -20,9 +20,6 @@ from backend.tools import (
 )
 from backend.schema.state import AgentState
 
-print("Loading environment variables...")
-load_dotenv()
-
 print("Initializing tools...")
 TOOLS = [
     fetch_tds_articles,

@@ -1,12 +1,25 @@
 """Demo"""
 
+import logging
 import os
+
+# Configure logging first
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    force=True
+)
+logger = logging.getLogger(__name__)
+
+# Load environment before other imports
+from backend.config import load_environment
+load_environment()
+
 from fastapi import FastAPI, HTTPException
 import uvicorn
 from copilotkit.integrations.fastapi import add_fastapi_endpoint
 from copilotkit import CopilotKitSDK, LangGraphAgent
 from backend.agent import workflow
-import logging
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.concurrency import run_in_threadpool
 import asyncio
@@ -20,16 +33,37 @@ from dotenv import load_dotenv
 from typing import List
 import signal
 import sys
+from pathlib import Path
 
-load_dotenv()
+root_dir = Path(__file__).resolve().parent.parent.parent
+env_path = root_dir / ".env"
 
-# Configure logging BEFORE FastAPI app creation
+# Configure logging BEFORE anything else
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     force=True
 )
 logger = logging.getLogger(__name__)
+
+# Update the environment loading section
+logger.info(f"Looking for .env file at: {env_path}")
+if env_path.exists():
+    logger.info(f".env file found at {env_path}")
+    load_dotenv(dotenv_path=env_path, override=True)
+    
+    # Debug: Print loaded environment variables (excluding sensitive values)
+    logger.info("Loaded environment variables:")
+    logger.info(f"ENVIRONMENT: {os.getenv('ENVIRONMENT', 'not set')}")
+    logger.info(f"OPENAI_API_KEY: {'[SET]' if os.getenv('OPENAI_API_KEY') else '[NOT SET]'}")
+else:
+    logger.warning(f".env file not found at {env_path}")
+
+# Verify critical environment variables
+openai_key = os.getenv("OPENAI_API_KEY")
+if not openai_key:
+    logger.error("OPENAI_API_KEY not found in environment variables")
+    raise ValueError("OPENAI_API_KEY environment variable is required")
 
 app = FastAPI()
 

@@ -29,8 +29,6 @@ from backend.automation.browser import (
 )
 from backend.automation.pages.profile_page import ProfilePage
 
-load_dotenv()
-
 model = ChatOpenAI(model="gpt-4o", temperature=0)
 
 class FetchTDSArticlesInputSchema(BaseModel):

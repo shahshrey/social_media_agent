@@ -4,6 +4,11 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { toastConfig } from './components/ui/toast';
 import { ThemeProvider } from './providers/ThemeProvider';
+import path from 'path';
+import * as dotenv from 'dotenv';
+
+// Load .env file from parent directory
+dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
 
 const inter = Inter({ subsets: ["latin"] });
 

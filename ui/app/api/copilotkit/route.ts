@@ -5,14 +5,37 @@ import {
   copilotRuntimeNextJSAppRouterEndpoint,
 } from "@copilotkit/runtime";
 import OpenAI from "openai";
+import path from 'path';
+import * as dotenv from 'dotenv';
 
-const openai = new OpenAI();
+// Load .env file from parent directory
+dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
+
+// Helper function to validate environment variables
+const validateEnv = () => {
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error('Missing OPENAI_API_KEY - Please ensure your .env file is in the project root (parent directory of ui/) and contains this variable');
+  }
+  
+  return {
+    openaiApiKey: process.env.OPENAI_API_KEY,
+    remoteActionUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8002',
+    environment: process.env.NODE_ENV || 'development'
+  };
+};
+
+// Get validated environment variables
+const env = validateEnv();
+
+const openai = new OpenAI({
+  apiKey: env.openaiApiKey
+});
 const serviceAdapter = new OpenAIAdapter({ openai });
 
 const runtime = new CopilotRuntime({
   remoteActions: [
     {
-      url: process.env.REMOTE_ACTION_URL || "http://localhost:8002/copilotkit",
+      url: env.remoteActionUrl + "/copilotkit",
       onBeforeRequest: ({ ctx }) => ({
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +62,7 @@ export const POST = async (req: NextRequest) => {
       serviceAdapter,
       endpoint: "/api/copilotkit",
       properties: {
-        environment: process.env.NODE_ENV,
+        environment: env.environment,
         apiVersion: '1.0'
       }
     });
