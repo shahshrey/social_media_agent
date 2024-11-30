@@ -19,7 +19,7 @@ interface GeneratedPostsProps {
   onDeletePost?: (index: number) => void;
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8002';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // Dynamically import heavy components
 const ReactMarkdown = dynamic(() => import('react-markdown'), {

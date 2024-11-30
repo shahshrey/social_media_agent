@@ -9,6 +9,7 @@ import * as dotenv from 'dotenv';
 
 // Load .env file from parent directory
 dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
+console.log(`Loading environment variables from ${path.resolve(process.cwd(), '../.env')}`);
 
 const inter = Inter({ subsets: ["latin"] });
 

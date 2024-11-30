@@ -5,13 +5,14 @@ services:
     build:
       context: .
       args:
-        - PORT=8002
+        - BACKEND_PORT=${BACKEND_PORT}
+        - FRONTEND_PORT=${FRONTEND_PORT}
     image: social_media_agent-app
     container_name: social_media_agent-app-1
     restart: unless-stopped
     ports:
-      - "3006:3000"
-      - "8002:8002"
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
     env_file:
       - .env
     volumes:
@@ -33,7 +34,7 @@ services:
         max-file: "3"
         mode: "non-blocking"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health", "&&", "curl", "-f", "http://localhost:8002/health"]
+      test: ["CMD", "curl", "-f", "${FRONTEND_URL}/api/health", "&&", "curl", "-f", "${BACKEND_URL}/health"]
       interval: 30s
       timeout: 30s
       retries: 5

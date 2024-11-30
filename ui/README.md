@@ -75,7 +75,7 @@ The Social Media Agent is a cutting-edge Next.js application designed to serve a
 - **NODE_ENV**: Specifies the environment mode (development, production, etc.).
 
 ## Development Commands
-- **pnpm dev**: Starts the development server on port 3005.
+- **pnpm dev**: Starts the development server on port 3000.
 - **pnpm build**: Creates a production build.
 - **pnpm start**: Runs the production server.
 - **pnpm lint**: Executes ESLint for code quality checks.

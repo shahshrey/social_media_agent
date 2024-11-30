@@ -42,14 +42,15 @@ COPY --from=frontend /app/ui/.next /app/ui/.next
 COPY --from=frontend /app/ui/public /app/ui/public
 COPY --from=frontend /app/ui/app /app/ui/app
 
-ARG PORT=8002
-ENV PORT=${PORT}
-ENV FRONTEND_PORT=3000
+ARG BACKEND_PORT=8000
+ARG FRONTEND_PORT=3000
+ENV BACKEND_PORT=${BACKEND_PORT}
+ENV FRONTEND_PORT=${FRONTEND_PORT}
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:${FRONTEND_PORT}/api/health && curl -f http://localhost:${PORT}/health || exit 1
+  CMD curl -f http://localhost:${FRONTEND_PORT}/api/health && curl -f http://localhost:${BACKEND_PORT}/health || exit 1
 
-EXPOSE ${PORT} ${FRONTEND_PORT}
+EXPOSE ${BACKEND_PORT} ${FRONTEND_PORT}
 
 # Install supervisor
 RUN apt-get update && apt-get install -y supervisor
@@ -72,7 +73,7 @@ autostart=true
 autorestart=true
 stderr_logfile=/var/log/frontend.err.log
 stdout_logfile=/var/log/frontend.out.log
-environment=NODE_ENV="production",PORT="3000",LOG_LEVEL="info"
+environment=NODE_ENV="production",PORT="${FRONTEND_PORT}",LOG_LEVEL="info"
 stopasgroup=true
 killasgroup=true
 startsecs=10
@@ -80,7 +81,7 @@ startretries=3
 
 [program:backend]
 directory=/app
-command=uvicorn backend.app:app --host 0.0.0.0 --port 8002 --reload --log-level info --access-log
+command=uvicorn backend.app:app --host 0.0.0.0 --port ${BACKEND_PORT} --reload --log-level info --access-log
 autostart=true
 autorestart=true
 stderr_logfile=/var/log/backend.err.log

@@ -69,30 +69,13 @@ app = FastAPI()
 
 # Environment configuration
 ENVIRONMENT = os.getenv("ENVIRONMENT", "local")
-ALLOWED_ORIGINS = {
-    "local": [
-        "http://localhost:3000",
-        "http://localhost:3005",
-    ],
-    "development": [
-        "http://localhost:3000",
-        "http://localhost:3005",
-        "https://*.onrender.com",
-    ],
-    "production": [
-        "https://edison-ai-ui-epie.vercel.app",
-        "https://*.onrender.com",
-    ]
-}
-
-def get_allowed_origins() -> List[str]:
-    """Get allowed origins based on environment."""
-    return ALLOWED_ORIGINS.get(ENVIRONMENT, ALLOWED_ORIGINS["local"])
+BACKEND_PORT = int(os.getenv("BACKEND_PORT", "8000"))
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
 
 # Update CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=get_allowed_origins(),
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -207,12 +190,11 @@ signal.signal(signal.SIGINT, signal_handler)
 
 def main():
     """Run the uvicorn server."""
-    port = int(os.getenv("PORT", "8002"))
-    logger.info(f"Starting server on port {port}")
+    logger.info(f"Starting server on port {BACKEND_PORT}")
     uvicorn.run(
         "backend.app:app", 
-        host="0.0.0.0", 
-        port=port, 
+        host=os.getenv("HOSTNAME", "0.0.0.0"), 
+        port=BACKEND_PORT,
         reload=True,
         log_level="info",
         access_log=True

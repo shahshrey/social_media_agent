@@ -19,7 +19,7 @@ const validateEnv = () => {
   
   return {
     openaiApiKey: process.env.OPENAI_API_KEY,
-    remoteActionUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8002',
+    remoteActionUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
     environment: process.env.NODE_ENV || 'development'
   };
 };
