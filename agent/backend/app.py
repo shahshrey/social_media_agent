@@ -18,6 +18,8 @@ from backend.automation.browser import (
 )
 from dotenv import load_dotenv 
 from typing import List
+import signal
+import sys
 
 load_dotenv()
 
@@ -160,11 +162,18 @@ async def create_linkedin_post(post: LinkedInPost):
             detail=f"Failed to post to LinkedIn: {str(e)}"
         )
 
+# Add graceful shutdown handling
+def signal_handler(sig, frame):
+    logger.info("Received shutdown signal, cleaning up...")
+    # Add cleanup logic here
+    sys.exit(0)
 
+signal.signal(signal.SIGTERM, signal_handler)
+signal.signal(signal.SIGINT, signal_handler)
 
 def main():
     """Run the uvicorn server."""
-    port = int(os.getenv("PORT", "8001"))
+    port = int(os.getenv("PORT", "8002"))
     logger.info(f"Starting server on port {port}")
     uvicorn.run(
         "backend.app:app", 

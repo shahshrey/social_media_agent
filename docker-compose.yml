@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        - PORT=8002
+    image: social_media_agent-app
+    container_name: social_media_agent-app-1
+    restart: unless-stopped
+    ports:
+      - "3006:3000"
+      - "8002:8002"
+    env_file:
+      - .env
+    volumes:
+      - social_media_agent_next_cache:/app/ui/.next/cache
+    networks:
+      - social_media_agent_default
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        mode: "non-blocking"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+      start_period: 120s
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+
+volumes:
+  social_media_agent_next_cache:
+    driver: local
+
+networks:
+  social_media_agent_default:
+    name: social_media_agent_default
+    driver: bridge
