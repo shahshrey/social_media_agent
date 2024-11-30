@@ -2,7 +2,6 @@ from typing import List
 
 from dotenv import load_dotenv
 from langchain_core.messages import (
-    AIMessage,
     HumanMessage,
     SystemMessage,
     ToolMessage,
@@ -11,16 +10,7 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, StateGraph
 from langchain_openai import ChatOpenAI
 from backend.prompts.prompts import prompt, writer_examples, TOOLS_SYSTEM_PROMPT
-from backend.schema.schema import (
-    LinkedInPostDecision,
-)
 from backend.utils.utils import save_post_to_csv
-from backend.automation.browser import (
-    initialize_browser,
-    login_to_linkedin,
-    close_browser,
-)
-from backend.automation.pages.feed_page import FeedPage
 from backend.tools import (
     fetch_tds_articles,
     summarize_reddit,
@@ -59,7 +49,7 @@ class Agent:
         workflow.add_node("call_tools_llm", self.call_tools_llm)
         workflow.add_node("invoke_tools", self.invoke_tools)
         workflow.add_node("create_post", self.create_post)
-        workflow.add_node("chat_with_user", self.chat_with_user)
+        # workflow.add_node("chat_with_user", self.chat_with_user)
         workflow.set_entry_point("call_tools_llm")
 
         print("Adding workflow edges...")
@@ -67,14 +57,14 @@ class Agent:
             "call_tools_llm",
             self.determine_next_action,
             {
-                "more_tools": "invoke_tools",
+                "invoke_tools": "invoke_tools",
                 "create_post": "create_post",
-                "chat_with_user": "chat_with_user",
+                "END": END,
             },
         )
         workflow.add_edge("invoke_tools", "call_tools_llm")
         workflow.add_edge("create_post", END)
-        workflow.add_edge("chat_with_user", END)
+        # workflow.add_edge("chat_with_user", END)
         memory = MemorySaver()
         self.workflow = workflow.compile(checkpointer=memory)
         print("Workflow built successfully")
@@ -86,14 +76,14 @@ class Agent:
         print(f"Last message type: {type(last_message)}")
 
         if hasattr(last_message, "tool_calls") and last_message.tool_calls:
-            print("Next action: more_tools")
-            return "more_tools"
+            print("Next action: invoke_tools")
+            return "invoke_tools"
         elif state.content_items and not state.generated_posts:
             print("Next action: create_post")
             return "create_post"
         else:
-            print("Next action: chat_with_user")
-            return "chat_with_user"
+            print("Next action: END")
+            return "END"
 
     def call_tools_llm(self, state: AgentState):
         print("\nCalling tools LLM...")
@@ -177,10 +167,10 @@ class Agent:
 
     async def chat_with_user(self, state: AgentState):
         print("\nChatting with user...")
-        user_input = input(state.messages[-1].content)
-        print(f"User input: {user_input}")
-        print("Generating response...")
-        response = await self.model.ainvoke([HumanMessage(content=user_input)])
+        last_message = state.messages[-1].content
+        print(f"Last message: {last_message}")
+        
+        response = await self.model.ainvoke([HumanMessage(content=last_message)])
         return {"messages": [response]}
 
 

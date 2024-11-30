@@ -155,6 +155,11 @@ async def summarize_reddit(params: SummarizeRedditInput):
     reddit_config: Dict[str, str] = {
         k.lower()[5:]: v for k, v in os.environ.items() if k.startswith("PRAW_")
     }
+    reddit_config.update({
+        'requestor_kwargs': {'timeout': 30},
+        'check_for_updates': False,
+        'verify': False 
+    })
     reddit: praw.Reddit = praw.Reddit(**reddit_config)
     subreddit_obj: praw.models.Subreddit = reddit.subreddit(params.subreddit)
 

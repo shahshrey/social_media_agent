@@ -219,9 +219,9 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost }: Genera
 
   const handleSwipe = (index: number, direction: 'left' | 'right') => {
     if (direction === 'left') {
-      handleDelete(index);
+      handleDelete(index, new MouseEvent('click') as any);
     } else if (direction === 'right') {
-      handleShare(posts[index]);
+      handleShare(posts[index], new MouseEvent('click') as any);
     }
   };
 
@@ -271,7 +271,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost }: Genera
                 content={newPostContent}
                 onChange={setNewPostContent}
                 onSave={handleSaveNewPost}
-                onCancel={handleCancelNewPost}
+                onCancel={(e) => handleCancelNewPost()}
               />
             </div>
           </DialogContent>
@@ -295,8 +295,8 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost }: Genera
                 <EditableContent
                   content={editContent}
                   onChange={setEditContent}
-                  onSave={(e) => handleSave(index, e)}
-                  onCancel={handleCancel}
+                  onSave={(e) => handleSave(index, e as React.MouseEvent<HTMLButtonElement>)}
+                  onCancel={(e) => handleCancel(e as React.MouseEvent<HTMLButtonElement>)}
                 />
               ) : (
                 <div className="prose prose-sm max-w-none prose-indigo bg-white whitespace-pre-line">

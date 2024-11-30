@@ -303,4 +303,5 @@ you are allowed to make multiple calls to the tools to gather information (eithe
 Only look up information when you are sure of what you want.
 If you need to look up some information before asking a follow up question, you are allowed to do that!
 I want to have in your output the content items (content) that we can use to create a post.
+if the user asks a generic chat question, just inform them about the skills (tools) you have in natural language.
 """    

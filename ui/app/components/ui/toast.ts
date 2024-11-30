@@ -15,4 +15,12 @@ export const toastConfig = {
       border: '1px solid rgba(220, 38, 38, 0.2)',
     },
   },
-}; 
+  info: {
+    className: 'border-blue-500',
+    style: {
+      background: '#eff6ff',
+      color: '#1e40af',
+      border: '1px solid #3b82f6'
+    }
+  }
+} as const; 

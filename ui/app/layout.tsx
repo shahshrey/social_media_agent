@@ -24,9 +24,8 @@ export default function RootLayout({
           <Toaster
             position="bottom-left"
             toastOptions={{
-              ...toastConfig.success,
-              success: toastConfig.success,
-              error: toastConfig.error,
+              style: toastConfig.success.style,
+              className: toastConfig.success.className,
             }}
           />
           {children}

@@ -53,7 +53,7 @@ export const useAgentState = () => {
   const handleContentUpdate = (index: number, newContent: string) => {
     if (!agentState) return;
     
-    const newContentItems = [...agentState.content_items];
+    const newContentItems = [...(agentState.content_items || [])];
     newContentItems[index] = {
       ...newContentItems[index],
       repr: `ContentItem(content="${newContent.replace(/"/g, '\\"')}")`
@@ -72,7 +72,7 @@ export const useAgentState = () => {
     setError(null);
     
     try {
-      const newPosts = [...agentState.generated_posts];
+      const newPosts = [...(agentState.generated_posts || [])];
       newPosts[index] = newContent;
       
       await setAgentState({
@@ -90,7 +90,7 @@ export const useAgentState = () => {
   const handleDeletePost = (index: number) => {
     if (!agentState) return;
     
-    const newPosts = [...agentState.generated_posts];
+    const newPosts = [...(agentState.generated_posts || [])];
     newPosts.splice(index, 1);
     
     setAgentState({

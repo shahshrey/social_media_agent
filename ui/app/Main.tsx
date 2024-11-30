@@ -38,11 +38,11 @@ export function Main() {
   return (
     <MainLayout sidebar={chatSidebar}>
       <ContentItems 
-        items={agentState?.content_items || []} 
+        items={agentState?.content_items?.map(item => ({...item, summary: ''})) || []}
         onContentUpdate={handleContentUpdate}
       />
       <GeneratedPosts 
-        posts={agentState?.generated_posts || []} 
+        posts={agentState?.generated_posts || []}
         onPostUpdate={handlePostUpdate}
         onAddPost={handleAddPost}
         onDeletePost={handleDeletePost}

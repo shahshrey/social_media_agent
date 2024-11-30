@@ -17,6 +17,8 @@ from backend.automation.browser import (
     post_to_linkedin,
 )
 from dotenv import load_dotenv 
+from typing import List
+
 load_dotenv()
 
 # Configure logging BEFORE FastAPI app creation
@@ -29,15 +31,32 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
-# Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
+# Environment configuration
+ENVIRONMENT = os.getenv("ENVIRONMENT", "local")
+ALLOWED_ORIGINS = {
+    "local": [
+        "http://localhost:3000",
+        "http://localhost:3005",
+    ],
+    "development": [
         "http://localhost:3000",
         "http://localhost:3005",
         "https://*.onrender.com",
-        "https://edison-ai-ui-epie.vercel.app"
     ],
+    "production": [
+        "https://edison-ai-ui-epie.vercel.app",
+        "https://*.onrender.com",
+    ]
+}
+
+def get_allowed_origins() -> List[str]:
+    """Get allowed origins based on environment."""
+    return ALLOWED_ORIGINS.get(ENVIRONMENT, ALLOWED_ORIGINS["local"])
+
+# Update CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=get_allowed_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -56,15 +75,18 @@ sdk = CopilotKitSDK(
 
 add_fastapi_endpoint(app, sdk, "/copilotkit")
 
-# add new route for health check
+# Add environment info to health check
 @app.get("/health")
 def health():
     """Health check."""
     logger.info("Health check endpoint called")
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "environment": ENVIRONMENT
+    }
 
-# Add timeout configuration
-TIMEOUT_SECONDS = int(os.getenv("REQUEST_TIMEOUT", "300"))  # 5 minutes default timeout
+# Update the timeout configuration
+TIMEOUT_SECONDS = int(os.getenv("REQUEST_TIMEOUT", "600"))  # Increase to 10 minutes
 
 @app.post("/copilotkit")
 async def handle_copilotkit(request: Request):
@@ -110,13 +132,13 @@ async def catch_exceptions_middleware(request: Request, call_next):
         logger.error(f"Request to {request.url.path} timed out")
         return JSONResponse(
             status_code=504,
-            content={"detail": "Request timed out"}
+            content={"detail": "Request timed out. Please try again with a smaller request."}
         )
     except Exception as exc:
-        logger.error(f"Unhandled error: {str(exc)}")
+        logger.error(f"Unhandled error: {str(exc)}", exc_info=True)  # Add exc_info for better logging
         return JSONResponse(
             status_code=500,
-            content={"detail": "Internal server error"}
+            content={"detail": f"Internal server error: {str(exc)}"}
         )
 
 class LinkedInPost(BaseModel):
