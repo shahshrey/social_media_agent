@@ -9,6 +9,7 @@ export interface AgentState {
   messages: { content: string }[];
   content_items?: ContentItem[];
   generated_posts?: string[];
+  writer_examples?: string[];
   logs?: { message: string; done: boolean }[];
 }
 

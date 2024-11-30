@@ -1,5 +1,6 @@
 from typing_extensions import TypedDict
-from pydantic import BaseModel, Field 
+from pydantic import BaseModel, Field, root_validator
+from typing import Dict, Any, Optional
 
 class WorkflowNodeType:
     ROUTER = "ROUTER"
@@ -76,6 +77,24 @@ class RedditFetchParams(BaseModel):
 class ContentItem(BaseModel):
     """A string representing the content."""
     content: str = Field(description="The actual content")
+    
+    @root_validator(pre=True)
+    def extract_content(cls, values: Dict[str, Any]) -> Dict[str, Any]:
+        """Extract content from various possible formats."""
+        if isinstance(values, dict):
+            # Handle LangChain objects
+            if 'lc' in values and 'type' in values:
+                # Try to get content from common fields
+                content = values.get('content') or values.get('text') or str(values)
+                return {'content': content}
+            # Handle direct content field
+            elif 'content' in values:
+                return values
+        # Handle string input
+        elif isinstance(values, str):
+            return {'content': values}
+        # Handle any other type by converting to string
+        return {'content': str(values)}
 
 class LinkedInPostDecision(BaseModel):
     should_post: bool = Field(description="Whether the user wants to post to LinkedIn")

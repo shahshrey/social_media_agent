@@ -18,4 +18,5 @@ class AgentState(BaseModel):
     next_action: Annotated[Optional[str], Field(default=None)]
     content_items: Annotated[Optional[List[ContentItem]], Field(default=None)]
     generated_posts: Annotated[Optional[List[str]], Field(default=None)]
+    writer_examples: Annotated[Optional[List[str]], Field(default=None)]
     logs: list[Log] = Field(default=[])

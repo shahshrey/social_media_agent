@@ -19,6 +19,7 @@ from backend.tools import (
     fetch_linkedin_profile_posts,
 )
 from backend.schema.state import AgentState
+from backend.schema.schema import ContentItem
 
 print("Initializing tools...")
 TOOLS = [
@@ -84,7 +85,7 @@ class Agent:
 
     def call_tools_llm(self, state: AgentState):
         print("\nCalling tools LLM...")
-        messages = state.messages
+        messages = state.messages[-5:]
         system_message = SystemMessage(content=TOOLS_SYSTEM_PROMPT)
         messages = [system_message] + messages
         print(f"Number of messages being processed: {len(messages)}")
@@ -108,9 +109,11 @@ class Agent:
                 print(f"Invoking tool with args: {t['args']}")
                 result = await tool.ainvoke(t["args"])
                 print(f"Tool result type: {type(result)}")
+                
                 if isinstance(result, List):
                     print(f"Number of content items: {len(result)}")
-                    state.content_items = result
+                    # Let the ContentItem model handle the validation and conversion
+                    state.content_items = [ContentItem.parse_obj(item) for item in result]
 
                 tool_messages.append(
                     ToolMessage(
@@ -122,11 +125,11 @@ class Agent:
 
     async def create_post(self, state: AgentState):
         print("\nCreating posts...")
-        generated_posts = []
-        examples = writer_examples
+        # Initialize new_posts list to store newly generated posts
+        new_posts = []
+        examples = state.writer_examples or writer_examples
         if state.content_items:
-            print(
-                f"Number of content items to process: {len(state.content_items)}")
+            print(f"Number of content items to process: {len(state.content_items)}")
             for i, content_item in enumerate(state.content_items):
                 print(f"\nProcessing content item {i+1}")
                 final_prompt = prompt.format(
@@ -141,11 +144,10 @@ class Agent:
 
                 try:
                     response = await self.model.ainvoke(messages)
-
                     if not response or not response.content:
                         print("Warning: Empty response received")
                         continue
-
+                    
                     print("Saving post to CSV...")
                     save_post_to_csv(
                         prompt,
@@ -154,13 +156,21 @@ class Agent:
                         response.content,
                         final_prompt,
                     )
-                    generated_posts.append(response.content)
+                    new_posts.append(response.content)
                 except Exception as e:
                     print(f"Error during model invocation: {str(e)}")
                     continue
-            state.generated_posts = generated_posts
-            print(f"Generated {len(generated_posts)} posts")
-        return {"generated_posts": generated_posts}
+            
+            # Update state with new posts (either append or replace)
+            if state.generated_posts:
+                # Append new posts to existing ones
+                state.generated_posts.extend(new_posts)
+            else:
+                # Set new posts if there weren't any before
+                state.generated_posts = new_posts
+            
+            print(f"Generated {len(new_posts)} new posts. Total posts: {len(state.generated_posts)}")
+        return {"generated_posts": state.generated_posts}
 
     async def chat_with_user(self, state: AgentState):
         print("\nChatting with user...")
