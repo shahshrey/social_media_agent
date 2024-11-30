@@ -43,6 +43,14 @@ services:
       - PYTHONUNBUFFERED=1
       - LOG_LEVEL=info
 
+  frontend:
+    build: ./ui
+    environment:
+      - NODE_ENV=production
+      - BACKEND_URL=${BACKEND_URL}
+    env_file:
+      - .env.production
+
 volumes:
   social_media_agent_next_cache:
     driver: local

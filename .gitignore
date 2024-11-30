@@ -1,2 +1,4 @@
-.env
+.env*
 agent/.env.local
+ui/.env.production
+

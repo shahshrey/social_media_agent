@@ -1,7 +1,18 @@
 import { NextResponse } from "next/server";
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000';
-console.log(`Checking backend health at ${BACKEND_URL}/health`);
+const BACKEND_URL = process.env.BACKEND_URL || (
+  process.env.NODE_ENV === 'production' 
+    ? 'https://your-production-backend.com'  // Replace with your actual production URL
+    : 'http://localhost:8000'
+);
+
+// Add deployment environment logging
+console.log('Environment:', {
+  NODE_ENV: process.env.NODE_ENV,
+  BACKEND_URL,
+  deploymentEnv: process.env.DEPLOYMENT_ENV || 'local'
+});
+
 export async function GET() {
   try {
    
