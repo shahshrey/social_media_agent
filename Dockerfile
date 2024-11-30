@@ -1,9 +1,15 @@
 FROM node:20-slim AS frontend
 WORKDIR /app/ui
+
+# Copy package files and install dependencies
 COPY ui/package.json ui/pnpm-lock.yaml ./
 RUN npm install -g pnpm@9.12.3 && pnpm install
-COPY ui .
-RUN pnpm build
+
+# Copy the entire ui directory
+COPY ui/ ./
+
+# Build the frontend
+RUN pnpm run build
 
 FROM python:3.11.10-slim AS backend
 WORKDIR /app
@@ -21,7 +27,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install poetry
 RUN pip install poetry
 
-# Copy ALL backend files first, then install
+# Copy backend files and install dependencies
 COPY agent/pyproject.toml pyproject.toml
 COPY agent/poetry.lock poetry.lock
 COPY agent/Readme.md README.md
@@ -31,10 +37,10 @@ COPY agent/backend backend/
 RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
-# Copy frontend build from previous stage
+# Copy frontend build from the previous stage
 COPY --from=frontend /app/ui/.next /app/ui/.next
 COPY --from=frontend /app/ui/public /app/ui/public
-COPY --from=frontend /app/ui/app/globals.css /app/ui/globals.css
+COPY --from=frontend /app/ui/app /app/ui/app
 
 ARG PORT=8002
 ENV PORT=${PORT}
@@ -45,5 +51,51 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 
 EXPOSE ${PORT} ${FRONTEND_PORT}
 
-CMD ["uvicorn", "backend.app:app", "--host", "0.0.0.0", "--port", "8002", "--reload", "--log-level", "info", "--access-log"]
+# Install supervisor
+RUN apt-get update && apt-get install -y supervisor
+
+# Install pnpm in the backend stage
+RUN npm install -g pnpm@9.12.3
+
+# Add supervisor configuration
+COPY <<EOF /etc/supervisor/conf.d/supervisord.conf
+[supervisord]
+nodaemon=true
+user=root
+logfile=/var/log/supervisord.log
+loglevel=debug
+
+[program:frontend]
+directory=/app/ui
+command=bash -c "pnpm install && pnpm start"
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/frontend.err.log
+stdout_logfile=/var/log/frontend.out.log
+environment=NODE_ENV="production",PORT="3000",LOG_LEVEL="info"
+stopasgroup=true
+killasgroup=true
+startsecs=10
+startretries=3
+
+[program:backend]
+directory=/app
+command=uvicorn backend.app:app --host 0.0.0.0 --port 8002 --reload --log-level info --access-log
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/backend.err.log
+stdout_logfile=/var/log/backend.out.log
+stopasgroup=true
+killasgroup=true
+EOF
+
+# Ensure the log directory exists and has proper permissions
+RUN mkdir -p /var/log && chmod 777 /var/log
+
+# Copy package files for frontend
+COPY --from=frontend /app/ui/package.json /app/ui/
+COPY --from=frontend /app/ui/pnpm-lock.yaml /app/ui/
+
+# Change CMD to use supervisor with explicit config path
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
