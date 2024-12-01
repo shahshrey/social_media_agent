@@ -9,6 +9,7 @@ import { toastConfig } from './ui/toast';
 import { useTheme } from '../providers/ThemeProvider';
 import dynamic from 'next/dynamic';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 // Types
 type Example = string;
@@ -56,6 +57,12 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
     dialogOpen: false,
     newExampleContent: ''
   });
+  const [activeTab, setActiveTab] = useState<'preview' | 'edit'>('preview');
+
+  const getPreviewText = (text: string) => {
+    // Get first 100 characters of the content, trimmed of markdown
+    return text.replace(/[#*`_]/g, '').slice(0, 100) + (text.length > 100 ? '...' : '');
+  };
 
   return (
     <div className="space-y-6">
@@ -85,6 +92,25 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
                 }
               }}
               onCancel={() => setState(s => ({ ...s, dialogOpen: false, newExampleContent: '' }))}
+              renderEditor={(content, onChange) => (
+                <Tabs defaultValue="edit" className="w-full">
+                  <TabsList className="mb-4">
+                    <TabsTrigger value="edit">Edit</TabsTrigger>
+                    <TabsTrigger value="preview">Preview</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="edit">
+                    <textarea
+                      value={content}
+                      onChange={(e) => onChange(e.target.value)}
+                      className="w-full min-h-[200px] p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Write your example in markdown..."
+                    />
+                  </TabsContent>
+                  <TabsContent value="preview" className="prose prose-sm max-w-none">
+                    <ReactMarkdown>{content}</ReactMarkdown>
+                  </TabsContent>
+                </Tabs>
+              )}
             />
           </DialogContent>
         </Dialog>
@@ -103,8 +129,8 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
               isExpanded={state.expandedIndex === index}
               onToggle={() => setState(s => ({ ...s, expandedIndex: s.expandedIndex === index ? null : index }))}
               header={
-                <div className={`prose prose-sm max-w-none whitespace-pre-line ${state.expandedIndex === index ? '' : 'line-clamp-3'}`}>
-                  <ReactMarkdown>{example.split('\n')[0]}</ReactMarkdown>
+                <div className={`prose prose-sm max-w-none ${state.expandedIndex === index ? '' : 'line-clamp-2'}`}>
+                  {getPreviewText(example)}
                 </div>
               }
               actions={
@@ -143,9 +169,28 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
                     setState(s => ({ ...s, editingIndex: null }));
                   }}
                   onCancel={() => setState(s => ({ ...s, editingIndex: null }))}
+                  renderEditor={(content, onChange) => (
+                    <Tabs defaultValue="edit" className="w-full">
+                      <TabsList className="mb-4">
+                        <TabsTrigger value="edit">Edit</TabsTrigger>
+                        <TabsTrigger value="preview">Preview</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="edit">
+                        <textarea
+                          value={content}
+                          onChange={(e) => onChange(e.target.value)}
+                          className="w-full min-h-[200px] p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                          placeholder="Write your example in markdown..."
+                        />
+                      </TabsContent>
+                      <TabsContent value="preview" className="prose prose-sm max-w-none">
+                        <ReactMarkdown>{content}</ReactMarkdown>
+                      </TabsContent>
+                    </Tabs>
+                  )}
                 />
               ) : (
-                <div className="prose prose-sm max-w-none prose-indigo bg-white whitespace-pre-line">
+                <div className="prose prose-sm max-w-none prose-indigo">
                   <ReactMarkdown>{example}</ReactMarkdown>
                 </div>
               )}
