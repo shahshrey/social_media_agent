@@ -1,6 +1,9 @@
 FROM node:20-slim AS frontend
 WORKDIR /app/ui
 
+ARG OPENAI_API_KEY
+ENV OPENAI_API_KEY=${OPENAI_API_KEY}
+
 # Copy package files and install dependencies
 COPY ui/package.json ui/pnpm-lock.yaml ./
 RUN npm install -g pnpm@9.14.4 && pnpm install
