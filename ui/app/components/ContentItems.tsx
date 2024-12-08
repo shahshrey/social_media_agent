@@ -46,7 +46,7 @@ const ContentItems = ({ items, onContentUpdate }: {
   return (
     <div className="space-y-6">
       <h2 className={components.text.gradient}>
-        Content Items
+        Scraped Content
       </h2>
       <div className="space-y-4">
         {items && items.length > 0 ? (
