@@ -31,38 +31,7 @@ from backend.automation.pages.profile_page import ProfilePage
 
 model = ChatOpenAI(model="gpt-4o", temperature=0)
 
-class FetchTDSArticlesInputSchema(BaseModel):
-    count: int = Field(description="The number of articles to fetch", default=5)
 
-class FetchTDSArticlesInput(BaseModel):
-    params: FetchTDSArticlesInputSchema
-
-@tool(args_schema=FetchTDSArticlesInputSchema)
-async def fetch_tds_articles(params: FetchTDSArticlesInputSchema):
-    """
-    Fetches the latest articles from Towards Data Science.
-    
-    Returns:
-        ContentItem: A list of content items containing the latest articles.
-    """
-    content_items: List[ContentItem] = []
-    page_content: Optional[str] = fetch_url_content(
-        "https://towardsdatascience.com/latest"
-    )
-    if not page_content:
-        raise Exception("Failed to fetch articles")
-
-    soup: BeautifulSoup = BeautifulSoup(page_content, "html.parser")
-    for article in soup.find_all("div", class_="postArticle", limit=params.count):
-        link_tag = article.find("a", {"data-action": "open-post"})
-        if not link_tag:
-            continue
-
-        full_content: Optional[str] = parse_article_content(link_tag["href"])
-        if full_content:
-            content_items.append(ContentItem(content=full_content))
-
-    return content_items
 
 @tool
 async def fetch_linkedin_profile_posts():
@@ -172,4 +141,37 @@ async def summarize_reddit(params: SummarizeRedditInput):
         )
         summary: str = model.invoke([HumanMessage(content=summary_input)]).content
         content_items.append(ContentItem(content=summary))
+    return content_items
+
+class FetchTDSArticlesInput(BaseModel):
+    count: int = Field(description="The number of articles to fetch", default=5)
+
+class FetchTDSArticlesInputSchema(BaseModel):
+    params: FetchTDSArticlesInput
+
+@tool(args_schema=FetchTDSArticlesInputSchema)
+async def fetch_tds_articles(params: FetchTDSArticlesInput):
+    """
+    Fetches the latest articles from Towards Data Science.
+    
+    Returns:
+        ContentItem: A list of content items containing the latest articles.
+    """
+    content_items: List[ContentItem] = []
+    page_content: Optional[str] = fetch_url_content(
+        "https://towardsdatascience.com/latest"
+    )
+    if not page_content:
+        raise Exception("Failed to fetch articles")
+
+    soup: BeautifulSoup = BeautifulSoup(page_content, "html.parser")
+    for article in soup.find_all("div", class_="postArticle", limit=params.count):
+        link_tag = article.find("a", {"data-action": "open-post"})
+        if not link_tag:
+            continue
+
+        full_content: Optional[str] = parse_article_content(link_tag["href"])
+        if full_content:
+            content_items.append(ContentItem(content=full_content))
+
     return content_items
