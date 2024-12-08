@@ -1,5 +1,8 @@
 export interface ContentItem {
-  summary: string;
+  lc: number;
+  type: string;
+  id: string[];
+  repr: string;
 }
 
 export interface AgentState {
