@@ -24,6 +24,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     netcat-traditional \
     net-tools \
+    wget \
+    gnupg \
+    libgconf-2-4 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxrandr2 \
+    libgbm1 \
+    libpango-1.0-0 \
+    libcairo2 \
+    libasound2 \
+    libnspr4 \
+    libnss3 \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
@@ -40,6 +58,10 @@ COPY agent/backend backend/
 # Configure poetry and install dependencies
 RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
+
+# Install Playwright and its dependencies after poetry install
+RUN playwright install chromium \
+    && playwright install-deps chromium
 
 # Copy frontend build from the previous stage
 COPY --from=frontend /app/ui/.next /app/ui/.next
