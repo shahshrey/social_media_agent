@@ -12,38 +12,37 @@ export const AGENT_CAPABILITIES = [
     {
       title: "LinkedIn Profile Posts",
       examples: [
-        "Fetch the 3 most recent LinkedIn posts from shrey's linkedin profile, his profile id is shreyshahh and create linkedIn posts from them",
-        "Get the latest posts from ruben's linkedin profile, his profile id is ruben-hassid and create linkedIn posts from them",
+        "Create LinkedIn posts from the 3 most recent LinkedIn posts from shrey's linkedin profile, his profile id is shreyshahh",
+        "Create LinkedIn posts from the latest posts from ruben's linkedin profile, his profile id is ruben-hassid",
       ]
     },
     {
       title: "Reddit Summaries", 
       examples: [
-        "Find the 3 latest posts from the LangChain subreddit and create LinkedIn posts about it",
-        "Summarize top discussions from r/MachineLearning this week",
-        "Create engaging posts from trending r/Technology discussions"
+        "Create LinkedIn posts from the 3 latest posts from the LangChain subreddit",
+        "Create LinkedIn posts from the top discussions from r/MachineLearning this week",
+        "Create LinkedIn posts from trending r/Technology discussions"
       ]
     },
     {
       title: "Towards Data Science Articles",
       examples: [
-        "Get the 3 top articles from Towards Data Science and create LinkedIn posts about it",
-        "Find recent TDS articles about LLMs and create thread summaries",
-        "Summarize popular TDS articles about data visualization techniques"
+        "Create LinkedIn posts from the 3 top articles from Towards Data Science",
+        "Create LinkedIn posts from recent TDS articles about LLMs",
+        "Create LinkedIn posts from popular TDS articles about data visualization techniques"
       ]
     },
     {
       title: "YouTube Transcription",
       examples: [
-        "Transcribe this YouTube video https://www.youtube.com/watch?v=usOmwLZNVuM and create a LinkedIn post about the topics discussed",
+        "Create LinkedIn posts from the transcript of this YouTube video https://www.youtube.com/watch?v=usOmwLZNVuM",
       ]
     },
     {
       title: "Audio Transcription -- coming soon",
       examples: [
-        "Transcribe this audio file and create a LinkedIn post about it",
-        "Convert my podcast episode into engaging social media content",
-        "Create Twitter threads from my conference talk recording"
+        "Create LinkedIn posts from my podcast episode",
+        "Create LinkedIn posts from my conference talk recording",
       ]
     }
   ] as const; 

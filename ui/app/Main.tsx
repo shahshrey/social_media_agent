@@ -8,12 +8,12 @@ import { useAgentState } from './hooks/useAgentState';
 import { AgentState } from './lib/types/state';
 import { CHAT_CONFIG } from './lib/constants';
 import { AgentCapabilities } from './components/AgentCapabilities';
-import { CollapsibleSection } from './components/CollapsibleSection';
 import GeneratedPosts from './components/GeneratedPosts';
 import WriterExamples from './components/WriterExamples';
 import ContentItems from './components/ContentItems';
 import { TooltipProvider } from './components/ui/tooltip';
 import { Card } from './components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
 
 export function Main() {
   const { agentState, isLoading, ...handlers } = useAgentState();
@@ -53,41 +53,63 @@ export function Main() {
 
           <AgentCapabilities />
 
-          <CollapsibleSection 
-            title="Provide Examples to Mimic your writing style"
-            tooltip="Add your own writing examples to help the AI understand and replicate your unique style"
-          >
-            <WriterExamples
-              examples={agentState?.writer_examples || []}
-              onExampleUpdate={handlers.handleExampleUpdate}
-              onAddExample={handlers.handleAddExample}
-              onDeleteExample={handlers.handleDeleteExample}
-              isLoading={isLoading}
-            />
-          </CollapsibleSection>
-
-          <CollapsibleSection 
-            title="Tailored Linkedin Posts that match your writing style"
-            tooltip="View, edit and post AI-generated LinkedIn posts that match your writing style"
-          >
-            <GeneratedPosts 
-              posts={agentState?.generated_posts || []}
-              onPostUpdate={handlers.handlePostUpdate}
-              onAddPost={handlers.handleAddPost}
-              onDeletePost={handlers.handleDeletePost}
-              isLoading={isLoading}
-            />
-          </CollapsibleSection>
-
-          <CollapsibleSection 
-            title="Sources of Content"
-            tooltip="View and edit the source content used to generate posts"
-          >
-            <ContentItems 
-              items={agentState?.content_items || []}
-              onContentUpdate={handlers.handleContentUpdate}
-            />
-          </CollapsibleSection>
+          <Card className="p-6">
+            <Tabs defaultValue="examples" className="w-full">
+              <TabsList className="grid w-full grid-cols-3">
+                <TabsTrigger value="examples" className="data-[state=active]:bg-indigo-50">
+                  Writing Examples
+                </TabsTrigger>
+                <TabsTrigger value="posts" className="data-[state=active]:bg-indigo-50">
+                  Generated Posts
+                </TabsTrigger>
+                <TabsTrigger value="content" className="data-[state=active]:bg-indigo-50">
+                  Content Sources
+                </TabsTrigger>
+              </TabsList>
+              <TabsContent value="examples" className="mt-6">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-semibold text-indigo-900">Writing Examples</h2>
+                    <p className="text-sm text-indigo-600">Add examples to help AI understand your style</p>
+                  </div>
+                  <WriterExamples
+                    examples={agentState?.writer_examples || []}
+                    onExampleUpdate={handlers.handleExampleUpdate}
+                    onAddExample={handlers.handleAddExample}
+                    onDeleteExample={handlers.handleDeleteExample}
+                    isLoading={isLoading}
+                  />
+                </div>
+              </TabsContent>
+              <TabsContent value="posts" className="mt-6">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-semibold text-indigo-900">Generated Posts</h2>
+                    <p className="text-sm text-indigo-600">View and manage your AI-generated posts</p>
+                  </div>
+                  <GeneratedPosts 
+                    posts={agentState?.generated_posts || []}
+                    onPostUpdate={handlers.handlePostUpdate}
+                    onAddPost={handlers.handleAddPost}
+                    onDeletePost={handlers.handleDeletePost}
+                    isLoading={isLoading}
+                  />
+                </div>
+              </TabsContent>
+              <TabsContent value="content" className="mt-6">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-semibold text-indigo-900">Content Sources</h2>
+                    <p className="text-sm text-indigo-600">Manage your content source materials</p>
+                  </div>
+                  <ContentItems 
+                    items={agentState?.content_items || []}
+                    onContentUpdate={handlers.handleContentUpdate}
+                  />
+                </div>
+              </TabsContent>
+            </Tabs>
+          </Card>
         </div>
       </MainLayout>
     </TooltipProvider>
