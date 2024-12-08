@@ -22,7 +22,7 @@ const CHAT_CONFIG = {
   instructions: "You are assisting the user as best as you can. Answer in the best way possible given the data you have.",
   labels: {
     title: "Your AI Assistant",
-    initial: "Hi! 👋 I'm your AI social media assistant. How can I help you create engaging content today?",
+    initial: "Hi! 👋 I'm here to help you create social media posts. I can create content from sources like Reddit, LinkedIn, YouTube, or Towards Data Science, feel free to ask!",
   }
 };
 

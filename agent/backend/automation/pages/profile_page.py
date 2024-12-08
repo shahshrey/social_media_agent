@@ -1,22 +1,21 @@
 from playwright.async_api import Page
 import asyncio
-from typing import List
+from typing import List, Union
 from bs4 import BeautifulSoup
 from backend.schema.schema import ContentItem
 
 class ProfilePage:
-    def __init__(self, page: Page, linkedin_profile_name: str):
+    def __init__(self, page: Page):
         self.page = page
         self.base_url = "https://www.linkedin.com/in"
-        self.linkedin_profile_name = linkedin_profile_name
 
-    async def navigate_to_profile(self):
+    async def navigate_to_profile(self, linkedin_profile_id: str):
         try:
             await self.page.goto(
-                f"{self.base_url}/{self.linkedin_profile_name}/recent-activity/all/"
+                f"{self.base_url}/{linkedin_profile_id}/recent-activity/all/"
             )
         except TimeoutError:
-            raise Exception(f"Failed to navigate to profile '{self.linkedin_profile_name}': Timeout")
+            raise Exception(f"Failed to navigate to profile '{linkedin_profile_id}': Timeout")
 
     async def scroll_page(self, scrolls: int = 2):
         for _ in range(scrolls):
@@ -49,9 +48,20 @@ class ProfilePage:
             if self.get_post_content(container)
         ]
 
-    async def scrape_linkedin_posts(self) -> List[ContentItem]:
-        await self.navigate_to_profile()
-        await asyncio.sleep(3)
-        await self.scroll_page()
-        posts = await self.get_linkedin_posts()
-        return posts[:5]
+    async def scrape_linkedin_posts(self, linkedin_profile_ids: Union[str, List[str]], max_posts: int = 5) -> List[ContentItem]:
+
+        profile_ids = [linkedin_profile_ids] if isinstance(linkedin_profile_ids, str) else linkedin_profile_ids
+        
+        all_posts = []
+        for profile_id in profile_ids:
+            try:
+                await self.navigate_to_profile(profile_id)
+                await asyncio.sleep(3)
+                await self.scroll_page()
+                posts = await self.get_linkedin_posts()
+                all_posts.extend(posts[:max_posts])
+            except Exception as e:
+                print(f"Error scraping profile {profile_id}: {str(e)}")
+                continue
+                
+        return all_posts

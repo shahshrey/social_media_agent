@@ -1,5 +1,5 @@
 import os
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Union
 from pydantic import Field
 from langchain_openai import ChatOpenAI
 import praw
@@ -31,22 +31,32 @@ from backend.automation.pages.profile_page import ProfilePage
 
 model = ChatOpenAI(model="gpt-4o", temperature=0)
 
+class FetchLinkedinProfilePostsInput(BaseModel):
+    max_posts: int = Field(description="The maximum number of posts to fetch", default=5)
+    linkedin_profile_id: Union[str, List[str]] = Field(
+        description="The LinkedIn profile ID(s) to fetch posts from. Can be a single ID or list of IDs.",
+        default=None
+    )
 
+class FetchLinkedinProfilePostsInputSchema(BaseModel):
+    params: FetchLinkedinProfilePostsInput
 
-@tool
-async def fetch_linkedin_profile_posts():
+@tool(args_schema=FetchLinkedinProfilePostsInputSchema)
+async def fetch_linkedin_profile_posts(params: FetchLinkedinProfilePostsInput):
     """
-    Fetches the latest posts from the user's LinkedIn profile.
+    Fetches the latest posts from one or more LinkedIn profiles.
     
     Returns:
-        ContentItem: A list of content items containing the latest posts.
+        ContentItem: A list of content items containing the latest posts from all profiles.
     """
-
-    playwright, browser, page = await initialize_browser(headless=False)
+    playwright, browser, page = await initialize_browser(headless=True)
     try:
         await login_to_linkedin(page)
         profile_page = ProfilePage(page)
-        content_items: List[ContentItem] = await profile_page.scrape_linkedin_posts()
+        content_items: List[ContentItem] = await profile_page.scrape_linkedin_posts(
+            linkedin_profile_ids=params.linkedin_profile_id,
+            max_posts=params.max_posts
+        )
         return content_items
     finally:
         await close_browser(playwright, browser)
