@@ -13,6 +13,7 @@ import GeneratedPosts from './components/GeneratedPosts';
 import WriterExamples from './components/WriterExamples';
 import ContentItems from './components/ContentItems';
 import { TooltipProvider } from './components/ui/tooltip';
+import { Card } from './components/ui/card';
 
 export function Main() {
   const { agentState, isLoading, ...handlers } = useAgentState();
@@ -27,6 +28,29 @@ export function Main() {
     <TooltipProvider>
       <MainLayout sidebar={<CopilotChat {...CHAT_CONFIG} />}>
         <div className="space-y-8">
+          <Card className="p-6 bg-gradient-to-r from-indigo-50 to-blue-50 border-none">
+            <h1 className="text-2xl font-bold text-indigo-900 mb-3">
+             Dashboard
+            </h1>
+            <p className="text-indigo-700 mb-4">
+              Your AI-powered social media content assistant. Here&apos;s what you can do:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="bg-white/50 p-4 rounded-lg">
+                <h3 className="font-semibold text-indigo-900 mb-2">1. Train Your AI</h3>
+                <p className="text-indigo-700">Add writing examples to help the AI understand and mimic your unique style.</p>
+              </div>
+              <div className="bg-white/50 p-4 rounded-lg">
+                <h3 className="font-semibold text-indigo-900 mb-2">2. Generate Content</h3>
+                <p className="text-indigo-700">Get AI-generated LinkedIn posts that match your writing style and tone. Post to LinkedIn with a single click.</p>
+              </div>
+              <div className="bg-white/50 p-4 rounded-lg">
+                <h3 className="font-semibold text-indigo-900 mb-2">3. Manage Sources</h3>
+                <p className="text-indigo-700">View and edit the source content used to generate your posts.</p>
+              </div>
+            </div>
+          </Card>
+
           <AgentCapabilities />
 
           <CollapsibleSection 

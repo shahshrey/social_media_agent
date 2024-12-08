@@ -22,7 +22,7 @@ export function AgentCapabilities() {
   return (
     <div className={`rounded-lg ${styles.card.base} bg-background-subtle p-4`}>
       <h2 className={`text-lg font-semibold ${styles.text.gradient} mb-4`}>
-        What Can This Agent Do?
+        Quick actions
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {AGENT_CAPABILITIES.map((category, idx) => (
