@@ -18,6 +18,10 @@ services:
       - .env
     volumes:
       - social_media_agent_next_cache:/app/ui/.next/cache
+      - ./ui:/app/ui:delegated
+      - ./agent/backend:/app/backend:delegated
+      - ./agent/pyproject.toml:/app/pyproject.toml:delegated
+      - ./agent/poetry.lock:/app/poetry.lock:delegated
     networks:
       - social_media_agent_default
     deploy:

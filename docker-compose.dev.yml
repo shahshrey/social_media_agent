@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    command: ["-c", "/etc/supervisor/conf.d/supervisord.dev.conf"]
+    environment:
+      - NODE_ENV=development
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=debug
+      - NEXT_TELEMETRY_DISABLED=1
+      - WATCHPACK_POLLING=true
+      - FRONTEND_PORT=${FRONTEND_PORT:-3000}
+      - BACKEND_PORT=${BACKEND_PORT:-8000}
+      - BACKEND_URL=http://localhost:${BACKEND_PORT:-8000}
+      - FRONTEND_URL=http://localhost:${FRONTEND_PORT:-3000}
+    volumes:
+      - ./ui:/app/ui:delegated
+      - ./ui/node_modules:/app/ui/node_modules:delegated
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G 

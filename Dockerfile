@@ -6,7 +6,8 @@ ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 
 # Copy package files and install dependencies
 COPY ui/package.json ui/pnpm-lock.yaml ./
-RUN npm install -g pnpm@9.14.4 && pnpm install
+RUN npm install -g pnpm@9.14.4 && \
+    pnpm install --frozen-lockfile
 
 # Copy the entire ui directory
 COPY ui/ ./
@@ -100,6 +101,10 @@ RUN mkdir -p /var/log && chmod 777 /var/log
 COPY --from=frontend /app/ui/package.json /app/ui/
 COPY --from=frontend /app/ui/pnpm-lock.yaml /app/ui/
 
-# Change CMD to use supervisor with explicit config path
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# Add development supervisor configuration
+COPY supervisor.dev.conf /etc/supervisor/conf.d/supervisord.dev.conf
+
+# Modify the CMD to accept an argument for choosing the config
+ENTRYPOINT ["/usr/bin/supervisord"]
+CMD ["-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
