@@ -6,6 +6,7 @@ import { ChevronDown, ChevronUp, Pencil, Save, X } from 'lucide-react';
 import { Card, CardHeader, CardContent } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import { useTheme } from '../providers/ThemeProvider';
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 const ContentItems = ({ items, onContentUpdate }: { 
   items: ContentItem[]; 
@@ -43,6 +44,25 @@ const ContentItems = ({ items, onContentUpdate }: {
     setEditingIndex(null);
   };
 
+  const renderActionButton = (icon: React.ReactNode, label: string, onClick: (e: React.MouseEvent) => void, disabled?: boolean) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onClick}
+          disabled={disabled}
+          className="h-8 w-8 hover:bg-indigo-100"
+        >
+          {icon}
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>{label}</p>
+      </TooltipContent>
+    </Tooltip>
+  );
+
   return (
     <div className="space-y-6">
       <h2 className={components.text.gradient}>
@@ -71,20 +91,18 @@ const ContentItems = ({ items, onContentUpdate }: {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={(e) => handleEdit(index, parseContent(item), e)}
-                      className="h-8 w-8 hover:bg-indigo-100"
-                    >
-                      <Pencil className="h-4 w-4 text-indigo-600" />
-                    </Button>
-                    <motion.div
-                      animate={{ rotate: expandedIndex === index ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown className="h-5 w-5 text-indigo-600" />
-                    </motion.div>
+                    {renderActionButton(
+                      <Pencil className="h-4 w-4 text-indigo-600" />,
+                      "Edit content",
+                      (e) => handleEdit(index, parseContent(item), e)
+                    )}
+                    {renderActionButton(
+                      expandedIndex === index ? 
+                        <ChevronUp className="h-4 w-4 text-indigo-600" /> :
+                        <ChevronDown className="h-4 w-4 text-indigo-600" />,
+                      expandedIndex === index ? "Collapse" : "Expand",
+                      () => setExpandedIndex(expandedIndex === index ? null : index)
+                    )}
                   </div>
                 </CardHeader>
                 

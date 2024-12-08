@@ -12,6 +12,7 @@ import { CollapsibleSection } from './components/CollapsibleSection';
 import GeneratedPosts from './components/GeneratedPosts';
 import WriterExamples from './components/WriterExamples';
 import ContentItems from './components/ContentItems';
+import { TooltipProvider } from './components/ui/tooltip';
 
 export function Main() {
   const { agentState, isLoading, ...handlers } = useAgentState();
@@ -23,37 +24,48 @@ export function Main() {
   });
 
   return (
-    <MainLayout sidebar={<CopilotChat {...CHAT_CONFIG} />}>
-      <div className="space-y-8">
-        <AgentCapabilities />
+    <TooltipProvider>
+      <MainLayout sidebar={<CopilotChat {...CHAT_CONFIG} />}>
+        <div className="space-y-8">
+          <AgentCapabilities />
 
-        <CollapsibleSection title="Provide Examples to Mimic your writing style">
-          <WriterExamples
-            examples={agentState?.writer_examples || []}
-            onExampleUpdate={handlers.handleExampleUpdate}
-            onAddExample={handlers.handleAddExample}
-            onDeleteExample={handlers.handleDeleteExample}
-            isLoading={isLoading}
-          />
-        </CollapsibleSection>
+          <CollapsibleSection 
+            title="Provide Examples to Mimic your writing style"
+            tooltip="Add your own writing examples to help the AI understand and replicate your unique style"
+          >
+            <WriterExamples
+              examples={agentState?.writer_examples || []}
+              onExampleUpdate={handlers.handleExampleUpdate}
+              onAddExample={handlers.handleAddExample}
+              onDeleteExample={handlers.handleDeleteExample}
+              isLoading={isLoading}
+            />
+          </CollapsibleSection>
 
-        <CollapsibleSection title="Tailored Generated Posts that match your writing style">
-          <GeneratedPosts 
-            posts={agentState?.generated_posts || []}
-            onPostUpdate={handlers.handlePostUpdate}
-            onAddPost={handlers.handleAddPost}
-            onDeletePost={handlers.handleDeletePost}
-            isLoading={isLoading}
-          />
-        </CollapsibleSection>
+          <CollapsibleSection 
+            title="Tailored Linkedin Posts that match your writing style"
+            tooltip="View, edit and post AI-generated LinkedIn posts that match your writing style"
+          >
+            <GeneratedPosts 
+              posts={agentState?.generated_posts || []}
+              onPostUpdate={handlers.handlePostUpdate}
+              onAddPost={handlers.handleAddPost}
+              onDeletePost={handlers.handleDeletePost}
+              isLoading={isLoading}
+            />
+          </CollapsibleSection>
 
-        <CollapsibleSection title="Sources of Content">
-          <ContentItems 
-            items={agentState?.content_items || []}
-            onContentUpdate={handlers.handleContentUpdate}
-          />
-        </CollapsibleSection>
-      </div>
-    </MainLayout>
+          <CollapsibleSection 
+            title="Sources of Content"
+            tooltip="View and edit the source content used to generate posts"
+          >
+            <ContentItems 
+              items={agentState?.content_items || []}
+              onContentUpdate={handlers.handleContentUpdate}
+            />
+          </CollapsibleSection>
+        </div>
+      </MainLayout>
+    </TooltipProvider>
   );
 }

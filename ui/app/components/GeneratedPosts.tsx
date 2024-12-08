@@ -10,6 +10,8 @@ import { toastConfig } from './ui/toast';
 import { useTheme } from '../providers/ThemeProvider';
 import dynamic from 'next/dynamic';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
+import { MouseEvent } from 'react';
 
 // Types
 type Post = string;
@@ -115,40 +117,67 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
 
   const renderPostActions = (index: number, post: string) => (
     <div className="flex gap-2">
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={(e) => handleLinkedInPost(post, index, e)}
-        className="h-8 w-8"
-        disabled={state.postingToLinkedIn === index}
-      >
-        {state.postingToLinkedIn === index ? 
-          <Loader2 className="h-4 w-4 text-blue-600 animate-spin" /> : 
-          <Linkedin className="h-4 w-4 text-blue-600" />
-        }
-      </Button>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={(e: MouseEvent<HTMLButtonElement>) => handleLinkedInPost(post, index, e)}
+            className="h-8 w-8"
+            disabled={state.postingToLinkedIn === index}
+          >
+            {state.postingToLinkedIn === index ? 
+              <Loader2 className="h-4 w-4 text-blue-600 animate-spin" /> : 
+              <Linkedin className="h-4 w-4 text-blue-600" />
+            }
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Post to LinkedIn</p>
+        </TooltipContent>
+      </Tooltip>
+
       {[
-        { tip: "Share", icon: <Share2 className="h-4 w-4 text-indigo-600" />, onClick: (e: React.MouseEvent<HTMLButtonElement>) => handleShare(post, e) },
-        { tip: "Edit", icon: <Pencil className="h-4 w-4 text-indigo-600" />, onClick: (e: React.MouseEvent<HTMLButtonElement>) => setState(s => ({ ...s, editingIndex: index, editContent: post })) },
-        { tip: "Delete", icon: isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <X className="h-4 w-4 text-red-600" />, 
-          onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        { 
+          tip: "Share", 
+          icon: <Share2 className="h-4 w-4 text-indigo-600" />, 
+          onClick: (e: MouseEvent<HTMLButtonElement>) => handleShare(post, e) 
+        },
+        { 
+          tip: "Edit", 
+          icon: <Pencil className="h-4 w-4 text-indigo-600" />, 
+          onClick: (e: MouseEvent<HTMLButtonElement>) => setState(s => ({ 
+            ...s, 
+            editingIndex: index, 
+            editContent: post 
+          })) 
+        },
+        { 
+          tip: "Delete", 
+          icon: isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <X className="h-4 w-4 text-red-600" />, 
+          onClick: (e: MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
             onDeletePost?.(index);
           },
           disabled: isLoading 
         }
       ].map(({ tip, icon, onClick, disabled }) => (
-        <div key={tip} className="tooltip" data-tip={tip}>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onClick}
-            disabled={disabled}
-            className={`h-8 w-8 hover:bg-${tip === "Delete" ? "red" : "indigo"}-100`}
-          >
-            {icon}
-          </Button>
-        </div>
+        <Tooltip key={tip}>
+          <TooltipTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onClick}
+              disabled={disabled}
+              className={`h-8 w-8 hover:bg-${tip === "Delete" ? "red" : "indigo"}-100`}
+            >
+              {icon}
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>{tip}</p>
+          </TooltipContent>
+        </Tooltip>
       ))}
     </div>
   );
