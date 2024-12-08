@@ -1,6 +1,6 @@
 "use client";
 
-import { useCoAgentStateRender } from "@copilotkit/react-core";
+import { useCoAgentStateRender, useCopilotChat } from "@copilotkit/react-core";
 import { CopilotChat } from "@copilotkit/react-ui";
 import { Progress } from "./components/ui/Progress";
 import GeneratedPosts from './components/GeneratedPosts';
@@ -17,6 +17,7 @@ import {
 import { ChevronDown } from "lucide-react"; // For the collapse indicator
 import { useThemeStyles } from './hooks/useThemeStyles';
 import { Card } from "./components/ui/card";
+import { Role, TextMessage } from '@copilotkit/runtime-client-gql';
 
 const CHAT_CONFIG = {
   className: "h-full",
@@ -26,30 +27,45 @@ const CHAT_CONFIG = {
     initial: "Hi! 👋 I'm here to help you create social media posts. I can create content from sources like Reddit, LinkedIn, YouTube, or Towards Data Science, feel free to ask!",
   }
 };
-
 const AGENT_CAPABILITIES = [
   {
-    title: "Content Research",
+    title: "LinkedIn Profile Posts",
     examples: [
-      "Find the latest posts about AI from the LangChain subreddit",
-      "Get the top 3 articles from Towards Data Science about machine learning",
-      "Fetch recent LinkedIn posts from Andrej Karpathy's profile"
+      "Fetch the 3 most recent LinkedIn posts from Andrej Karpathy's linkedin profile and create linkedIn posts about it",
+      "Get the latest posts from Sam Altman's LinkedIn and create engaging summaries",
+      "Find viral LinkedIn posts about AI from the past week and create similar content"
     ]
   },
   {
-    title: "Content Creation",
+    title: "Reddit Summaries", 
     examples: [
-      "Create a Twitter thread about the latest AI developments from Reddit",
-      "Write a LinkedIn post summarizing this YouTube video: [video_url]",
-      "Generate a blog post based on the top TDS articles about data science"
+      "Find the 3 latest posts from the LangChain subreddit and create LinkedIn posts about it",
+      "Summarize top discussions from r/MachineLearning this week",
+      "Create engaging posts from trending r/Technology discussions"
     ]
   },
   {
-    title: "Transcription & Analysis",
+    title: "Towards Data Science Articles",
     examples: [
-      "Transcribe this YouTube video and create social media posts from key points",
-      "Analyze the trending topics from these LinkedIn posts",
-      "Summarize these Reddit discussions into bite-sized content"
+      "Get the 3 top articles from Towards Data Science and create LinkedIn posts about it",
+      "Find recent TDS articles about LLMs and create thread summaries",
+      "Summarize popular TDS articles about data visualization techniques"
+    ]
+  },
+  {
+    title: "YouTube Transcription",
+    examples: [
+      "Transcribe this YouTube video and create a LinkedIn post about the topics discussed",
+      "Create key takeaways from Andrew Ng's latest ML course video",
+      "Generate a thread from Lex Fridman's recent AI podcast episode"
+    ]
+  },
+  {
+    title: "Audio Transcription",
+    examples: [
+      "Transcribe this audio file and create a LinkedIn post about it",
+      "Convert my podcast episode into engaging social media content",
+      "Create Twitter threads from my conference talk recording"
     ]
   }
 ];
@@ -57,6 +73,7 @@ const AGENT_CAPABILITIES = [
 export function Main() {
   const { agentState, isLoading, ...handlers } = useAgentState();
   const styles = useThemeStyles();
+  const { appendMessage } = useCopilotChat();
 
   useCoAgentStateRender({
     name: "Social Media Agent",
@@ -67,35 +84,42 @@ export function Main() {
   return (
     <MainLayout sidebar={<CopilotChat {...CHAT_CONFIG} />}>
       <div className="space-y-8">
-        <Collapsible defaultOpen>
-          <CollapsibleTrigger 
-            className={`flex w-full items-center justify-between rounded-lg 
-              ${styles.card.base} 
-              ${styles.card.hover}
-              bg-background-subtle p-4`}
-          >
-            <h2 className={`text-lg font-semibold ${styles.text.gradient}`}>What Can This Agent Do?</h2>
-            <ChevronDown className="h-5 w-5 text-slate" />
-          </CollapsibleTrigger>
-          <CollapsibleContent className="pt-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {AGENT_CAPABILITIES.map((category, idx) => (
-                <Card key={idx} className={`p-4 ${styles.card.base}`}>
-                  <h3 className={`text-md font-semibold mb-3 ${styles.text.gradient}`}>
-                    {category.title}
-                  </h3>
-                  <ul className="space-y-2">
-                    {category.examples.map((example, i) => (
-                      <li key={i} className="text-sm cursor-pointer hover:opacity-80">
-                        &quot;{example}&quot;
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              ))}
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
+        <div className={`rounded-lg ${styles.card.base} bg-background-subtle p-4`}>
+          <h2 className={`text-lg font-semibold ${styles.text.gradient} mb-4`}>What Can This Agent Do?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {AGENT_CAPABILITIES.map((category, idx) => (
+              <Card key={idx} className={`p-4 ${styles.card.base}`}>
+                <h3 className={`text-md font-semibold mb-3 ${styles.text.gradient}`}>
+                  {category.title}
+                </h3>
+                <ul className="space-y-2">
+                  {category.examples.map((example, i) => (
+                    <button 
+                      key={i} 
+                      className={`w-full text-left text-sm p-2 rounded-md
+                        ${styles.card.hover}
+                        hover:bg-background-subtle transition-colors`}
+                      onClick={async () => {
+                        if (appendMessage) {
+                          const message = new TextMessage({
+                            id: crypto.randomUUID(),
+                            role: Role.User,
+                            content: example
+                          });
+                          await appendMessage(message);
+                        } else {
+                          console.error('appendMessage is not available');
+                        }
+                      }}
+                    >
+                      &quot;{example}&quot;
+                    </button>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+        </div>
 
         <Collapsible>
           <CollapsibleTrigger 
@@ -146,7 +170,7 @@ export function Main() {
               ${styles.card.hover}
               bg-background-subtle p-4`}
           >
-            <h2 className={`text-lg font-semibold ${styles.text.gradient}`}>Sources of the content you're using</h2>
+            <h2 className={`text-lg font-semibold ${styles.text.gradient}`}>Sources of Content</h2>
             <ChevronDown className="h-5 w-5 text-slate" />
           </CollapsibleTrigger>
           <CollapsibleContent className="pt-4">
