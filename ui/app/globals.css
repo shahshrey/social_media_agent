@@ -24,6 +24,13 @@
     --input: 217.2 32.6% 17.5%;
     
     --ring: 230 70% 55%;
+
+    --pixel-primary: 45, 100%, 75%;
+    --pixel-secondary: 45deg 100% 75%;
+    --pixel-accent: 45deg 100% 75%;
+    --pixel-size: 4;
+    --pixel-gap: 1;
+    --pixel-opacity: 0.8;
   }
  
   .dark {
@@ -47,6 +54,11 @@
     --input: 217.2 32.6% 12.5%;
     
     --ring: 230 70% 55%;
+
+    --pixel-primary: 45, 100%, 75%;
+    --pixel-secondary: 45deg 100% 75%;
+    --pixel-accent: 45deg 100% 75%;
+    --pixel-opacity: 0.8;
   }
 }
 
@@ -65,5 +77,24 @@
 
   .gradient-bg {
     @apply bg-gradient-to-br from-primary via-accent to-secondary;
+  }
+
+  .pixel-button {
+    --pixel-color: hsl(var(--pixel-primary));
+    --pixel-hover-color: hsl(var(--pixel-primary));
+    --pixel-active-color: hsl(var(--pixel-primary));
+    
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .pixel-button:hover {
+    --pixel-opacity: 1;
+    transform: translateY(-1px);
+  }
+
+  .pixel-button:active {
+    --pixel-opacity: 0.9;
+    transform: translateY(1px);
   }
 }

@@ -5,6 +5,7 @@ import { AGENT_CAPABILITIES } from '../lib/constants';
 import { useCopilotChat } from "@copilotkit/react-core";
 import { createUserMessage } from '../lib/constants';
 import { useAppTheme } from '../hooks/useAppTheme';
+import { PixelButton } from './ui/pixel-button'
 
 export function AgentCapabilities() {
   const { theme } = useAppTheme();
@@ -32,17 +33,18 @@ export function AgentCapabilities() {
             </h3>
             <ul className="space-y-2">
               {category.examples.map((example, i) => (
-                <button 
-                  key={i} 
-                  className={`w-full text-left text-sm p-2 rounded-md
-                    ${theme.card.hover}
-                    hover:bg-primary hover:text-primary-foreground
+                <PixelButton
+                  key={i}
+                  className="w-full text-left text-sm p-2 rounded-md
                     bg-background/50 text-muted-foreground
-                    transition-colors duration-200`}
+                    hover:bg-primary/10 hover:text-primary
+                    data-[pixel-state=active]:bg-primary/20
+                    data-[pixel-state=active]:text-primary
+                    transition-colors duration-300"
                   onClick={() => handleExampleClick(example)}
                 >
                   &quot;{example}&quot;
-                </button>
+                </PixelButton>
               ))}
             </ul>
           </Card>
