@@ -18,7 +18,7 @@ import { useAppTheme } from './hooks/useAppTheme';
 
 export function Main() {
   const { agentState, isLoading, ...handlers } = useAgentState();
-  const { theme } = useAppTheme();
+  const { theme, chatTheme } = useAppTheme();
 
   useCoAgentStateRender({
     name: "Social Media Agent",
@@ -28,11 +28,17 @@ export function Main() {
 
   return (
     <TooltipProvider>
-      <MainLayout sidebar={<CopilotChat {...CHAT_CONFIG} />}>
+      <MainLayout 
+        sidebar={
+          <div style={chatTheme as any}>
+            <CopilotChat {...CHAT_CONFIG} />
+          </div>
+        }
+      >
         <div className="space-y-8">
-          <Card className={`p-6 ${theme.card.base} border-border`}>
-            <h1 className={`text-2xl font-bold ${theme.text.gradient} mb-3`}>
-             Dashboard
+          <Card className="p-6 bg-card border-border">
+            <h1 className="text-2xl font-bold text-gradient mb-3">
+              Dashboard
             </h1>
             <p className="text-muted-foreground mb-4">
               Your AI-powered social media content assistant. Here&apos;s what you can do:
@@ -53,7 +59,7 @@ export function Main() {
                 }
               ].map((item, index) => (
                 <div key={index} className="bg-card/50 p-4 rounded-lg border border-border">
-                  <h3 className={`font-semibold ${theme.text.gradient} mb-2`}>{item.title}</h3>
+                  <h3 className="font-semibold text-gradient mb-2">{item.title}</h3>
                   <p className="text-muted-foreground">{item.description}</p>
                 </div>
               ))}
@@ -78,8 +84,6 @@ export function Main() {
               <TabsContent value="examples" className="mt-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h2 className={`text-xl font-semibold ${theme.text.gradient}`}>Writing Examples</h2>
-                    <p className="text-muted-foreground text-sm">Add examples to help AI understand your style</p>
                   </div>
                   <WriterExamples
                     examples={agentState?.writer_examples || []}
@@ -92,10 +96,6 @@ export function Main() {
               </TabsContent>
               <TabsContent value="posts" className="mt-6">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h2 className={`text-xl font-semibold ${theme.text.gradient}`}>Generated Posts</h2>
-                    <p className="text-muted-foreground text-sm">View and manage your AI-generated posts</p>
-                  </div>
                   <GeneratedPosts 
                     posts={agentState?.generated_posts || []}
                     onPostUpdate={handlers.handlePostUpdate}
@@ -108,8 +108,7 @@ export function Main() {
               <TabsContent value="content" className="mt-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h2 className={`text-xl font-semibold ${theme.text.gradient}`}>Content Sources</h2>
-                    <p className="text-muted-foreground text-sm">Manage your content source materials</p>
+
                   </div>
                   <ContentItems 
                     items={agentState?.content_items || []}

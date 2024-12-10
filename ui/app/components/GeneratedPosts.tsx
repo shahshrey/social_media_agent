@@ -185,7 +185,8 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className={theme.text.gradient}>LinkedIn Posts</h2>
+      <h2 className="text-xl font-semibold text-gradient">Review and edit these posts before sharing them on LinkedIn.</h2>
+      
         <Dialog open={state.dialogOpen} onOpenChange={(open: boolean) => setState(s => ({ ...s, dialogOpen: open }))}>
           <DialogTrigger asChild>
             <Button 
@@ -214,11 +215,6 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
           </DialogContent>
         </Dialog>
       </div>
-
-      <p className="text-sm text-gray-600">
-        Review and edit these posts before sharing them on LinkedIn.
-      </p>
-
       <div className={`${theme.card.base} ${theme.card.hover}`}>
         {posts.length > 0 ? (
           posts.map((post, index) => (

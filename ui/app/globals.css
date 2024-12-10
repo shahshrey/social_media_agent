@@ -4,49 +4,49 @@
 
 @layer base {
   :root {
-    --primary: 250 82% 45%;
-    --secondary: 224 82% 45%;
-    --accent: 215 16% 47%;
+    --primary: 230 60% 50%;
+    --secondary: 260 55% 55%;
+    --accent: 245 40% 50%;
     
-    --background: 220 13% 10%;
+    --background: 220 13% 1%;
     --foreground: 210 40% 98%;
 
-    --card: 220 13% 10%;
+    --card: 224 14% 15%;
     --card-foreground: 210 40% 98%;
  
     --popover: 220 13% 10%;
     --popover-foreground: 210 40% 98%;
  
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 220 13% 25%;
     --muted-foreground: 215 20.2% 65.1%;
  
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     
-    --ring: 250 82% 45%;
+    --ring: 230 70% 55%;
   }
  
   .dark {
-    --primary: 250 82% 45%;
-    --secondary: 224 82% 45%;
-    --accent: 215 16% 47%;
+    --primary: 230 60% 50%;
+    --secondary: 260 55% 55%;
+    --accent: 245 40% 50%;
 
-    --background: 220 13% 5%;
+    --background: 220 13% 0%;
     --foreground: 210 40% 98%;
  
-    --card: 220 13% 5%;
+    --card: 224 14% 12%;
     --card-foreground: 210 40% 98%;
  
     --popover: 220 13% 5%;
     --popover-foreground: 210 40% 98%;
  
-    --muted: 217.2 32.6% 12.5%;
+    --muted: 220 13% 20%;
     --muted-foreground: 215 20.2% 65.1%;
  
     --border: 217.2 32.6% 12.5%;
     --input: 217.2 32.6% 12.5%;
     
-    --ring: 250 82% 45%;
+    --ring: 230 70% 55%;
   }
 }
 
@@ -60,6 +60,10 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-primary via-accent to-secondary bg-clip-text text-transparent font-semibold;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary via-accent to-secondary;
   }
 }
