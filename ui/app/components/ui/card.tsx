@@ -1,19 +1,18 @@
 "use client"
 
 import * as React from "react"
-
+import { useAppTheme } from '../../hooks/useAppTheme';
 import { cn } from "../../lib/utils"
-import { useThemeStyles } from "../../hooks/useThemeStyles"
 
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-  const styles = useThemeStyles();
+  const { theme } = useAppTheme();
   return (
     <div
       ref={ref}
-      className={cn(styles.card.base, styles.card.hover, className)}
+      className={cn(theme.card.base, theme.card.hover, className)}
       {...props}
     />
   );

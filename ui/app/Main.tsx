@@ -14,9 +14,11 @@ import ContentItems from './components/ContentItems';
 import { TooltipProvider } from './components/ui/tooltip';
 import { Card } from './components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
+import { useAppTheme } from './hooks/useAppTheme';
 
 export function Main() {
   const { agentState, isLoading, ...handlers } = useAgentState();
+  const { theme } = useAppTheme();
 
   useCoAgentStateRender({
     name: "Social Media Agent",
@@ -28,26 +30,33 @@ export function Main() {
     <TooltipProvider>
       <MainLayout sidebar={<CopilotChat {...CHAT_CONFIG} />}>
         <div className="space-y-8">
-          <Card className="p-6 bg-gradient-to-r from-indigo-50 to-blue-50 border-none">
-            <h1 className="text-2xl font-bold text-indigo-900 mb-3">
+          <Card className={`p-6 ${theme.card.base} border-border`}>
+            <h1 className={`text-2xl font-bold ${theme.text.gradient} mb-3`}>
              Dashboard
             </h1>
-            <p className="text-indigo-700 mb-4">
+            <p className="text-muted-foreground mb-4">
               Your AI-powered social media content assistant. Here&apos;s what you can do:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-              <div className="bg-white/50 p-4 rounded-lg">
-                <h3 className="font-semibold text-indigo-900 mb-2">1. Train Your AI</h3>
-                <p className="text-indigo-700">Add writing examples to help the AI understand and mimic your unique style.</p>
-              </div>
-              <div className="bg-white/50 p-4 rounded-lg">
-                <h3 className="font-semibold text-indigo-900 mb-2">2. Generate Content</h3>
-                <p className="text-indigo-700">Get AI-generated LinkedIn posts that match your writing style and tone. Post to LinkedIn with a single click.</p>
-              </div>
-              <div className="bg-white/50 p-4 rounded-lg">
-                <h3 className="font-semibold text-indigo-900 mb-2">3. Manage Sources</h3>
-                <p className="text-indigo-700">View and edit the source content used to generate your posts.</p>
-              </div>
+              {[
+                {
+                  title: "1. Train Your AI",
+                  description: "Add writing examples to help the AI understand and mimic your unique style."
+                },
+                {
+                  title: "2. Generate Content",
+                  description: "Get AI-generated LinkedIn posts that match your writing style and tone. Post to LinkedIn with a single click."
+                },
+                {
+                  title: "3. Manage Sources",
+                  description: "View and edit the source content used to generate your posts."
+                }
+              ].map((item, index) => (
+                <div key={index} className="bg-card/50 p-4 rounded-lg border border-border">
+                  <h3 className={`font-semibold ${theme.text.gradient} mb-2`}>{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              ))}
             </div>
           </Card>
 
@@ -56,21 +65,21 @@ export function Main() {
           <Card className="p-6">
             <Tabs defaultValue="examples" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="examples" className="data-[state=active]:bg-indigo-50">
+                <TabsTrigger value="examples">
                   Writing Examples
                 </TabsTrigger>
-                <TabsTrigger value="posts" className="data-[state=active]:bg-indigo-50">
+                <TabsTrigger value="posts">
                   Generated Posts
                 </TabsTrigger>
-                <TabsTrigger value="content" className="data-[state=active]:bg-indigo-50">
+                <TabsTrigger value="content">
                   Content Sources
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="examples" className="mt-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-semibold text-indigo-900">Writing Examples</h2>
-                    <p className="text-sm text-indigo-600">Add examples to help AI understand your style</p>
+                    <h2 className={`text-xl font-semibold ${theme.text.gradient}`}>Writing Examples</h2>
+                    <p className="text-muted-foreground text-sm">Add examples to help AI understand your style</p>
                   </div>
                   <WriterExamples
                     examples={agentState?.writer_examples || []}
@@ -84,8 +93,8 @@ export function Main() {
               <TabsContent value="posts" className="mt-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-semibold text-indigo-900">Generated Posts</h2>
-                    <p className="text-sm text-indigo-600">View and manage your AI-generated posts</p>
+                    <h2 className={`text-xl font-semibold ${theme.text.gradient}`}>Generated Posts</h2>
+                    <p className="text-muted-foreground text-sm">View and manage your AI-generated posts</p>
                   </div>
                   <GeneratedPosts 
                     posts={agentState?.generated_posts || []}
@@ -99,8 +108,8 @@ export function Main() {
               <TabsContent value="content" className="mt-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-semibold text-indigo-900">Content Sources</h2>
-                    <p className="text-sm text-indigo-600">Manage your content source materials</p>
+                    <h2 className={`text-xl font-semibold ${theme.text.gradient}`}>Content Sources</h2>
+                    <p className="text-muted-foreground text-sm">Manage your content source materials</p>
                   </div>
                   <ContentItems 
                     items={agentState?.content_items || []}

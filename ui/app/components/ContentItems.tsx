@@ -5,14 +5,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Pencil, Save, X } from 'lucide-react';
 import { Card, CardHeader, CardContent } from "../components/ui/card"
 import { Button } from "../components/ui/button"
-import { useTheme } from '../providers/ThemeProvider';
+import { useAppTheme } from '../hooks/useAppTheme';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 const ContentItems = ({ items, onContentUpdate }: { 
   items: ContentItem[]; 
   onContentUpdate?: (index: number, newContent: string) => void;
 }) => {
-  const { components, animation } = useTheme();
+  const { theme } = useAppTheme();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [editContent, setEditContent] = useState<string>('');
@@ -65,7 +65,7 @@ const ContentItems = ({ items, onContentUpdate }: {
 
   return (
     <div className="space-y-6">
-      <h2 className={components.text.gradient}>
+      <h2 className={theme.text.gradient}>
         Scraped Content
       </h2>
       <div className="space-y-4">
@@ -75,13 +75,13 @@ const ContentItems = ({ items, onContentUpdate }: {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={animation.spring}
+              transition={theme.animation.spring}
             >
-              <Card className={`group ${components.card.base} ${components.card.hover}`}>
+              <Card className={`group ${theme.card.base} ${theme.card.hover}`}>
                 <CardHeader 
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                   className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-primary-light/5 transition-all"
-                  style={{ transitionDuration: animation.default }}
+                  style={{ transitionDuration: theme.animation.default }}
                 >
                   <div className="flex-1 pr-4">
                     <div className={`prose prose-sm max-w-none whitespace-pre-line ${expandedIndex === index ? '' : 'line-clamp-3'}`}>

@@ -2,9 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Card, CardHeader, CardContent } from "./card";
 import { ReactNode } from 'react';
-import { useThemeStyles } from '../../hooks/useThemeStyles';
 import { cn } from '../../lib/utils';
-import { theme } from '../../styles/theme';
+import { useAppTheme } from '../../hooks/useAppTheme';
 
 interface ExpandableCardProps {
   isExpanded: boolean;
@@ -23,7 +22,7 @@ export const ExpandableCard = ({
   children,
   index
 }: ExpandableCardProps) => {
-  const styles = useThemeStyles();
+  const { theme } = useAppTheme();
   
   return (
     <motion.div 
@@ -33,12 +32,12 @@ export const ExpandableCard = ({
     >
       <Card className={cn(
         "group",
-        styles.card.base,
-        isExpanded ? styles.card.expanded : styles.card.hover
+        theme.card.base,
+        isExpanded ? theme.card.expanded : theme.card.hover
       )}>
         <CardHeader 
           onClick={onToggle}
-          className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-indigo-50/50 transition-colors"
+          className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-muted/50 transition-colors"
         >
           <div className="flex-1 pr-4">
             {header}
@@ -49,7 +48,7 @@ export const ExpandableCard = ({
               animate={{ rotate: isExpanded ? 180 : 0 }}
               transition={{ duration: 0.2 }}
             >
-              <ChevronDown className="h-5 w-5 text-indigo-600" />
+              <ChevronDown className="h-5 w-5 text-primary" />
             </motion.div>
           </div>
         </CardHeader>

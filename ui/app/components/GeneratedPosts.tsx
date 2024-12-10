@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 import { ExpandableCard } from './ui/ExpandableCard';
 import { EditableContent } from './EditableContent';
 import { toastConfig } from './ui/toast';
-import { useTheme } from '../providers/ThemeProvider';
+import { useAppTheme } from '../hooks/useAppTheme';
 import dynamic from 'next/dynamic';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
@@ -54,7 +54,7 @@ const EmptyState = ({ onAdd }: { onAdd: () => void }) => (
 );
 
 const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoading }: GeneratedPostsProps) => {
-  const { components } = useTheme();
+  const { theme } = useAppTheme();
   const [state, setState] = useState({
     expandedIndex: null as number | null,
     editingIndex: null as number | null,
@@ -185,7 +185,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className={components.text.gradient}>LinkedIn Posts</h2>
+        <h2 className={theme.text.gradient}>LinkedIn Posts</h2>
         <Dialog open={state.dialogOpen} onOpenChange={(open: boolean) => setState(s => ({ ...s, dialogOpen: open }))}>
           <DialogTrigger asChild>
             <Button 
@@ -219,7 +219,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
         Review and edit these posts before sharing them on LinkedIn.
       </p>
 
-      <div className={`${components.card.base} ${components.card.hover}`}>
+      <div className={`${theme.card.base} ${theme.card.hover}`}>
         {posts.length > 0 ? (
           posts.map((post, index) => (
             <ExpandableCard

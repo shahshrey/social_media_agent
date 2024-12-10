@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { useThemeStyles } from '../hooks/useThemeStyles';
+import { useAppTheme } from '../hooks/useAppTheme';
 import {
   Collapsible,
   CollapsibleContent,
@@ -16,30 +16,30 @@ interface CollapsibleSectionProps {
 }
 
 export function CollapsibleSection({ title, tooltip, children }: CollapsibleSectionProps) {
-  const styles = useThemeStyles();
+  const { theme } = useAppTheme();
   
   return (
     <Collapsible>
       <CollapsibleTrigger 
         className={`flex w-full items-center justify-between rounded-lg 
-          ${styles.card.base} 
-          ${styles.card.hover}
-          bg-background-subtle p-4`}
+          ${theme.card.base} 
+          ${theme.card.hover}
+          bg-card text-card-foreground p-4`}
       >
         <div className="flex items-center gap-2">
-          <h2 className={`text-lg font-semibold ${styles.text.gradient}`}>{title}</h2>
+          <h2 className={`text-lg font-semibold ${theme.text.gradient}`}>{title}</h2>
           {tooltip && (
             <Tooltip>
               <TooltipTrigger asChild>
-                <InfoIcon className="h-4 w-4 text-slate cursor-help" />
+                <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" />
               </TooltipTrigger>
-              <TooltipContent>
+              <TooltipContent className="bg-popover text-popover-foreground">
                 <p>{tooltip}</p>
               </TooltipContent>
             </Tooltip>
           )}
         </div>
-        <ChevronDown className="h-5 w-5 text-slate" />
+        <ChevronDown className="h-5 w-5 text-muted-foreground" />
       </CollapsibleTrigger>
       <CollapsibleContent className="pt-4">
         {children}

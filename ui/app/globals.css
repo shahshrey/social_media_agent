@@ -4,35 +4,62 @@
 
 @layer base {
   :root {
-    /* Base colors */
     --primary: 250 82% 45%;
-    --primary-light: 250 82% 55%;
-    --primary-dark: 250 82% 35%;
-    --primary-foreground: 0 0% 100%;
-
     --secondary: 224 82% 45%;
-    --secondary-light: 224 82% 55%;
-    --secondary-dark: 224 82% 35%;
-    --secondary-foreground: 0 0% 100%;
-
-    --slate: 215 16% 47%;
-    --slate-light: 217 33% 97%;
-    --slate-dark: 215 25% 27%;
+    --accent: 215 16% 47%;
     
-    --background: 0 0% 100%;
-    --background-card: 0 0% 100%;
-    --background-subtle: 210 40% 98%;
-    --background-muted: 210 40% 96%;
+    --background: 220 13% 10%;
+    --foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --border-focus: 226 100% 71%;
-    --border-hover: 215 20% 84%;
+    --card: 220 13% 10%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 220 13% 10%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    
+    --ring: 250 82% 45%;
+  }
+ 
+  .dark {
+    --primary: 250 82% 45%;
+    --secondary: 224 82% 45%;
+    --accent: 215 16% 47%;
+
+    --background: 220 13% 5%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 220 13% 5%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 220 13% 5%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 12.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --border: 217.2 32.6% 12.5%;
+    --input: 217.2 32.6% 12.5%;
+    
+    --ring: 250 82% 45%;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
   }
 
-  /* Dark mode variables */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      /* Add dark mode variables here */
-    }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
 }

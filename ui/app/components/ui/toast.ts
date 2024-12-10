@@ -2,25 +2,25 @@ export const toastConfig = {
   success: {
     className: "glass-morphism",
     style: {
-      background: 'rgba(255, 255, 255, 0.8)',
-      color: '#4f46e5',
-      border: '1px solid rgba(79, 70, 229, 0.2)',
+      background: 'hsl(var(--background))',
+      color: 'hsl(var(--primary))',
+      border: '1px solid hsl(var(--border))',
     },
   },
   error: {
     className: "glass-morphism",
     style: {
-      background: 'rgba(255, 255, 255, 0.8)',
-      color: '#dc2626',
-      border: '1px solid rgba(220, 38, 38, 0.2)',
+      background: 'hsl(var(--background))',
+      color: 'hsl(var(--destructive))',
+      border: '1px solid hsl(var(--destructive))',
     },
   },
   info: {
-    className: 'border-blue-500',
+    className: 'border-primary',
     style: {
-      background: '#eff6ff',
-      color: '#1e40af',
-      border: '1px solid #3b82f6'
+      background: 'hsl(var(--muted))',
+      color: 'hsl(var(--primary))',
+      border: '1px solid hsl(var(--border))'
     }
   }
 } as const; 
