@@ -32,26 +32,29 @@ const ReactMarkdown = dynamic(() => import('react-markdown'), {
 });
 
 // Components
-const EmptyState = ({ onAdd }: { onAdd: () => void }) => (
-  <Card className="border-2 border-dashed border-indigo-200 transition-all hover:border-indigo-300">
-    <CardContent className="p-8 text-center">
-      <Share2 className="h-12 w-12 text-indigo-400 mx-auto mb-4" />
-      <h3 className="text-lg font-semibold text-indigo-600 mb-2">
-        Start Creating LinkedIn Posts
-      </h3>
-      <p className="text-sm text-gray-500 mt-2">
-        Create professional content that resonates with your network
-      </p>
-      <Button 
-        onClick={onAdd}
-        className="mt-4"
-        variant="default"
-      >
-        Create Your First Post
-      </Button>
-    </CardContent>
-  </Card>
-);
+const EmptyState = ({ onAdd }: { onAdd: () => void }) => {
+  const { theme } = useAppTheme();
+  return (
+    <Card className={`border-2 border-dashed ${theme.card.base}`}>
+      <CardContent className="p-8 text-center">
+        <Share2 className="h-12 w-12 text-primary mx-auto mb-4" />
+        <h3 className={`text-lg font-semibold ${theme.text.gradient} mb-2`}>
+          Start Creating LinkedIn Posts
+        </h3>
+        <p className="text-muted-foreground mt-2">
+          Create professional content that resonates with your network
+        </p>
+        <Button 
+          onClick={onAdd}
+          className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+          variant="default"
+        >
+          Create Your First Post
+        </Button>
+      </CardContent>
+    </Card>
+  );
+};
 
 const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoading }: GeneratedPostsProps) => {
   const { theme } = useAppTheme();
@@ -122,46 +125,47 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
           <Button
             variant="ghost"
             size="icon"
-            onClick={(e: MouseEvent<HTMLButtonElement>) => handleLinkedInPost(post, index, e)}
-            className="h-8 w-8"
+            onClick={(e) => handleLinkedInPost(post, index, e)}
+            className="h-8 w-8 hover:bg-primary/10 text-primary"
             disabled={state.postingToLinkedIn === index}
           >
             {state.postingToLinkedIn === index ? 
-              <Loader2 className="h-4 w-4 text-blue-600 animate-spin" /> : 
-              <Linkedin className="h-4 w-4 text-blue-600" />
+              <Loader2 className="h-4 w-4 animate-spin" /> : 
+              <Linkedin className="h-4 w-4" />
             }
           </Button>
         </TooltipTrigger>
-        <TooltipContent>
-          <p>Post to LinkedIn</p>
-        </TooltipContent>
+        <TooltipContent>Post to LinkedIn</TooltipContent>
       </Tooltip>
 
       {[
         { 
           tip: "Share", 
-          icon: <Share2 className="h-4 w-4 text-indigo-600" />, 
-          onClick: (e: MouseEvent<HTMLButtonElement>) => handleShare(post, e) 
+          icon: <Share2 className="h-4 w-4" />, 
+          onClick: (e: React.MouseEvent<HTMLButtonElement>) => handleShare(post, e),
+          className: "text-primary"
         },
         { 
           tip: "Edit", 
-          icon: <Pencil className="h-4 w-4 text-indigo-600" />, 
-          onClick: (e: MouseEvent<HTMLButtonElement>) => setState(s => ({ 
+          icon: <Pencil className="h-4 w-4" />, 
+          onClick: (e: React.MouseEvent<HTMLButtonElement>) => setState(s => ({ 
             ...s, 
             editingIndex: index, 
             editContent: post 
-          })) 
+          })),
+          className: "text-primary"
         },
         { 
           tip: "Delete", 
-          icon: isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <X className="h-4 w-4 text-red-600" />, 
-          onClick: (e: MouseEvent<HTMLButtonElement>) => {
+          icon: isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <X className="h-4 w-4" />, 
+          onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
             onDeletePost?.(index);
           },
+          className: "text-destructive",
           disabled: isLoading 
         }
-      ].map(({ tip, icon, onClick, disabled }) => (
+      ].map(({ tip, icon, onClick, className, disabled }) => (
         <Tooltip key={tip}>
           <TooltipTrigger asChild>
             <Button
@@ -169,7 +173,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
               size="icon"
               onClick={onClick}
               disabled={disabled}
-              className={`h-8 w-8 hover:bg-${tip === "Delete" ? "red" : "indigo"}-100`}
+              className={`h-8 w-8 hover:bg-${tip === "Delete" ? "destructive" : "primary"}/10 ${className}`}
             >
               {icon}
             </Button>
@@ -185,21 +189,23 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-      <h2 className="text-xl font-semibold text-gradient">Review and edit these posts before sharing them on LinkedIn.</h2>
-      
-        <Dialog open={state.dialogOpen} onOpenChange={(open: boolean) => setState(s => ({ ...s, dialogOpen: open }))}>
+        <h2 className="text-xl font-semibold text-foreground">
+          Review and edit these posts before sharing them on LinkedIn.
+        </h2>
+        
+        <Dialog open={state.dialogOpen} onOpenChange={(open) => setState(s => ({ ...s, dialogOpen: open }))}>
           <DialogTrigger asChild>
             <Button 
               variant="default"
               size="sm"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Add Post
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[600px]">
             <DialogHeader>
-              <DialogTitle>Create New LinkedIn Post</DialogTitle>
+              <DialogTitle className="text-foreground">Create New LinkedIn Post</DialogTitle>
             </DialogHeader>
             <EditableContent
               content={state.newPostContent}
@@ -215,7 +221,8 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
           </DialogContent>
         </Dialog>
       </div>
-      <div className={`${theme.card.base} ${theme.card.hover}`}>
+
+      <div className="space-y-2">
         {posts.length > 0 ? (
           posts.map((post, index) => (
             <ExpandableCard
@@ -224,7 +231,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
               isExpanded={state.expandedIndex === index}
               onToggle={() => setState(s => ({ ...s, expandedIndex: s.expandedIndex === index ? null : index }))}
               header={
-                <div className={`prose prose-sm max-w-none whitespace-pre-line ${state.expandedIndex === index ? '' : 'line-clamp-3'}`}>
+                <div className={`prose dark:prose-invert prose-sm max-w-none text-foreground ${state.expandedIndex === index ? '' : 'line-clamp-3'}`}>
                   <ReactMarkdown>{post.split('\n')[0]}</ReactMarkdown>
                 </div>
               }
@@ -241,7 +248,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
                   onCancel={() => setState(s => ({ ...s, editingIndex: null }))}
                 />
               ) : (
-                <div className="prose prose-sm max-w-none prose-indigo bg-white whitespace-pre-line">
+                <div className="prose dark:prose-invert prose-sm max-w-none text-foreground">
                   <ReactMarkdown>{post}</ReactMarkdown>
                 </div>
               )}

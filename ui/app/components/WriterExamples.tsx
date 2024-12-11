@@ -19,7 +19,7 @@ interface WriterExamplesProps {
 
 // Dynamic imports
 const ReactMarkdown = dynamic(() => import('react-markdown'), {
-  loading: () => <div className="animate-pulse h-4 bg-gray-200 rounded w-full" />
+  loading: () => <div className="animate-pulse bg-muted rounded w-full h-4" />
 });
 
 const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExample, isLoading }: WriterExamplesProps) => {
@@ -37,18 +37,20 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold text-gradient">Add examples to help guide the AI in generating content that matches your style.</h2>
+        <h2 className="text-xl font-semibold text-foreground">
+          Add examples to help guide the AI in generating content that matches your style.
+        </h2>
         <Button 
           variant="default"
           size="sm"
           onClick={() => onAddExample?.('')}
-          className="bg-primary text-primary-foreground hover:bg-primary/90"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground"
         >
           Add Example
         </Button>
       </div>
 
-      <div className={`${theme.card.base} ${theme.card.hover}`}>
+      <div className="space-y-2">
         {examples.map((example, index) => (
           <ExpandableCard
             key={index}
@@ -56,7 +58,7 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
             isExpanded={state.expandedIndex === index}
             onToggle={() => setState(s => ({ ...s, expandedIndex: s.expandedIndex === index ? null : index }))}
             header={
-              <div className={`prose prose-invert prose-sm max-w-none ${state.expandedIndex === index ? '' : 'line-clamp-2'}`}>
+              <div className={`prose dark:prose-invert prose-sm max-w-none text-foreground ${state.expandedIndex === index ? '' : 'line-clamp-2'}`}>
                 {getPreviewText(example)}
               </div>
             }
@@ -66,9 +68,9 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
                   variant="ghost"
                   size="icon"
                   onClick={() => setState(s => ({ ...s, editingIndex: index, editContent: example }))}
-                  className="h-8 w-8 hover:bg-primary/10"
+                  className="h-8 w-8 hover:bg-primary/10 text-primary"
                 >
-                  <Pencil className="h-4 w-4 text-primary" />
+                  <Pencil className="h-4 w-4" />
                 </Button>
                 <Button
                   variant="ghost"
@@ -78,11 +80,11 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
                     onDeleteExample?.(index);
                   }}
                   disabled={isLoading}
-                  className="h-8 w-8 hover:bg-destructive/10"
+                  className="h-8 w-8 hover:bg-destructive/10 text-destructive"
                 >
                   {isLoading ? 
                     <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" /> : 
-                    <X className="h-4 w-4 text-destructive" />
+                    <X className="h-4 w-4" />
                   }
                 </Button>
               </div>
@@ -99,7 +101,7 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
                 onCancel={() => setState(s => ({ ...s, editingIndex: null }))}
               />
             ) : (
-              <div className="prose prose-invert prose-sm max-w-none">
+              <div className="prose dark:prose-invert prose-sm max-w-none text-foreground">
                 <ReactMarkdown>{example}</ReactMarkdown>
               </div>
             )}

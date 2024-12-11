@@ -13,7 +13,8 @@ RUN npm install -g pnpm@9.14.4 && \
 COPY ui/ ./
 
 # Build the frontend
-RUN pnpm run build
+RUN pnpm run build && \
+    mkdir -p /app/ui/public
 
 FROM python:3.11.10-slim AS backend
 WORKDIR /app

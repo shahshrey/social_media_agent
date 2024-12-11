@@ -36,8 +36,8 @@ export function Main() {
         }
       >
         <div className="space-y-8">
-          <Card className="p-6 bg-card border-border">
-            <h1 className="text-2xl font-bold text-gradient mb-3">
+          <Card className={`p-6 ${theme.card.base}`}>
+            <h1 className="text-2xl font-bold mb-3 text-foreground">
               Dashboard
             </h1>
             <p className="text-muted-foreground mb-4">
@@ -58,9 +58,16 @@ export function Main() {
                   description: "View and edit the source content used to generate your posts."
                 }
               ].map((item, index) => (
-                <div key={index} className="bg-card/50 p-4 rounded-lg border border-border">
-                  <h3 className="font-semibold text-gradient mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+                <div 
+                  key={index} 
+                  className={`p-4 rounded-lg border ${theme.card.base} ${theme.card.hover}`}
+                >
+                  <h3 className="font-semibold mb-2 text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>

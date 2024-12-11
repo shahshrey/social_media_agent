@@ -71,10 +71,6 @@
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
   }
 
-  .text-gradient {
-    @apply bg-gradient-to-br from-primary via-accent to-secondary bg-clip-text text-transparent font-semibold;
-  }
-
   .gradient-bg {
     @apply bg-gradient-to-br from-primary via-accent to-secondary;
   }

@@ -5,7 +5,7 @@ export interface Theme {
     expanded: string;
   };
   text: {
-    gradient: string;
+    // Remove gradient property
   };
   animation: {
     spring: {
@@ -52,7 +52,7 @@ export const defaultTheme: Theme = {
     expanded: "border-primary/50 shadow-lg",
   },
   text: {
-    gradient: "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent",
+    // Remove gradient property
   },
   animation: {
     spring: {

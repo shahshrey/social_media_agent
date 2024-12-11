@@ -52,7 +52,7 @@ const ContentItems = ({ items, onContentUpdate }: {
           size="icon"
           onClick={onClick}
           disabled={disabled}
-          className="h-8 w-8 hover:bg-indigo-100"
+          className="h-8 w-8 hover:bg-primary/10 text-primary"
         >
           {icon}
         </Button>
@@ -65,10 +65,10 @@ const ContentItems = ({ items, onContentUpdate }: {
 
   return (
     <div className="space-y-6">
-      <h2 className={theme.text.gradient}>
+      <h2 className="text-xl font-semibold text-foreground">
         Scraped Content
       </h2>
-      <div className="space-y-4">
+      <div className="space-y-2">
         {items && items.length > 0 ? (
           items.map((item, index) => (
             <motion.div 
@@ -77,14 +77,14 @@ const ContentItems = ({ items, onContentUpdate }: {
               animate={{ opacity: 1, y: 0 }}
               transition={theme.animation.spring}
             >
-              <Card className={`group ${theme.card.base} ${theme.card.hover}`}>
+              <Card className={`${theme.card.base} ${theme.card.hover}`}>
                 <CardHeader 
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                  className="cursor-pointer flex flex-row items-center justify-between space-y-0 group-hover:bg-primary-light/5 transition-all"
+                  className="cursor-pointer flex flex-row items-center justify-between space-y-0 hover:bg-primary/5 transition-all"
                   style={{ transitionDuration: theme.animation.default }}
                 >
                   <div className="flex-1 pr-4">
-                    <div className={`prose prose-sm max-w-none whitespace-pre-line ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
+                    <div className={`prose dark:prose-invert prose-sm max-w-none text-foreground ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
                       <ReactMarkdown>
                         {parseContent(item).split('\n')[0]}
                       </ReactMarkdown>
@@ -92,14 +92,14 @@ const ContentItems = ({ items, onContentUpdate }: {
                   </div>
                   <div className="flex items-center gap-2">
                     {renderActionButton(
-                      <Pencil className="h-4 w-4 text-indigo-600" />,
+                      <Pencil className="h-4 w-4" />,
                       "Edit content",
                       (e) => handleEdit(index, parseContent(item), e)
                     )}
                     {renderActionButton(
                       expandedIndex === index ? 
-                        <ChevronUp className="h-4 w-4 text-indigo-600" /> :
-                        <ChevronDown className="h-4 w-4 text-indigo-600" />,
+                        <ChevronUp className="h-4 w-4" /> :
+                        <ChevronDown className="h-4 w-4" />,
                       expandedIndex === index ? "Collapse" : "Expand",
                       () => setExpandedIndex(expandedIndex === index ? null : index)
                     )}
@@ -114,13 +114,13 @@ const ContentItems = ({ items, onContentUpdate }: {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <CardContent className="border-t border-indigo-100 bg-white">
+                      <CardContent className="border-t border-border">
                         {editingIndex === index ? (
                           <div className="space-y-4">
                             <textarea
                               value={editContent}
                               onChange={(e) => setEditContent(e.target.value)}
-                              className="w-full h-64 p-3 rounded-lg border border-indigo-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none bg-white whitespace-pre-line"
+                              className="w-full h-64 p-3 rounded-lg border border-input focus:ring-2 focus:ring-ring focus:border-transparent transition-all resize-none bg-background text-foreground"
                               onClick={(e) => e.stopPropagation()}
                             />
                             <div className="flex justify-end gap-2">
@@ -128,6 +128,7 @@ const ContentItems = ({ items, onContentUpdate }: {
                                 variant="ghost"
                                 size="sm"
                                 onClick={(e) => handleCancel(e)}
+                                className="text-destructive hover:bg-destructive/10"
                               >
                                 <X className="h-4 w-4" />
                               </Button>
@@ -135,14 +136,14 @@ const ContentItems = ({ items, onContentUpdate }: {
                                 variant="default"
                                 size="sm"
                                 onClick={(e) => handleSave(index, e)}
-                                className="bg-indigo-600 hover:bg-indigo-700"
+                                className="bg-primary hover:bg-primary/90 text-primary-foreground"
                               >
                                 <Save className="h-4 w-4" />
                               </Button>
                             </div>
                           </div>
                         ) : (
-                          <div className="prose prose-sm max-w-none prose-indigo bg-white whitespace-pre-line">
+                          <div className="prose dark:prose-invert prose-sm max-w-none text-foreground">
                             <ReactMarkdown>{parseContent(item)}</ReactMarkdown>
                           </div>
                         )}
@@ -154,9 +155,9 @@ const ContentItems = ({ items, onContentUpdate }: {
             </motion.div>
           ))
         ) : (
-          <Card className="border-2 border-dashed border-indigo-200">
+          <Card className={`border-2 border-dashed ${theme.card.base}`}>
             <CardContent className="p-8 text-center">
-              <p className="text-indigo-600">No content items available</p>
+              <p className="text-muted-foreground">No content items available</p>
             </CardContent>
           </Card>
         )}
