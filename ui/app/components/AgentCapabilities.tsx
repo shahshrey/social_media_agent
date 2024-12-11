@@ -21,7 +21,7 @@ export function AgentCapabilities() {
   };
 
   return (
-    <div className="glass rounded-xl p-6 backdrop-blur-lg">
+    <div className="glass rounded-xl p-6 backdrop-blur-lg bg-opacity-70">
       <h2 className={`text-lg font-semibold ${theme.text.gradient} mb-6`}>
         Quick actions
       </h2>
@@ -37,7 +37,8 @@ export function AgentCapabilities() {
               hover:shadow-xl 
               hover:-translate-y-0.5
               hover:bg-[hsl(var(--layer-3))]
-              hover:bg-opacity-95
+              hover:bg-opacity-80
+              bg-opacity-70
             `}
           >
             <h3 className={`text-md font-semibold mb-4 ${theme.text.gradient}`}>
@@ -47,16 +48,23 @@ export function AgentCapabilities() {
               {category.examples.map((example, i) => (
                 <PixelButton
                   key={i}
-                  className="w-full text-left text-sm p-2.5 rounded-lg
-                    bg-[hsl(var(--layer-1))] bg-opacity-50
-                    text-muted-foreground
-                    hover:bg-[hsl(var(--layer-2))] hover:bg-opacity-70
-                    hover:text-foreground
-                    data-[pixel-state=active]:bg-[hsl(var(--layer-3))]
-                    data-[pixel-state=active]:text-primary
+                  className="w-full text-left text-sm rounded-xl
+                    glass-card
+                    p-4
                     transition-all duration-300
+                    hover:shadow-xl
+                    hover:-translate-y-0.5
+                    hover:bg-[hsl(var(--layer-3))]
+                    hover:bg-opacity-60
+                    bg-opacity-50
+                    text-[hsl(var(--muted-foreground))]
+                    hover:text-[hsl(var(--foreground))]
+                    data-[pixel-state=active]:bg-[hsl(var(--primary))]
+                    data-[pixel-state=active]:bg-opacity-15
+                    data-[pixel-state=active]:text-[hsl(var(--primary))]
                     backdrop-blur-sm
-                    border border-white/5"
+                    border-[hsl(var(--border))]
+                    border-opacity-10"
                   onClick={() => handleExampleClick(example)}
                 >
                   &quot;{example}&quot;

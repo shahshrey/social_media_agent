@@ -4,93 +4,104 @@
 
 @layer base {
   :root {
-    --primary: 230 60% 50%;
-    --secondary: 260 55% 55%;
-    --accent: 245 40% 50%;
+    --primary: 230 80% 60%;
+    --secondary: 280 70% 65%;
+    --accent: 190 85% 50%;
     
-    --background: 250 20% 4%;
+    --background: 225 30% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 255 45% 10%;
+    --card: 230 25% 22%;
     --card-foreground: 210 40% 98%;
  
-    --popover: 255 45% 14%;
+    --popover: 225 30% 26%;
     --popover-foreground: 210 40% 98%;
  
-    --muted: 250 20% 25%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 225 25% 35%;
+    --muted-foreground: 215 20% 75%;
  
-    --border: 255 45% 15%;
-    --input: 255 45% 15%;
+    --border: 230 25% 25%;
+    --input: 230 25% 25%;
     
-    --ring: 230 70% 55%;
+    --ring: 230 85% 60%;
 
-    --gradient-start: 260 50% 12%;
-    --gradient-mid: 250 60% 15%;
-    --gradient-end: 240 70% 18%;
+    --gradient-start: 280 70% 15%;
+    --gradient-mid: 230 80% 20%;
+    --gradient-end: 190 85% 25%;
 
-    --layer-0: 255 45% 4%;
-    --layer-1: 255 45% 10%;
-    --layer-2: 255 45% 14%;
-    --layer-3: 255 45% 18%;
+    --layer-0: 225 30% 12%;
+    --layer-1: 230 25% 18%;
+    --layer-2: 235 25% 24%;
+    --layer-3: 240 25% 28%;
 
     --input-bg: var(--layer-1);
     --input-border: var(--border);
     --input-ring: var(--ring);
+
+    --glow: 0 0% 100%;
   }
  
   .dark {
-    --primary: 230 60% 50%;
-    --secondary: 260 55% 55%;
-    --accent: 245 40% 50%;
-
-    --background: 250 20% 4%;
+    --primary: 230 80% 60%;
+    --secondary: 280 70% 65%;
+    --accent: 190 85% 50%;
+    
+    --background: 225 30% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 255 45% 10%;
+    --card: 230 25% 22%;
     --card-foreground: 210 40% 98%;
  
-    --popover: 255 45% 14%;
+    --popover: 225 30% 26%;
     --popover-foreground: 210 40% 98%;
  
-    --muted: 250 20% 25%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 225 25% 35%;
+    --muted-foreground: 215 20% 75%;
  
-    --border: 255 45% 15%;
-    --input: 255 45% 15%;
+    --border: 230 25% 25%;
+    --input: 230 25% 25%;
     
-    --ring: 230 70% 55%;
+    --ring: 230 85% 60%;
 
-    --gradient-start: 260 50% 12%;
-    --gradient-mid: 250 60% 15%;
-    --gradient-end: 240 70% 18%;
+    --gradient-start: 280 70% 15%;
+    --gradient-mid: 230 80% 20%;
+    --gradient-end: 190 85% 25%;
 
-    --layer-0: 255 45% 4%;
-    --layer-1: 255 45% 10%;
-    --layer-2: 255 45% 14%;
-    --layer-3: 255 45% 18%;
+    --layer-0: 225 30% 12%;
+    --layer-1: 230 25% 18%;
+    --layer-2: 235 25% 24%;
+    --layer-3: 240 25% 28%;
 
     --input-bg: var(--layer-1);
     --input-border: var(--border);
     --input-ring: var(--ring);
+
+    --glow: 0 0% 100%;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-[hsl(var(--layer-1))] bg-opacity-85 backdrop-blur-xl border border-white/5 shadow-lg shadow-black/10;
+    @apply bg-[hsl(var(--layer-1))] bg-opacity-85 backdrop-blur-xl border border-gray-700/5 shadow-lg shadow-gray-900/10;
   }
 
   .glass-card {
-    @apply bg-[hsl(var(--layer-2))] bg-opacity-90 backdrop-blur-xl border border-white/5 shadow-lg shadow-black/10;
+    @apply bg-[hsl(var(--layer-2))] bg-opacity-90 backdrop-blur-xl 
+           border border-gray-700/5 
+           shadow-lg shadow-gray-900/10
+           relative;
+    animation: card-glow 2s ease-in-out infinite alternate;
   }
 
   .glass-hover {
-    @apply hover:bg-[hsl(var(--layer-3))] hover:bg-opacity-95 transition-all duration-300;
+    @apply hover:bg-[hsl(var(--layer-3))] hover:bg-opacity-95 
+           transition-all duration-300;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 glass-hover;
+    @apply transition-all duration-300 
+           hover:shadow-xl hover:-translate-y-0.5 
+           glass-hover shadow-gray-900/10;
   }
 
   .text-gradient {
@@ -158,5 +169,18 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes card-glow {
+  0% {
+    box-shadow: 0 0 5px hsla(var(--glow) / 0.05),
+                0 0 10px hsla(var(--glow) / 0.05),
+                0 0 15px hsla(var(--glow) / 0.05);
+  }
+  100% {
+    box-shadow: 0 0 10px hsla(var(--glow) / 0.1),
+                0 0 20px hsla(var(--glow) / 0.1),
+                0 0 30px hsla(var(--glow) / 0.1);
   }
 }
