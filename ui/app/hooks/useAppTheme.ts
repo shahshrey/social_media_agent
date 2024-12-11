@@ -7,11 +7,16 @@ export const useAppTheme = () => {
   const themeContext = useTheme();
 
   const getChatThemeColors = () => ({
-    "--copilot-kit-background-color": themeContext.colors.background,
-    "--copilot-kit-secondary-color": themeContext.colors.primary,
-    "--copilot-kit-secondary-contrast-color": themeContext.colors.primaryForeground,
-    "--copilot-kit-primary-color": themeContext.colors.background,
-    "--copilot-kit-contrast-color": themeContext.colors.foreground,
+    "--copilot-kit-background-color": "hsl(var(--layer-1))",
+    "--copilot-kit-secondary-color": "hsl(var(--primary))",
+    "--copilot-kit-secondary-contrast-color": "hsl(var(--foreground))",
+    "--copilot-kit-primary-color": "hsl(var(--layer-1))",
+    "--copilot-kit-contrast-color": "hsl(var(--foreground))",
+    "--copilot-kit-border-color": "hsl(var(--border))",
+    "--copilot-kit-input-background": "hsl(var(--input-bg))",
+    "--copilot-kit-input-border": "hsl(var(--input-border))",
+    "--copilot-kit-muted": "hsl(var(--muted))",
+    "--copilot-kit-muted-foreground": "hsl(var(--muted-foreground))",
     "height": "100vh",
     "maxHeight": "100vh",
     "display": "flex",
