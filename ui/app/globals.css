@@ -8,29 +8,35 @@
     --secondary: 260 55% 55%;
     --accent: 245 40% 50%;
     
-    --background: 220 13% 1%;
+    --background: 250 20% 4%;
     --foreground: 210 40% 98%;
 
-    --card: 224 14% 15%;
+    --card: 255 45% 10%;
     --card-foreground: 210 40% 98%;
  
-    --popover: 220 13% 10%;
+    --popover: 255 45% 14%;
     --popover-foreground: 210 40% 98%;
  
-    --muted: 220 13% 25%;
+    --muted: 250 20% 25%;
     --muted-foreground: 215 20.2% 65.1%;
  
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --border: 255 45% 15%;
+    --input: 255 45% 15%;
     
     --ring: 230 70% 55%;
 
-    --pixel-primary: 45, 100%, 75%;
-    --pixel-secondary: 45deg 100% 75%;
-    --pixel-accent: 45deg 100% 75%;
-    --pixel-size: 4;
-    --pixel-gap: 1;
-    --pixel-opacity: 0.8;
+    --gradient-start: 260 50% 12%;
+    --gradient-mid: 250 60% 15%;
+    --gradient-end: 240 70% 18%;
+
+    --layer-0: 255 45% 4%;
+    --layer-1: 255 45% 10%;
+    --layer-2: 255 45% 14%;
+    --layer-3: 255 45% 18%;
+
+    --input-bg: var(--layer-1);
+    --input-border: var(--border);
+    --input-ring: var(--ring);
   }
  
   .dark {
@@ -38,41 +44,61 @@
     --secondary: 260 55% 55%;
     --accent: 245 40% 50%;
 
-    --background: 220 13% 0%;
+    --background: 250 20% 4%;
     --foreground: 210 40% 98%;
- 
-    --card: 224 14% 12%;
+
+    --card: 255 45% 10%;
     --card-foreground: 210 40% 98%;
  
-    --popover: 220 13% 5%;
+    --popover: 255 45% 14%;
     --popover-foreground: 210 40% 98%;
  
-    --muted: 220 13% 20%;
+    --muted: 250 20% 25%;
     --muted-foreground: 215 20.2% 65.1%;
  
-    --border: 217.2 32.6% 12.5%;
-    --input: 217.2 32.6% 12.5%;
+    --border: 255 45% 15%;
+    --input: 255 45% 15%;
     
     --ring: 230 70% 55%;
 
-    --pixel-primary: 45, 100%, 75%;
-    --pixel-secondary: 45deg 100% 75%;
-    --pixel-accent: 45deg 100% 75%;
-    --pixel-opacity: 0.8;
+    --gradient-start: 260 50% 12%;
+    --gradient-mid: 250 60% 15%;
+    --gradient-end: 240 70% 18%;
+
+    --layer-0: 255 45% 4%;
+    --layer-1: 255 45% 10%;
+    --layer-2: 255 45% 14%;
+    --layer-3: 255 45% 18%;
+
+    --input-bg: var(--layer-1);
+    --input-border: var(--border);
+    --input-ring: var(--ring);
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+    @apply bg-[hsl(var(--layer-1))] bg-opacity-85 backdrop-blur-xl border border-white/5 shadow-lg shadow-black/10;
+  }
+
+  .glass-card {
+    @apply bg-[hsl(var(--layer-2))] bg-opacity-90 backdrop-blur-xl border border-white/5 shadow-lg shadow-black/10;
+  }
+
+  .glass-hover {
+    @apply hover:bg-[hsl(var(--layer-3))] hover:bg-opacity-95 transition-all duration-300;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 glass-hover;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-primary via-accent to-secondary bg-clip-text text-transparent font-semibold;
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-primary via-accent to-secondary;
+    @apply bg-gradient-to-br from-primary/90 via-accent/80 to-secondary/70;
   }
 
   .pixel-button {
@@ -92,5 +118,45 @@
   .pixel-button:active {
     --pixel-opacity: 0.9;
     transform: translateY(1px);
+  }
+
+  .input-base {
+    @apply bg-[hsl(var(--input-bg))] 
+           border-[hsl(var(--input-border))]
+           text-[hsl(var(--foreground))];
+  }
+  
+  .input-focus {
+    @apply focus:ring-2 
+           focus:ring-[hsl(var(--input-ring))] 
+           focus:border-[hsl(var(--input-border))]
+           focus:outline-none;
+  }
+}
+
+@layer utilities {
+  .gradient-background {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-mid)),
+      hsl(var(--gradient-end))
+    );
+    background-attachment: fixed;
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+    opacity: 0.95;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

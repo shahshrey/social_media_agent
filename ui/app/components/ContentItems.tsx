@@ -77,14 +77,14 @@ const ContentItems = ({ items, onContentUpdate }: {
               animate={{ opacity: 1, y: 0 }}
               transition={theme.animation.spring}
             >
-              <Card className={`${theme.card.base} ${theme.card.hover}`}>
+              <Card className={`glass-card ${theme.card.hover}`}>
                 <CardHeader 
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                  className="cursor-pointer flex flex-row items-center justify-between space-y-0 hover:bg-primary/5 transition-all"
+                  className="cursor-pointer flex flex-row items-center justify-between space-y-0 hover:bg-[hsl(var(--layer-3))] hover:bg-opacity-50 transition-all rounded-t-xl"
                   style={{ transitionDuration: theme.animation.default }}
                 >
                   <div className="flex-1 pr-4">
-                    <div className={`prose dark:prose-invert prose-sm max-w-none text-foreground ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
+                    <div className={`prose dark:prose-invert prose-sm max-w-none text-foreground/90 ${expandedIndex === index ? '' : 'line-clamp-3'}`}>
                       <ReactMarkdown>
                         {parseContent(item).split('\n')[0]}
                       </ReactMarkdown>
@@ -114,13 +114,13 @@ const ContentItems = ({ items, onContentUpdate }: {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <CardContent className="border-t border-border">
+                      <CardContent className="border-t border-white/5">
                         {editingIndex === index ? (
                           <div className="space-y-4">
                             <textarea
                               value={editContent}
                               onChange={(e) => setEditContent(e.target.value)}
-                              className="w-full h-64 p-3 rounded-lg border border-input focus:ring-2 focus:ring-ring focus:border-transparent transition-all resize-none bg-background text-foreground"
+                              className="w-full h-64 p-3 rounded-lg border border-white/10 focus:ring-2 focus:ring-primary/30 focus:border-transparent transition-all resize-none bg-[hsl(var(--layer-1))] text-foreground/90"
                               onClick={(e) => e.stopPropagation()}
                             />
                             <div className="flex justify-end gap-2">
@@ -136,14 +136,14 @@ const ContentItems = ({ items, onContentUpdate }: {
                                 variant="default"
                                 size="sm"
                                 onClick={(e) => handleSave(index, e)}
-                                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                                className="bg-primary/90 hover:bg-primary text-primary-foreground"
                               >
                                 <Save className="h-4 w-4" />
                               </Button>
                             </div>
                           </div>
                         ) : (
-                          <div className="prose dark:prose-invert prose-sm max-w-none text-foreground">
+                          <div className="prose dark:prose-invert prose-sm max-w-none text-foreground/90">
                             <ReactMarkdown>{parseContent(item)}</ReactMarkdown>
                           </div>
                         )}
@@ -155,7 +155,7 @@ const ContentItems = ({ items, onContentUpdate }: {
             </motion.div>
           ))
         ) : (
-          <Card className={`border-2 border-dashed ${theme.card.base}`}>
+          <Card className="glass-card border-2 border-dashed border-white/10">
             <CardContent className="p-8 text-center">
               <p className="text-muted-foreground">No content items available</p>
             </CardContent>

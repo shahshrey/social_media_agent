@@ -19,7 +19,7 @@ interface WriterExamplesProps {
 
 // Dynamic imports
 const ReactMarkdown = dynamic(() => import('react-markdown'), {
-  loading: () => <div className="animate-pulse bg-muted rounded w-full h-4" />
+  loading: () => <div className="animate-pulse bg-[hsl(var(--layer-2))] rounded w-full h-4" />
 });
 
 const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExample, isLoading }: WriterExamplesProps) => {
@@ -35,7 +35,7 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
   };
 
   return (
-    <div className="space-y-6">
+    <div className="glass rounded-xl p-6 space-y-6 backdrop-blur-lg">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold text-foreground">
           Add examples to help guide the AI in generating content that matches your style.
@@ -44,7 +44,7 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
           variant="default"
           size="sm"
           onClick={() => onAddExample?.('')}
-          className="bg-primary hover:bg-primary/90 text-primary-foreground"
+          className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))/90] text-primary-foreground shadow-lg shadow-primary/20"
         >
           Add Example
         </Button>
@@ -68,7 +68,7 @@ const WriterExamples = ({ examples, onExampleUpdate, onAddExample, onDeleteExamp
                   variant="ghost"
                   size="icon"
                   onClick={() => setState(s => ({ ...s, editingIndex: index, editContent: example }))}
-                  className="h-8 w-8 hover:bg-primary/10 text-primary"
+                  className="h-8 w-8 hover:bg-[hsl(var(--layer-2))] hover:bg-opacity-70 text-primary"
                 >
                   <Pencil className="h-4 w-4" />
                 </Button>

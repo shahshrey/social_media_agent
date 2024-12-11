@@ -35,10 +35,10 @@ const ReactMarkdown = dynamic(() => import('react-markdown'), {
 const EmptyState = ({ onAdd }: { onAdd: () => void }) => {
   const { theme } = useAppTheme();
   return (
-    <Card className={`border-2 border-dashed ${theme.card.base}`}>
+    <Card className="glass-card rounded-xl p-6 border border-white/5 shadow-lg shadow-black/10">
       <CardContent className="p-8 text-center">
         <Share2 className="h-12 w-12 text-primary mx-auto mb-4" />
-        <h3 className={`text-lg font-semibold ${theme.text.gradient} mb-2`}>
+        <h3 className="text-lg font-semibold text-foreground mb-2">
           Start Creating LinkedIn Posts
         </h3>
         <p className="text-muted-foreground mt-2">
@@ -46,7 +46,7 @@ const EmptyState = ({ onAdd }: { onAdd: () => void }) => {
         </p>
         <Button 
           onClick={onAdd}
-          className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+          className="mt-4 bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))/90] text-primary-foreground shadow-lg shadow-primary/20"
           variant="default"
         >
           Create Your First Post
@@ -187,7 +187,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
   );
 
   return (
-    <div className="space-y-6">
+    <div className="glass rounded-xl p-6 space-y-6 backdrop-blur-lg">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold text-foreground">
           Review and edit these posts before sharing them on LinkedIn.
@@ -198,12 +198,12 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
             <Button 
               variant="default"
               size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))/90] text-primary-foreground shadow-lg shadow-primary/20"
             >
               Add Post
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[600px]">
+          <DialogContent className="glass-card sm:max-w-[600px] border border-white/5 shadow-lg shadow-black/10">
             <DialogHeader>
               <DialogTitle className="text-foreground">Create New LinkedIn Post</DialogTitle>
             </DialogHeader>
@@ -255,7 +255,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
             </ExpandableCard>
           ))
         ) : (
-          <EmptyState onAdd={() => setState(s => ({ ...s, dialogOpen: true, newPostContent: 'Write your new post here...' }))} />
+          <EmptyState onAdd={() => setState(s => ({ ...s, dialogOpen: true }))} />
         )}
       </div>
     </div>

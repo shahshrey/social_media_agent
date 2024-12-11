@@ -36,8 +36,8 @@ export function Main() {
         }
       >
         <div className="space-y-8">
-          <Card className={`p-6 ${theme.card.base}`}>
-            <h1 className="text-2xl font-bold mb-3 text-foreground">
+          <Card className={`p-6 ${theme.card.base} ${theme.gradients.background}`}>
+            <h1 className={`text-2xl font-bold mb-3 ${theme.text.gradient}`}>
               Dashboard
             </h1>
             <p className="text-muted-foreground mb-4">
@@ -62,7 +62,7 @@ export function Main() {
                   key={index} 
                   className={`p-4 rounded-lg border ${theme.card.base} ${theme.card.hover}`}
                 >
-                  <h3 className="font-semibold mb-2 text-foreground">
+                  <h3 className={`font-semibold mb-2 ${theme.text.gradient}`}>
                     {item.title}
                   </h3>
                   <p className="text-muted-foreground">
@@ -75,7 +75,7 @@ export function Main() {
 
           <AgentCapabilities />
 
-          <Card className="p-6">
+          <Card className={`p-6 ${theme.gradients.background}`}>
             <Tabs defaultValue="examples" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="examples">

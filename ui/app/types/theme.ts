@@ -5,7 +5,7 @@ export interface Theme {
     expanded: string;
   };
   text: {
-    // Remove gradient property
+    gradient: string;
   };
   animation: {
     spring: {
@@ -43,16 +43,26 @@ export interface Theme {
     primaryForeground: string;
     secondaryForeground: string;
   };
+  gradients: {
+    background: string;
+    primary: string;
+    secondary: string;
+    accent: string;
+  };
+  input: {
+    base: string;
+    focus: string;
+  };
 }
 
 export const defaultTheme: Theme = {
   card: {
-    base: "rounded-xl border bg-card shadow transition-all",
-    hover: "hover:border-primary/50 hover:shadow-lg",
-    expanded: "border-primary/50 shadow-lg",
+    base: "rounded-xl glass-card shadow-lg transition-all",
+    hover: "glass-hover hover:shadow-xl hover:-translate-y-0.5",
+    expanded: "glass-card shadow-xl border-primary/20",
   },
   text: {
-    // Remove gradient property
+    gradient: "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent",
   },
   animation: {
     spring: {
@@ -64,8 +74,8 @@ export const defaultTheme: Theme = {
   },
   components: {
     card: {
-      base: "rounded-xl border bg-card shadow transition-all",
-      hover: "hover:border-primary/50 hover:shadow-lg",
+      base: "rounded-xl glass-card shadow-lg transition-all",
+      hover: "glass-hover hover:shadow-xl hover:-translate-y-0.5",
     },
     text: {
       gradient: "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent",
@@ -90,4 +100,14 @@ export const defaultTheme: Theme = {
     primaryForeground: "hsl(var(--primary-foreground))",
     secondaryForeground: "hsl(var(--secondary-foreground))",
   },
+  gradients: {
+    background: "bg-gradient-to-br from-[hsl(var(--gradient-start))] via-[hsl(var(--gradient-mid))] to-[hsl(var(--gradient-end))]",
+    primary: "bg-gradient-to-br from-primary/80 via-accent/70 to-secondary/60 backdrop-blur-lg",
+    secondary: "bg-gradient-to-br from-secondary/80 via-accent/70 to-primary/60 backdrop-blur-lg",
+    accent: "bg-gradient-to-br from-accent/80 via-primary/70 to-secondary/60 backdrop-blur-lg",
+  },
+  input: {
+    base: "bg-[hsl(var(--layer-1))] border-[hsl(var(--border))]",
+    focus: "focus:ring-[hsl(var(--ring))] focus:border-[hsl(var(--border))]"
+  }
 }; 
