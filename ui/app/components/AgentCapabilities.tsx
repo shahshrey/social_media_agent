@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from 'framer-motion';
 import { Card } from "./ui/card";
 import { AGENT_CAPABILITIES } from '../lib/constants';
 import { useCopilotChat } from "@copilotkit/react-core";
@@ -21,7 +22,27 @@ export function AgentCapabilities() {
   };
 
   return (
-    <div className="glass rounded-xl p-4 sm:p-6 backdrop-blur-lg bg-opacity-70 w-full overflow-x-hidden">
+    <motion.div 
+      className={`
+        glass
+        rounded-2xl 
+        shadow-lg 
+        shadow-black/10
+        p-6 
+        space-y-8 
+        transition-all
+        glass-hover
+        ${theme.gradients.background}
+      `}
+      layout
+      transition={{ 
+        duration: 0.3, 
+        ease: "easeInOut",
+        layout: {
+          duration: 0.3
+        }
+      }}
+    >
       <h2 className={`text-lg font-semibold ${theme.text.gradient} mb-4 sm:mb-6`}>
         Quick actions
       </h2>
@@ -77,6 +98,6 @@ export function AgentCapabilities() {
           </Card>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 } 
