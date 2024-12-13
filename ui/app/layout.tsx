@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
-      <body className={`${inter.className} min-h-screen h-screen`}>
+      <body className={`${inter.className} min-h-screen h-screen overflow-x-hidden`}>
         <ThemeProvider>
           <Toaster
             position="bottom-left"

@@ -158,6 +158,23 @@
     animation: gradient 15s ease infinite;
     opacity: 0.95;
   }
+
+  .mobile-safe-area {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  .mobile-container {
+    @apply px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto;
+  }
+  
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  }
+  
+  .mobile-text {
+    @apply text-sm sm:text-base;
+  }
 }
 
 @keyframes gradient {
@@ -182,5 +199,15 @@
     box-shadow: 0 0 10px hsla(var(--glow) / 0.1),
                 0 0 20px hsla(var(--glow) / 0.1),
                 0 0 30px hsla(var(--glow) / 0.1);
+  }
+}
+
+@media (max-width: 640px) {
+  .glass-card {
+    @apply p-3;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-md;
   }
 }

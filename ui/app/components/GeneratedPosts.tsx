@@ -187,9 +187,9 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
   );
 
   return (
-    <div className="glass rounded-xl p-6 space-y-6 backdrop-blur-lg">
-      <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold text-foreground">
+    <div className="glass rounded-xl p-3 sm:p-6 space-y-4 sm:space-y-6 backdrop-blur-lg w-full overflow-hidden">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
+        <h2 className="text-lg sm:text-xl font-semibold text-foreground">
           Review and edit these posts before sharing them on LinkedIn.
         </h2>
         
@@ -222,7 +222,7 @@ const GeneratedPosts = ({ posts, onPostUpdate, onAddPost, onDeletePost, isLoadin
         </Dialog>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-2 w-full">
         {posts.length > 0 ? (
           posts.map((post, index) => (
             <ExpandableCard

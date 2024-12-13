@@ -20,7 +20,7 @@ const TOASTER_CONFIG = {
 
 export default function Dashboard() {
   return (
-    <main className="h-screen w-full">
+    <main className="min-h-screen w-full overflow-x-hidden">
       <Toaster {...TOASTER_CONFIG} />
       <CopilotKit {...COPILOT_CONFIG}>
         <Main />
