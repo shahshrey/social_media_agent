@@ -30,7 +30,6 @@ from backend.automation.browser import (
     post_to_linkedin,
 )
 from dotenv import load_dotenv 
-from typing import List
 import signal
 import sys
 from pathlib import Path

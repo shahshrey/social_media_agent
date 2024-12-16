@@ -1,6 +1,6 @@
 # LinkedIn Content Generation & Automation System
 
-An AI-powered system for generating and automating LinkedIn posts from multiple content sources, including YouTube, Reddit, Towards Data Science, and LinkedIn profiles.
+A LangGraph and copilotAgent (Copilotkit) based agent generating and automating LinkedIn posts from multiple content sources, including YouTube, Reddit, Towards Data Science, and LinkedIn profiles.
 
 ## Features
 
@@ -11,16 +11,15 @@ An AI-powered system for generating and automating LinkedIn posts from multiple 
   - Analyzes LinkedIn profiles
   - Transcribes audio content
 - Automates LinkedIn posting with Playwright
-- Optimizes content through AI models (OpenAI/Anthropic)
+- Optimizes content through OpenAI
 - Orchestrates workflows using LangGraph
-- Modern UI with Next.js, Tailwind CSS, and Shadcn UI
+- Agent and Front-end shares the same state, as copilot kit makes this easy.
 
 ## Technical Architecture
 
 Built on a modular architecture using:
 - **LangGraph** for orchestrating workflows
 - **Playwright** for LinkedIn automation
-- **LangChain** with OpenAI/Anthropic for content generation
 - **Beautiful Soup** for web scraping
 
 ## Prerequisites
@@ -40,7 +39,8 @@ Built on a modular architecture using:
    cd agent
    python -m venv .venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-poetry install
+   poetry env use <path to your python executable>
+   poetry install
    playwright install
    ```
 
@@ -67,12 +67,21 @@ poetry install
    python -m uvicorn main:app --reload
    ```
 
-2. **Start the frontend:**
-   ```bash
-   # From the ui directory
-   pnpm run dev
-   ```
+2. **Just run the agent from notebook**
 
+```python
+   result = None
+   config = {"configurable": {"thread_id": uuid4()}}
+   default = AgentState()
+   default.messages.append(
+      HumanMessage(content="Create 3 posts from linkedin profile shreyshahh")
+   )
+
+   while True:
+      result = await workflow.ainvoke(input=result if result else default, config=config)
+      next = input(result["messages"][-1].content)
+      result["messages"].append(HumanMessage(content=next))
+```
 
 ## Project Structure
 
@@ -81,52 +90,18 @@ poetry install
 │   ├── backend/
 │   │   ├── agent.py       # Main workflow orchestration
 │   │   ├── automation/    # LinkedIn automation
-│   │   ├── models/        # AI configurations
 │   │   ├── prompts/       # Prompt templates
 │   │   ├── schema/        # Data models
 │   │   └── utils/         # Helper functions
-│   └── langgraph.json     # Workflow configuration
-│
-└── ui/                     # Frontend
-    ├── app/
-    │   ├── components/    # React components
-    │   ├── hooks/         # Custom hooks
-    │   └── lib/           # Utilities & constants
-    └── public/            # Static assets
-```
+
 
 ## API Documentation
-
 The backend exposes the following endpoints:
-
-- `POST /api/generate` - Generate content from sources
 - `POST /api/post` - Post content to LinkedIn
 - `GET /api/status` - Check agent status
 
 See the API documentation at `/docs` when running the backend.
 
-## Error Handling
+### Wprkflow graph: 
+![Workflow](image.png)
 
-The system implements comprehensive error handling:
-- LinkedIn automation retries
-- API rate limiting protection
-- Graceful fallbacks for content generation
-- Detailed error logging
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to your branch
-5. Open a Pull Request
-
-Please ensure:
-- Tests pass
-- TypeScript types are properly defined
-- Components use Tailwind CSS
-- New features are documented
-
-## License
-
-MIT License - See LICENSE file for details
