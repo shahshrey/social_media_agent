@@ -14,12 +14,15 @@ dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
 // Helper function to validate environment variables
 const validateEnv = () => {
   if (!process.env.OPENAI_API_KEY) {
-    throw new Error('Missing OPENAI_API_KEY - Please ensure your .env file is in the project root (parent directory of ui/) and contains this variable');
+    throw new Error('Missing OPENAI_API_KEY');
   }
+  
+  // Use consistent environment variables
+  const backendUrl = process.env.BACKEND_URL || 'http://localhost:8009';
   
   return {
     openaiApiKey: process.env.OPENAI_API_KEY,
-    remoteActionUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
+    remoteActionUrl: backendUrl,
     environment: process.env.NODE_ENV || 'development'
   };
 };

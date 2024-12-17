@@ -3,3 +3,4 @@ agent/.env.local
 ui/.env.production
 
 node_modules/
+venv

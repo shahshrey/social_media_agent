@@ -69,7 +69,7 @@ app = FastAPI()
 
 # Environment configuration
 ENVIRONMENT = os.getenv("ENVIRONMENT", "local")
-BACKEND_PORT = int(os.getenv("BACKEND_PORT", "8000"))
+BACKEND_PORT = int(os.getenv("BACKEND_PORT", "8009"))
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
 
 # Update CORS middleware

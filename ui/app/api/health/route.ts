@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const BACKEND_URL = process.env.BACKEND_URL || (
   process.env.NODE_ENV === 'production' 
     ? 'https://your-production-backend.com'  // Replace with your actual production URL
-    : 'http://localhost:8000'
+    : 'http://localhost:8009'
 );
 
 // Add deployment environment logging
